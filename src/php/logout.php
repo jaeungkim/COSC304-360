@@ -6,6 +6,6 @@ if (isset($_SESSION['login'])) {
   header("Location: $referer");
 }
 if (!isset($_SESSION['login'])) {
-  header("Location: login.php");
+  header("Location: frontPage.php");
 }
 ?>

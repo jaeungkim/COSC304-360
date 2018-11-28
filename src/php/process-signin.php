@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
       exit($output);
     }
     else {
-      $sql = "SELECT email, password FROM users";
+      $sql = "SELECT username, email, password FROM users";
       $results = mysqli_query($conn, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
         if ($row["email"] == $email) {
@@ -31,9 +31,10 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
           if ($row["password"] == $pwhash) {
             //echo "this is a valid account";//jump to frontPage
             $_SESSION['login'] = $email;
+            $_SESSION['username'] = $row['username'];
             //$_SESSION['wrongpw']= false;
             //$_SESSION['wrongemail']= false;
-            header('Location: ../htmls/frontPage.html');
+            header('Location: frontPage.php');
           }
           else {
             //echo "password not match";
