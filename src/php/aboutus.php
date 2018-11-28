@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-  <title>Your account</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/account.css">
+  <title>IDEAS</title>
+  <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/aboutus.css"/>
 </head>
-
 <body>
   <header>
     <div class = "nav">
@@ -81,154 +80,32 @@
       </div>
     </div>
   </header>
-  <div class="column left">
-    <h1>Profile</h1>
-    <div class="card">
-      <!--row name-->
-      <div class="row">
-        <p class="label">Name:</p>
-        <p class="value">fname lname</p>
-        <div class="edit">
-          <a href="#">Edit</a>
-        </div>
-      </div>
 
-      <!--row gender-->
-      <div class="row">
-        <p class="label">Gender:</p>
-        <p class="value">female</p>
-        <div class="edit">
-          <a href="#">Edit</a>
-        </div>
-      </div>
+	<!-- about us -->
+	<div class="people">
+		<div class="person">
+			<figure>
+				<img class = "logoimg" alt = "logo" src= "../images/devpictures/jaewoong.jpg">
+				<figcaption>Jae Woong</figcaption>
+			</figure>
+			<p>Jae Woong is a mild-mannered, occasionally-square, overweight security guard who works at patrol in a shopping mall called the West Orange Pavilion Mall located in the township of West Orange, New Jersey.</p>
+		</div>
+		<div class="person">
+			<figure>
+				<img class = "logoimg" alt = "logo" src= "../images/devpictures/jinglin.jpg">
+				<figcaption>Jing Lin</figcaption>
+			</figure>
+			<p>Jing Lin is a mild-mannered, occasionally-square, overweight security guard who works at patrol in a shopping mall called the West Orange Pavilion Mall located in the township of West Orange, New Jersey.</p>
+		</div>
+		<div class="person">
+			<figure>
+				<img class = "logoimg" alt = "logo" src= "../images/devpictures/evanwarburton.jpg">
+				<figcaption>Evan Warburton</figcaption>
+			</figure>
+			<p>Evan Warburton is a mild-mannered, occasionally-square, overweight security guard who works at patrol in a shopping mall called the West Orange Pavilion Mall located in the township of West Orange, New Jersey.</p>
+		</div>
+	</div>
 
-      <!--row phone number-->
-      <div class="row">
-        <p class="label">Mobile phone number:</p>
-        <p class="value">2501234567</p>
-        <div class="edit">
-          <a href="#">Edit</a>
-        </div>
-      </div>
-
-      <!--row email-->
-      <div class="row">
-        <p class="label">E-mail:</p>
-        <p class="value">fnamelname@gmail.com</p>
-        <div class="edit">
-          <a href="#">Edit</a>
-        </div>
-      </div>
-
-      <!--row password-->
-      <div class="row">
-        <p class="label">Password:</p>
-        <p class="value">********</p>
-        <div class="edit">
-          <a href="#">Edit</a>
-        </div>
-      </div>
-
-      <!--last row address-->
-      <div class="row last">
-        <p class="label">Addresss:</p>
-        <p class="value">111abc Road, Kelowna, BC</p>
-        <div class="edit">
-          <a href="#">Edit</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="column center">
-    <h1>Payment options</h1>
-    <div class="card">
-      <p class="label2">Add a New Payment Method</p>
-      <p class="label3">Enter your credit card information:</p>
-      <form class="" action="index.php" method="post">
-      <table>
-        <tr>
-          <th>Name on card</th><th>Card number</th><th>Expiration date</th><th></th>
-        </tr>
-        <tr>
-          <td><input type="text" name="cardname"></td>
-          <td><input type="text" name="cardnumber"></td>
-          <td><input type="date" name="expiredate"></td>
-          <td><input type="submit" name="submit" value="Add"></td>
-        </tr>
-      </table>
-      </form>
-    </div>
-  </div>
-
-  <div class="column right">
-    <h1>Orders</h1>
-    <div class="card">
-
-      <div class="item">
-
-      </div>
-
-      <div class="item">
-
-      </div>
-
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-
-    </div>
-    <div>
-      <a  class="viewall" href="#">View all</a>
-    </div>
-  </div>
-
-  <div class="wishlist">
-    <div class="leftbutton">
-      <a class="bl" href="#" class="previous round">&#8249;</a>
-    </div>
-    <div class="list">
-      <div class="listblock">
-
-      </div>
-      <div class="listblock">
-
-      </div>
-      <div class="listblock">
-
-      </div>
-      <div class="listblock">
-
-      </div>
-
-    </div>
-    <div class="rightbutton">
-      <a class="br" href="#" class="next round">&#8250;</a>
-    </div>
-
-  </div>
   <!-- company names / copyright / info etc etc -->
   <footer class="footer-distributed">
     <div class="footer-left">
@@ -277,7 +154,5 @@
   				</div>
   			</div>
   		</footer>
-  <img class="accountbg" src="../images/bg/accountbg.jpg" alt="">
-
-</body>
+  </body>
 </html>
