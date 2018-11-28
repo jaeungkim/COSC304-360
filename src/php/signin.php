@@ -4,7 +4,7 @@
 //if user logged in jump to frontpage
 session_start();
 if (isset($_SESSION['login'])) {
-  header('Location: ../htmls/frontPage.html');
+  header('Location: ../phps/frontPage.php');
 }
 
 if (isset($_SESSION['wrongpw'])) {
@@ -52,7 +52,7 @@ if (isset($_SESSION['wrongemail'])) {
     <div class = "nav">
       <!-- LOGO -->
       <div class = "logoImage">
-        <a href = "frontPage.html" id = "logo">
+        <a href = "frontPage.php" id = "logo">
           <img class = "logoimg" alt = "logo" src= "../images/logos/logo.png">
         </a>
       </div>
@@ -65,7 +65,7 @@ if (isset($_SESSION['wrongemail'])) {
 
       <!-- cart -->
       <div class = "navRight">
-        <a href = "cart.html" id = "cart">cart </a>
+        <a href = "cart.php" id = "cart">cart </a>
       </div>
 
       <!-- account -->
@@ -74,10 +74,10 @@ if (isset($_SESSION['wrongemail'])) {
           <button class="dropbtn">account</button>
             <div class="dropdown-content">
               <div class = "signIn">
-              <a href = "signin.html" id = "sign">sign in</a>
+              <a href = "signin.php" id = "sign">sign in</a>
                 <ul class = "logIn">
-                  <a href="account.html"><li class = "youraccount">Your Account</li></a>
-                  <a href="orders.html"><li class = "yourorder">Your Orders</li></a>
+                  <a href="account.php"><li class = "youraccount">Your Account</li></a>
+                  <a href="orders.php"><li class = "yourorder">Your Orders</li></a>
                 </ul>
               </div>
             </div>
@@ -96,17 +96,17 @@ if (isset($_SESSION['wrongemail'])) {
                     <!-- <li class = "beverageImg"> -->
                       <!-- <img src = "../images/logo.png" alt "beverage"> -->
                     <!-- </li> -->
-                    <a href="coffee.html"><li class = "coffee">coffee</li></a>
-                    <a href="tea.html"><li class = "tea">tea</li></a>
-                    <a href="pop.html"><li calss = "pop">soft drinks</li></a>
+                    <a href="coffee.php"><li class = "coffee">coffee</li></a>
+                    <a href="tea.php"><li class = "tea">tea</li></a>
+                    <a href="pop.php"><li calss = "pop">soft drinks</li></a>
                   </ul>
               </div>
               <div class = "foodMenu">
                 <p id = "food">food</p>
                   <ul class = "subMenu">
-                    <a href="cookie.html"><li class = "cookie">cookie</li></a>
-                    <a href="muffin.html"><li class = "muffin">muffin</li></a>
-                    <a href="donut.html"><li class = "donut">donut</li></a>
+                    <a href="cookie.php"><li class = "cookie">cookie</li></a>
+                    <a href="muffin.php"><li class = "muffin">muffin</li></a>
+                    <a href="donut.php"><li class = "donut">donut</li></a>
                   </ul>
               </div>
             </div>
@@ -115,7 +115,7 @@ if (isset($_SESSION['wrongemail'])) {
 
       <!-- team members (us) -->
       <div class = "navRight">
-        <a href = "aboutus.html" id = "aboutUs">about us </a>
+        <a href = "aboutus.php" id = "aboutUs">about us </a>
       </div>
     </div>
   </header>
@@ -144,7 +144,7 @@ if (isset($_SESSION['wrongemail'])) {
     <div class="footer-left">
       <h3>Caffeine<span>Holic</span></h3>
         <p class="footer-links">
-          <a href="frontPage.html">Home</a>·
+          <a href="frontPage.php">Home</a>·
           <a href="#">Blog</a>·
           <a href="#">Pricing</a>·
           <a href="#">About</a>·

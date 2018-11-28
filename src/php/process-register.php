@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
         //register succeed
         //echo "an account for the user ".$username ." has been created";
         $_SESSION['login'] = $email;// this user logged in
-        header("Location: ../htmls/frontPage.html");//jump to front page//this should be changed to frontPage.php
+        header("Location: frontPage.php");//jump to front page//this should be changed to frontPage.php
 
       }
       else {
