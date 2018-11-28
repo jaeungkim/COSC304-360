@@ -1,0 +1,1 @@
+INSERT INTO `Product`(`pid`, `pname`, `price`, `description`, `imageURL`) VALUES (1,'americano',2.50,'black coffee','../images/coffee/americano.jpg');
