@@ -29,8 +29,8 @@ session_start();
       <!-- search -->
       <div class = "navLeft">
 		<form action="searchProducts.php" method="get" id="searchForm">
-			<input type = "text" class ="search">
-			<input type = "submit" value="" class = "submit">
+			<input type = "text" name ="search_product">
+			<input type = "submit" value = "Submit">
 		</form>
       </div>
 
