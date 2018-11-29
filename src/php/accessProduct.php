@@ -1,18 +1,17 @@
 <?php
+//connection information
+//CHANGE THIS INFORMATION BASED ON DATABASE INFORMATION!!!
+	
+$host = "localhost";
+$database = "website_database";
+$user = "root";
+$password = "";
+	
+
 //return a single item
 function returnItem($pid){
-	
-	//connection information
-	//CHANGE THIS INFORMATION BASED ON DATABASE INFORMATION!!!
-	
-	$host = "localhost";
-	$database = "website_database";
-	$user = "root";
-	$password = "";
-	
-	
-	
 	//connect to database
+	global $host, $user, $password, $database;
 	$connection = mysqli_connect($host, $user, $password, $database);
 	//check for errors
 	$error = mysqli_connect_error();
@@ -36,12 +35,7 @@ function returnItem($pid){
 
 //return multiple items
 function returnMultipleItems($idArray){
-	//connection information
-	$host = "localhost";
-	$database = "product_test";
-	$user = "root";
-	$password = "";
-	//connect to database
+	global $host, $user, $password, $database;
 	$connection = mysqli_connect($host, $user, $password, $database);
 	//check for errors
 	$error = mysqli_connect_error();
@@ -49,7 +43,7 @@ function returnMultipleItems($idArray){
 	if($error != null) {
 		//return an array with a single value which is an error message
 		$errorarray[] = "Failed to connect to database";
-		return $returnArray;
+		return $errorarray;
 	} else {
 		
 		foreach ($idArray as $value){
