@@ -11,6 +11,11 @@ session_start();
   <link rel="stylesheet" href="../css/footer.css"/>
 </head>
 <body>
+
+<?php
+	include"accessProduct.php";
+	$advertisements = returnMultipleItems(array(1, 2, 3));
+?>
   <header>
     <div class = "nav">
       <!-- LOGO -->
@@ -22,8 +27,10 @@ session_start();
 
       <!-- search -->
       <div class = "navLeft">
-        <input type = "text" class ="search">
-        <input type = "submit" value="" class = "submit">
+		<form action="searchProducts.php" method="get" id="searchForm">
+			<input type = "text" class ="search">
+			<input type = "submit" value="" class = "submit">
+		</form>
       </div>
 
       <!-- cart -->
@@ -93,32 +100,34 @@ session_start();
     </header>
 
     <!-- advertisements -->
+	<form method="get" action="item.php" id="addSubmit">
     <div class = "advertisements">
-      <div class = "flipAdd">
-        <div class="front"><img class = "addImg" alt = "addImg" src= "../images/cookies/cranberrycookie.jpg"></div>
-        <div class="back">
-          <p class="addDesc">Try out these delicious cranberry cookies!</p>
-          <button type="button" class="viewItem"><a href="item.php">View Item</a></button>
-          <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
-        </div>
-      </div>
-      <div class = "flipAdd">
-        <div class="front"><img class = "addImg" alt = "addImg" src= "../images/coffee/cafe-mocha.jpg"></div>
-        <div class="back">
-          <p class="addDesc">Try out this delicious cafe-mocha!</p>
-          <button type="button" class="viewItem"><a href="item.php">View Item</a></button>
-          <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
-        </div>
-      </div>
-      <div class = "flipAdd">
-        <div class="front"><img class = "addImg" alt = "addImg" src= "../images/tea/chai.jpg"></div>
-        <div class="back">
-          <p class="addDesc">Try out this delicious chai tea!</p>
-          <button type="button" class="viewItem"><a href="item.php">View Item</a></button>
-          <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
-        </div>
-      </div>
-    </div>
+		<div class = "flipAdd">
+			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[0][4]; ?>"></div>
+			<div class="back">
+				<p class="addDesc"><?php echo $advertisements[0][3]; ?></p>
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[0][0]?>">
+				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
+			</div>
+		</div>
+		<div class = "flipAdd">
+			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[1][4]; ?>"></div>
+			<div class="back">
+				<p class="addDesc"><?php echo $advertisements[1][3]; ?></p>
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[1][0]?>">
+				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
+			</div>
+		</div>
+		<div class = "flipAdd">
+			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[2][4]; ?>"></div>
+			<div class="back">
+				<p class="addDesc"><?php echo $advertisements[2][3]; ?></p>
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[2][0]?>">
+				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
+			</div>
+		</div>
+	</div>
+	</form>
 
     <!-- recommended items -->
     <div class = "recommendeditems">
