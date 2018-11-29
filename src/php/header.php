@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<!-- <?php
-	include"accessProduct.php";
-	$advertisements = returnMultipleItems(array(1, 2, 3));
-?> -->
+  <!-- <?php
+  include"accessProduct.php";
+  $advertisements = returnMultipleItems(array(1, 2, 3));
+  ?> -->
   <header>
     <div class = "nav">
       <!-- LOGO -->
@@ -23,10 +23,10 @@
 
       <!-- search -->
       <div class = "navLeft">
-		<form action="searchProducts.php" method="get" id="searchForm">
-			<input type = "text" class ="search">
-			<input type = "submit" value="" class = "submit">
-		</form>
+        <form action="searchProducts.php" method="get">
+          <input type = "text" name ="search_product" class = "search">
+          <input type = "submit" value = " " class = "submit">
+        </form>
       </div>
 
       <!-- cart -->

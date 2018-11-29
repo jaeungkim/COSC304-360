@@ -17,9 +17,9 @@
 
     <!-- search -->
     <div class = "navLeft">
-      <form action="searchProducts.php" method="get" id="searchForm">
-        <input type = "text" name ="search_product">
-        <input type = "submit" value="Submit">
+      <form action="searchProducts.php" method="get">
+        <input type = "text" name ="search_product" class = "search">
+        <input type = "submit" value = " " class = "submit">
       </form>
     </div>
 
@@ -109,8 +109,8 @@
         while($row = mysqli_fetch_assoc($sql)){
           $image=$row['imageURL'];
           echo "<div class = \"productInfo\">";
-          echo "<h3>".$row['pname']."</h3>";
-          echo '<img src="'.$image.'" style="width:128px;height:128px">';
+          echo "<h3 style = \"font-size: 200%\">".$row['pname']."</h3>";
+          echo '<img src="'.$image.'" style="float:left;width:8em;height:8em;padding-right:1em;">';
           echo "<h3>".$row['description']."</h3>";
           echo "</div>";
         }
@@ -125,15 +125,15 @@
             while($row = mysqli_fetch_assoc($sql)){
               $image=$row['imageURL'];
               echo "<div class = \"productInfo\">";
-              echo "<h3>".$row['pname']."</h3>";
-              echo '<img src="'.$image.'" style="width:128px;height:128px">';
+              echo "<h3 style = \"font-size: 200%\">".$row['pname']."</h3>";
+              echo '<img src="'.$image.'" style="float:left;width:8em;height:8em;padding-right:1em;">';
               echo "<h3>".$row['description']."</h3>";
               echo "</div>";
             }
             //OTHERWISE RETURN TO LAST PAGE or Home PAGE
           }else {
-            echo "<a style='color:white;' href = $return > Return to Last Page </a>";
-            echo "<br><br><a style = 'color:white;' href='frontPage.php'>Return to Home page</a>";
+            echo "<a style='color:white;font-size:300%;padding:auto;text-align:center;margin:auto;background-color: black;' href = $return > Return to Last Page </a>";
+            echo "<br><br><a style = 'color:white;font-size:300%;padding:auto;text-align:center;margin:auto;background-color: black;' href='frontPage.php'>Return to Home page</a>";
           }
         }
         mysqli_close($conn);

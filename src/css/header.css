@@ -20,18 +20,20 @@
 
 }
 .search[type=text]{
-  width: 50%;
-  padding: 1em 4em;
-  margin: 0;
-  height: 0.5em;
+	width: 80%;
+	padding-left: 0.4em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+  height: 1em;
+	font-size: 170%;
 
 }
 .submit[type=submit]{
   width: 10%;
-  padding: 1em 1em;
-  height: 1em;
-  background-image: url(../images/searchicon.png);
-  background-size: contain;
+	height: 2.5em;
+  background-image: url('../images/logos/searchicon.png');
+  background-size:contain;
+
 
 }
 .logoimg{
