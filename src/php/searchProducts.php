@@ -4,7 +4,6 @@
   <title>IDEAS</title>
   <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
-  <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
 </head>
 <header>
@@ -89,6 +88,7 @@
       </div>
     </div>
   </header>
+
   <?php
   if ($_SERVER['REQUEST_METHOD']=="GET") {
     $search_product = $_GET['search_product'];
@@ -103,73 +103,77 @@
     } else {
       //LISTING ALL PRODUCTS IF NOTHING IS ENTERED
       if($search_product == ""){
-        echo("<h2>All Products</h2>");
+        echo("<h2 style='color:white;'>All Products</h2>");
         $sql = mysqli_query($conn,"SELECT * FROM Product");
         while($row = mysqli_fetch_assoc($sql)){
           echo "<br>";
-          echo "<p><h3>".$row['pname']."</h3>".$row['description']."</p>";
+          echo "<p><h3 style='color:white;'>".$row['pname']."</h3>".$row['description']."</p>";
+          $image=$row['imageURL'];
+          echo '<img src="'.$image.'" style="width:128px;height:128px">';
         }
       } else{
         //SEARCHING WITH KEYWORDS
         echo("<h2>Products containing '" . $search_product. "'</h2>");
-        $raw_results = mysqli_query($conn,"SELECT * FROM Product WHERE (pname LIKE '%".$search_product."%') OR (description LIKE '%".$search_product."%')");
-        while($results = mysqli_fetch_assoc($raw_results)){
-          $flag = true;
-          echo "<p><h3>".$results['pname']."</h3>".$results['description']."</p>";
+        $sql = mysqli_query($conn,"SELECT * FROM Product
+          WHERE (pname LIKE '%".$search_product."%') OR (description LIKE '%".$search_product."%')");
+          while($row = mysqli_fetch_assoc($sql)){
+            echo "<p><h3 style='color:white;'>".$row['pname']."</h3>".$row['description']."</p>";
+            $image=$row['imageURL'];
+            echo '<img src="'.$image.'"  style="width:128px;height:128px">';
+          }
         }
+
+        mysqli_close($conn);
+
       }
-
-      mysqli_close($conn);
-
     }
-  }
-  ?>
-  <!-- company names / copyright / info etc etc -->
-  <footer class="footer-distributed">
-    <div class="footer-left">
-      <h3>Caffeine<span>Holic</span></h3>
-      <p class="footer-links">
-        <a href="frontPage.php">Home</a>·
-        <a href="#">Blog</a>·
-        <a href="#">Pricing</a>·
-        <a href="#">About</a>·
-        <a href="#">Faq</a>·
-        <a href="#">Contact</a>
-      </p>
-      <p class="footer-company-name">Caffeine Holic &copy; 2018</p>
-    </div>
-
-    <div class="footer-center">
-      <div>
-        <i class="mapmarker"></i>
-        <p><span>3333 University Way</span> Kelowna, BC</p>
+    ?>
+    <!-- company names / copyright / info etc etc -->
+    <footer class="footer-distributed">
+      <div class="footer-left">
+        <h3>Caffeine<span>Holic</span></h3>
+        <p class="footer-links">
+          <a href="frontPage.php">Home</a>·
+          <a href="#">Blog</a>·
+          <a href="#">Pricing</a>·
+          <a href="#">About</a>·
+          <a href="#">Faq</a>·
+          <a href="#">Contact</a>
+        </p>
+        <p class="footer-company-name">Caffeine Holic &copy; 2018</p>
       </div>
 
-      <div>
-        <i class="phone"></i>
-        <p>+1 778 581 3502</p>
+      <div class="footer-center">
+        <div>
+          <i class="mapmarker"></i>
+          <p><span>3333 University Way</span> Kelowna, BC</p>
+        </div>
+
+        <div>
+          <i class="phone"></i>
+          <p>+1 778 581 3502</p>
+        </div>
+
+        <div>
+          <i class="envelope"></i>
+          <p><a href="mailto:khyy37@hotmail.com">khyy37@hotmail.com</a></p>
+        </div>
       </div>
 
-      <div>
-        <i class="envelope"></i>
-        <p><a href="mailto:khyy37@hotmail.com">khyy37@hotmail.com</a></p>
-      </div>
-    </div>
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>ABOUT THE COMPANY</span>
+          Opened in October 2018, Kelowna BC.<br>
+          Amazing coffee, tea, snacks<br>
+          Best coffee in town.
+        </p>
 
-    <div class="footer-right">
-      <p class="footer-company-about">
-        <span>ABOUT THE COMPANY</span>
-        Opened in October 2018, Kelowna BC.<br>
-        Amazing coffee, tea, snacks<br>
-        Best coffee in town.
-      </p>
-
-      <div class="footer-icons">
-        <a href="#"><i class="facebook"></i></a>
-        <a href="#"><i class="twitter"></i></a>
-        <a href="#"><i class="linkedin"></i></a>
-        <a href="#"><i class="instagram"></i></a>
+        <div class="footer-icons">
+          <a href="#"><i class="facebook"></i></a>
+          <a href="#"><i class="twitter"></i></a>
+          <a href="#"><i class="linkedin"></i></a>
+          <a href="#"><i class="instagram"></i></a>
+        </div>
       </div>
-    </div>
-  </footer>
-  </html>
+    </footer>
+    </html>
