@@ -105,34 +105,41 @@ session_start();
     </header>
 
     <!-- advertisements -->
-	<form method="get" action="item.php" id="addSubmit">
     <div class = "advertisements">
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "flipAdd">
 			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[0][4]; ?>"></div>
 			<div class="back">
 				<p class="addDesc"><?php echo $advertisements[0][3]; ?></p>
-				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[0][0]?>">
+				<input type="hidden" name="itemID" value="<?php echo $advertisements[0][0]?>" />
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[0][1]?>">
 				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 			</div>
 		</div>
+		</form>
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "flipAdd">
 			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[1][4]; ?>"></div>
 			<div class="back">
 				<p class="addDesc"><?php echo $advertisements[1][3]; ?></p>
-				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[1][0]?>">
+				<input type="hidden" name="itemID" value="<?php echo $advertisements[1][0]?>" />
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[1][1]?>">
 				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 			</div>
 		</div>
+		</form>
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "flipAdd">
 			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[2][4]; ?>"></div>
 			<div class="back">
 				<p class="addDesc"><?php echo $advertisements[2][3]; ?></p>
-				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[2][0]?>">
+				<input type="hidden" name="itemID" value="<?php echo $advertisements[2][0]?>" />
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[2][1]?>">
 				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 			</div>
 		</div>
+		</form>
 	</div>
-	</form>
 
     <!-- recommended items -->
     <div class = "recommendeditems">
