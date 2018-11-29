@@ -95,6 +95,7 @@
     include 'db_credential.php';
     $conn = mysqli_connect($host, $user, $password, $database);
     $error = mysqli_connect_error();
+    $return = $_SERVER['HTTP_REFERER'];
 
     // try catch for connection
     if($error != null){
@@ -103,26 +104,38 @@
     } else {
       //LISTING ALL PRODUCTS IF NOTHING IS ENTERED
       if($search_product == ""){
-        echo("<h2 style='color:white;'>All Products</h2>");
+        echo("<h2 class = \"productTitle\">All Products</h2>");
         $sql = mysqli_query($conn,"SELECT * FROM Product");
         while($row = mysqli_fetch_assoc($sql)){
-          echo "<br>";
-          echo "<p><h3 style='color:white;'>".$row['pname']."</h3>".$row['description']."</p>";
           $image=$row['imageURL'];
+          echo "<div class = \"productInfo\">";
+          echo "<h3>".$row['pname']."</h3>";
           echo '<img src="'.$image.'" style="width:128px;height:128px">';
+          echo "<h3>".$row['description']."</h3>";
+          echo "</div>";
         }
       } else{
         //SEARCHING WITH KEYWORDS
-        echo("<h2>Products containing '" . $search_product. "'</h2>");
+        echo("<h2 class = \"productTitle\">Products containing '" . $search_product. "'</h2>");
         $sql = mysqli_query($conn,"SELECT * FROM Product
           WHERE (pname LIKE '%".$search_product."%') OR (description LIKE '%".$search_product."%')");
-          while($row = mysqli_fetch_assoc($sql)){
-            echo "<p><h3 style='color:white;'>".$row['pname']."</h3>".$row['description']."</p>";
-            $image=$row['imageURL'];
-            echo '<img src="'.$image.'"  style="width:128px;height:128px">';
+
+          //CHECK IF KEYWORDS EXITS IN PRODUCT DATABASE
+          if(mysqli_num_rows($sql) > 0){
+            while($row = mysqli_fetch_assoc($sql)){
+              $image=$row['imageURL'];
+              echo "<div class = \"productInfo\">";
+              echo "<h3>".$row['pname']."</h3>";
+              echo '<img src="'.$image.'" style="width:128px;height:128px">';
+              echo "<h3>".$row['description']."</h3>";
+              echo "</div>";
+            }
+            //OTHERWISE RETURN TO LAST PAGE or Home PAGE
+          }else {
+            echo "<a style='color:white;' href = $return > Return to Last Page </a>";
+            echo "<br><br><a style = 'color:white;' href='frontPage.php'>Return to Home page</a>";
           }
         }
-
         mysqli_close($conn);
 
       }

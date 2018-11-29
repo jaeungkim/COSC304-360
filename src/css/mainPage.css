@@ -14,7 +14,22 @@ body{
 	font-family: myFirstFont;
 	margin: 			auto;
 }
-
+.productInfo{
+	text-align: left;
+  color: white;
+  width: 90%;
+  font-size: 150%;
+  margin: auto;
+  background-color: black;
+  opacity: 0.8;
+  padding: 1em 1em;
+}
+.productTitle{
+	text-align: center;
+	color: white;
+	font-size: 200%;
+	padding: 2em, 2em;
+}
 /*Advertisement windows*/
 .advertisements{
 	position: relative;
