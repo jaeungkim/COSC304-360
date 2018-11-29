@@ -125,9 +125,9 @@
 		<div class = "panel">
 			<figure class="itemFig">
 				<img src="<?php echo $similarItems[0][4];?>" alt="<?php echo $similarItems[0][1];?>">
-				<input type="hidden" name="itemID" value="<?php echo $similarItems[0][0]?>" />
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[0][0];?>" />
 				<figcaption>
-					<input type="submit" class="viewItem" value="<?php echo $similarItems[0][1]?>" name="<?php echo $similarItems[0][1]?>">
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[0][1];?>" name="<?php echo $similarItems[0][1];?>">
 				</figcaption>
 			</figure>
 		</div>
@@ -136,9 +136,9 @@
 		<div class = "panel">
 			<figure class="itemFig">
 				<img src="<?php echo $similarItems[1][4];?>" alt="<?php echo $similarItems[1][1];?>">
-				<input type="hidden" name="itemID" value="<?php echo $similarItems[1][0]?>" />
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[1][0];?>" />
 				<figcaption>
-					<input type="submit" class="viewItem" value="<?php echo $similarItems[1][1]?>" name="<?php echo $similarItems[1][1]?>">
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[1][1];?>" name="<?php echo $similarItems[1][1];?>">
 				</figcaption>
 			</figure>
 		</div>
@@ -147,20 +147,20 @@
 		<div class = "panel">
 			<figure class="itemFig">
 				<img src="<?php echo $similarItems[2][4];?>" alt="<?php echo $similarItems[2][1];?>">
-				<input type="hidden" name="itemID" value="<?php echo $similarItems[2][0]?>" />
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[2][0];?>" />
 				<figcaption>
-					<input type="submit" class="viewItem" value="<?php echo $similarItems[2][1]?>" name="<?php echo $similarItems[2][1]?>">
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[2][1];?>" name="<?php echo $similarItems[2][1];?>">
 				</figcaption>
 			</figure>
 		</div>
 		</form>
-				<form method="get" action="item.php" id="addSubmit">
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "panel">
 			<figure class="itemFig">
 				<img src="<?php echo $similarItems[3][4];?>" alt="<?php echo $similarItems[3][1];?>">
-				<input type="hidden" name="itemID" value="<?php echo $similarItems[3][0]?>" />
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[3][0];?>" />
 				<figcaption>
-					<input type="submit" class="viewItem" value="<?php echo $similarItems[3][1]?>" name="<?php echo $similarItems[3][1]?>">
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[3][1];?>" name="<?php echo $similarItems[3][1];?>">
 				</figcaption>
 			</figure>
 		</div>

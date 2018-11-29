@@ -14,8 +14,9 @@ session_start();
 
 <?php
 	include"accessProduct.php";
-
 	$advertisements = returnMultipleItems(array(1, 2, 3));
+	$recommendedItems = returnMultipleItems(array(10, 6, 4, 24));
+	$deals = returnMultipleItems(array(5, 14, 21, 9));
 ?>
   <header>
     <div class = "nav">
@@ -111,8 +112,8 @@ session_start();
 			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[0][4]; ?>"></div>
 			<div class="back">
 				<p class="addDesc"><?php echo $advertisements[0][3]; ?></p>
-				<input type="hidden" name="itemID" value="<?php echo $advertisements[0][0]?>" />
-				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[0][1]?>">
+				<input type="hidden" name="itemID" value="<?php echo $advertisements[0][0];?>" />
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[0][1];?>">
 				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 			</div>
 		</div>
@@ -122,8 +123,8 @@ session_start();
 			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[1][4]; ?>"></div>
 			<div class="back">
 				<p class="addDesc"><?php echo $advertisements[1][3]; ?></p>
-				<input type="hidden" name="itemID" value="<?php echo $advertisements[1][0]?>" />
-				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[1][1]?>">
+				<input type="hidden" name="itemID" value="<?php echo $advertisements[1][0];?>" />
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[1][1];?>">
 				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 			</div>
 		</div>
@@ -133,8 +134,8 @@ session_start();
 			<div class="front"><img class = "addImg" alt = "addImg" src= "<?php echo $advertisements[2][4]; ?>"></div>
 			<div class="back">
 				<p class="addDesc"><?php echo $advertisements[2][3]; ?></p>
-				<input type="hidden" name="itemID" value="<?php echo $advertisements[2][0]?>" />
-				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[2][1]?>">
+				<input type="hidden" name="itemID" value="<?php echo $advertisements[2][0];?>" />
+				<input type="submit" class="viewItem" value="View Item" name="<?php echo $advertisements[2][1];?>">
 				<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 			</div>
 		</div>
@@ -145,38 +146,58 @@ session_start();
     <div class = "recommendeditems">
       <h2>Recommended Items</h2>
       <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
         <figure class="itemFig">
-          <img src="../images/coffee/americano.jpg" alt="americano">
-          <figcaption><a href="item.php">Americano</a></figcaption>
-        </figure>
-        <p class="itemDesc">This is an item description. It is a very good description and now you want to buy this item!
+			<img src="<?php echo $recommendedItems[0][4];?>" alt="<?php echo $recommendedItems[0][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $recommendedItems[0][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $recommendedItems[0][1];?>" name="<?php echo $recommendedItems[0][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $recommendedItems[0][3];?>
+          <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
+        </p>
+		</div>
+	  <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
+        <figure class="itemFig">
+			<img src="<?php echo $recommendedItems[1][4];?>" alt="<?php echo $recommendedItems[1][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $recommendedItems[1][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $recommendedItems[1][1];?>" name="<?php echo $recommendedItems[1][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $recommendedItems[1][3];?>
           <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
         </p>
       </div>
-      <div class = "panel">
+	  <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
         <figure class="itemFig">
-          <img src="../images/tea/applecider.jpg" alt="applecider">
-          <figcaption><a href="item.php">Apple Cider</a></figcaption>
-        </figure>
-        <p class="itemDesc">This is an item description. It is a very good description and now you want to buy this item!
+			<img src="<?php echo $recommendedItems[2][4];?>" alt="<?php echo $recommendedItems[2][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $recommendedItems[2][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $recommendedItems[2][1];?>" name="<?php echo $recommendedItems[2][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $recommendedItems[2][3];?>
           <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
         </p>
       </div>
-      <div class = "panel">
+	  <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
         <figure class="itemFig">
-          <img src="../images/cookies/chocolatechipcookie.jpg" alt="chocolatechipcookie">
-          <figcaption><a href="item.php">Chocolate Chip Cookie</a></figcaption>
-        </figure>
-        <p class="itemDesc">This is an item description. It is a very good description and now you want to buy this item!
-          <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
-        </p>
-      </div>
-      <div class = "panel">
-        <figure class="itemFig">
-          <img src="../images/muffins/bananamuffin.jpg" alt="bananamuffin">
-          <figcaption><a href="item.php">Banana Muffin</a></figcaption>
-        </figure>
-        <p class="itemDesc">This is an item description. It is a very good description and now you want to buy this item!
+			<img src="<?php echo $recommendedItems[3][4];?>" alt="<?php echo $recommendedItems[3][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $recommendedItems[3][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $recommendedItems[3][1];?>" name="<?php echo $recommendedItems[3][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $recommendedItems[3][3];?>
           <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
         </p>
       </div>
@@ -186,44 +207,62 @@ session_start();
     <div class = "deals">
       <h2>Deals</h2>
       <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
         <figure class="itemFig">
-          <img src="../images/coffee/americano.jpg" alt="americano">
-          <figcaption><a href="item.php">Americano</a></figcaption>
-        </figure>
-        <p class="itemDesc">This item is popular right now! Check it out!
+			<img src="<?php echo $deals[0][4];?>" alt="<?php echo $deals[0][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $deals[0][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $deals[0][1];?>" name="<?php echo $deals[0][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $deals[0][3];?>
+          <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
+        </p>
+		</div>
+	  <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
+        <figure class="itemFig">
+			<img src="<?php echo $deals[1][4];?>" alt="<?php echo $deals[1][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $deals[1][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $deals[1][1];?>" name="<?php echo $deals[1][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $deals[1][3];?>
           <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
         </p>
       </div>
-      <div class = "panel">
+	  <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
         <figure class="itemFig">
-          <img src="../images/tea/applecider.jpg" alt="applecider">
-          <figcaption><a href="item.php">Apple Cider</a></figcaption>
-        </figure>
-        <p class="itemDesc">This is a new item. Try it out!
+			<img src="<?php echo $deals[2][4];?>" alt="<?php echo $deals[2][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $deals[2][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $deals[2][1];?>" name="<?php echo $deals[2][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $deals[2][3];?>
           <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
         </p>
       </div>
-      <div class = "panel">
+	  <div class = "panel">
+		<form method="get" action="item.php" id="addSubmit">
         <figure class="itemFig">
-          <img src="../images/cookies/chocolatechipcookie.jpg" alt="chocolatechipcookie">
-          <figcaption><a href="item.php">Chocolate Chip Cookie</a></figcaption>
-        </figure>
-        <p class="itemDesc">This item is on a clearout sale of 50% off! Buy it while it lasts!
+			<img src="<?php echo $deals[3][4];?>" alt="<?php echo $deals[3][1];?>">
+			<input type="hidden" name="itemID" value="<?php echo $deals[3][0]?>" />
+			<figcaption>
+				<input type="submit" class="viewItem" value="<?php echo $deals[3][1];?>" name="<?php echo $deals[3][1];?>">
+			</figcaption>
+		</figure>
+		</form>
+        <p class="itemDesc"><?php echo $deals[3][3];?>
           <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
         </p>
-      </div>
-      <div class = "panel">
-        <figure class="itemFig">
-          <img src="../images/muffins/bananamuffin.jpg" alt="bananamuffin">
-          <figcaption><a href="item.php">Banana Muffin</a></figcaption>
-        </figure>
-        <p class="itemDesc">This item is on sale for 20% off! You should buy it while it's on special!
-          <button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
-        </p>
-
       </div>
     </div>
-    <div class = "popular items"></div>
 
 
     <!-- company names / copyright / info etc etc -->
