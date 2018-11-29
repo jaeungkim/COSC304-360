@@ -46,7 +46,6 @@ session_start();
           <div class="dropdown-content">
             <div class = "signIn">
               <?php
-              // check if user is login
               if(isset($_SESSION['login'])){
                 $fristname = $_SESSION['firstname'];
                 echo $firstname;
@@ -54,10 +53,6 @@ session_start();
               }
               else{
                 echo '<a href = "signin.php" id = "sign">sign in</a>';
-              }
-              // check if is admin
-              if(isset($_SESSION['isadmin'])){
-                include'db_credential.php';
               }
               ?>
               <ul class = "logIn">
