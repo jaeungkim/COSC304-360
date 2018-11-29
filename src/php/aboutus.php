@@ -20,8 +20,10 @@
 
       <!-- search -->
       <div class = "navLeft">
-        <input type = "text" class ="search">
-        <input type = "submit" value class = "submit">
+        <form action="searchProducts.php" method="get">
+          <input type = "text" name ="search_product" class = "search">
+          <input type = "submit" value = " " class = "submit">
+        </form>
       </div>
 
       <!-- cart -->

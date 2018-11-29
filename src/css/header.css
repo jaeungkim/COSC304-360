@@ -20,7 +20,7 @@
 
 }
 .search[type=text]{
-	width: 80%;
+	width: 60%;
 	padding-left: 0.4em;
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
@@ -33,9 +33,10 @@
 	height: 2.5em;
   background-image: url('../images/logos/searchicon.png');
   background-size:contain;
-
-
 }
+/* .searchCategory{
+
+} */
 .logoimg{
   height: 6em;
 }

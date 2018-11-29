@@ -1,9 +1,9 @@
 <?php
 //connection information
 //CHANGE THIS INFORMATION BASED ON DATABASE INFORMATION!!!
-	
+
 include "db_credential.php";
-	
+
 
 //return a single item
 function returnItem($pid){
@@ -19,7 +19,7 @@ function returnItem($pid){
 		return $errorarray;
 	} else {
 		//return an array which contains all the values of the product
-		$sql = "SELECT * FROM product WHERE pid = '$pid'";
+		$sql = "SELECT * FROM Product WHERE pid = '$pid'";
 		$result = mysqli_query($connection, $sql);
 		$row = mysqli_fetch_row($result);
 		mysqli_close($connection);
@@ -42,9 +42,9 @@ function returnMultipleItems($idArray){
 		$errorarray[] = "Failed to connect to database";
 		return $errorarray;
 	} else {
-		
+
 		foreach ($idArray as $value){
-			$sql = "SELECT * FROM product WHERE pid = '$value'";
+			$sql = "SELECT * FROM Product WHERE pid = '$value'";
 			$result = mysqli_query($connection, $sql);
 			$row = mysqli_fetch_row($result);
 			$returnArray[] = $row;

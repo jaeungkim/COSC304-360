@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$database = "cosc304_project";
+$database = "project";
 $user = "root";
-$password = "";
+$password = "Kingkong36!";
 
  ?>

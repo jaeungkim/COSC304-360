@@ -13,7 +13,7 @@
 	include "accessProduct.php";
 	$pid = $_GET["itemID"];
 	$itemArray = returnItem($pid);
-	
+
 	//CHANGE THIS TO CHANGE SIMILAR ITEMS. MUST SET 4 ITEMS
 	$similarItems = returnMultipleItems(array(5, 22, 19, 7))
 ?>
@@ -28,8 +28,10 @@
 
       <!-- search -->
       <div class = "navLeft">
-        <input type = "text" class ="search">
-        <input type = "submit" value class = "submit">
+        <form action="searchProducts.php" method="get">
+          <input type = "text" name ="search_product" class = "search">
+          <input type = "submit" value = " " class = "submit">
+        </form>
       </div>
 
       <!-- cart -->

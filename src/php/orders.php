@@ -3,6 +3,7 @@
 <head>
   <title>Your orders</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/orders.css">
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>
@@ -21,8 +22,10 @@
 
       <!-- search -->
       <div class = "navLeft">
-        <input type = "text" class ="search">
-        <input type = "submit" value class = "submit">
+        <form action="searchProducts.php" method="get">
+          <input type = "text" name ="search_product" class = "search">
+          <input type = "submit" value = " " class = "submit">
+        </form>
       </div>
 
       <!-- cart -->
