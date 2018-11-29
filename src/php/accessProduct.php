@@ -2,10 +2,7 @@
 //connection information
 //CHANGE THIS INFORMATION BASED ON DATABASE INFORMATION!!!
 	
-$host = "localhost";
-$database = "website_database";
-$user = "root";
-$password = "";
+include "db_credential.php";
 	
 
 //return a single item
@@ -22,7 +19,7 @@ function returnItem($pid){
 		return $errorarray;
 	} else {
 		//return an array which contains all the values of the product
-		$sql = "SELECT * FROM product WHERE pid = '$key'";
+		$sql = "SELECT * FROM product WHERE pid = '$pid'";
 		$result = mysqli_query($connection, $sql);
 		$row = mysqli_fetch_row($result);
 		mysqli_close($connection);

@@ -9,6 +9,14 @@
   <link rel="stylesheet" href="../css/footer.css"/>
 </head>
 <body>
+<?php
+	include "accessProduct.php";
+	$pid = $_GET["itemID"];
+	$itemArray = returnItem($pid);
+	
+	//CHANGE THIS TO CHANGE SIMILAR ITEMS. MUST SET 4 ITEMS
+	$similarItems = returnMultipleItems(array(5, 22, 19, 7))
+?>
   <header>
     <div class = "nav">
       <!-- LOGO -->
@@ -84,12 +92,10 @@
   <!-- item body -->
     <div class = "panel">
 		<figure class="itemFig">
-			<img src="../images/items/MariageFreres_ImperialRussiaDarjeeling.jpg" alt="ImperialRussianDarjeeling">
-			<figcaption><a href="item.php">Imperial Russian Darjeeling</a></figcaption>
+			<img src="<?php echo $itemArray[4];?>" alt="<?php echo $itemArray[1];?>">
+			<figcaption><?php echo $itemArray[1];?></figcaption>
 		</figure>
-		<p class="itemDesc">The war started in the Balkans in July 1853, when Russian troops occupied the Danubian Principalities[6] (part of modern Romania), which were under Ottoman suzerainty, then began to cross the Danube. Led by Omar Pasha, the Ottomans fought a strong defensive campaign and stopped the advance at Silistra. A separate action on the fort town of Kars in eastern Anatolia led to a siege, and a Turkish attempt to reinforce the garrison was destroyed by a Russian fleet at Sinop. Fearing an Ottoman collapse, France and Britain rushed forces to Gallipoli. They then moved north to Varna in June 1854, arriving just in time for the Russians to abandon Silistra. Aside from a minor skirmish at Köstence (today Constanța), there was little for the allies to do. Karl Marx quipped, "there they are, the French doing nothing and the British helping them as fast as possible".
-			<br><br>Frustrated by the wasted effort, and with demands for action from their citizens, the allied force decided to attack Russia's main naval base in the Black Sea at Sevastopol on the Crimean peninsula. After extended preparations, the forces landed on the peninsula in September 1854 and marched their way to a point south of Sevastopol after the successful Battle of the Alma. The Russians counterattacked on 25 October in what became the Battle of Balaclava and were repulsed, but at the cost of seriously depleting the British Army forces. A second counterattack, at Inkerman, ended in stalemate. The front settled into a siege and led to brutal conditions for troops on both sides. Smaller actions were carried out in the Baltic, the Caucasus, the White Sea, and in the North Pacific.
-			<br><br>Sevastopol fell after eleven months, and neutral countries began to join the Allied cause. Isolated and facing a bleak prospect of invasion from the west if the war continued, Russia sued for peace in March 1856. This was welcomed by France and Britain, as their subjects were beginning to turn against their governments as the war dragged on. The war was ended by the Treaty of Paris, signed on 30 March 1856. Russia was forbidden to host warships in the Black Sea. The Ottoman vassal states of Wallachia and Moldavia became largely independent. Christians there were granted a degree of official equality, and the Orthodox Church regained control of the Christian churches in dispute.[9]:415
+		<p class="itemDesc"><?php echo $itemArray[3];?>
 			<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 		</p>
 	</div>
@@ -115,30 +121,50 @@
 
 	<div class="similarItems">
 		<h2>Similar Items</h2>
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "panel">
 			<figure class="itemFig">
-				<img src="../images/items/MariageFreres_ImperialRussiaDarjeeling.jpg" alt="ImperialRussianDarjeeling">
-				<figcaption><a href="item.php">Imperial Russian Darjeeling</a></figcaption>
+				<img src="<?php echo $similarItems[0][4];?>" alt="<?php echo $similarItems[0][1];?>">
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[0][0];?>" />
+				<figcaption>
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[0][1];?>" name="<?php echo $similarItems[0][1];?>">
+				</figcaption>
 			</figure>
 		</div>
+		</form>
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "panel">
 			<figure class="itemFig">
-				<img src="../images/items/StClaires_VanillaHotChocolate.jpg" alt="VanillaHotChocolate">
-				<figcaption><a href="item.php">Vanilla Hot Cocoa</a></figcaption>
+				<img src="<?php echo $similarItems[1][4];?>" alt="<?php echo $similarItems[1][1];?>">
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[1][0];?>" />
+				<figcaption>
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[1][1];?>" name="<?php echo $similarItems[1][1];?>">
+				</figcaption>
 			</figure>
 		</div>
+		</form>
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "panel">
 			<figure class="itemFig">
-				<img src="../images/items/Tokuyo_Genmaicha.jpg" alt="Genmaicha">
-				<figcaption><a href="item.php">Genmaicha</a></figcaption>
+				<img src="<?php echo $similarItems[2][4];?>" alt="<?php echo $similarItems[2][1];?>">
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[2][0];?>" />
+				<figcaption>
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[2][1];?>" name="<?php echo $similarItems[2][1];?>">
+				</figcaption>
 			</figure>
 		</div>
+		</form>
+		<form method="get" action="item.php" id="addSubmit">
 		<div class = "panel">
 			<figure class="itemFig">
-				<img src="../images/items/YorkshireGold_OrangePeeko.jpg" alt="OrangePeeko">
-				<figcaption><a href="item.php">Orange Peeko</a></figcaption>
+				<img src="<?php echo $similarItems[3][4];?>" alt="<?php echo $similarItems[3][1];?>">
+				<input type="hidden" name="itemID" value="<?php echo $similarItems[3][0];?>" />
+				<figcaption>
+					<input type="submit" class="viewItem" value="<?php echo $similarItems[3][1];?>" name="<?php echo $similarItems[3][1];?>">
+				</figcaption>
 			</figure>
 		</div>
+		</form>
 	</div>
 
   <footer class="footer-distributed">

@@ -33,8 +33,12 @@ h2{
 	color:				white;
 	background-color:	rgba(0,0,0,0.7);
 }
-figcaption > a{
+figcaption > .viewItem{
 	color:				white;
+	background:			none;
+	border:				none;
+	text-align:			left;
+	width:				10em;
 }
 .panel .itemDesc{
 	position:			relative;
@@ -55,13 +59,13 @@ figcaption > a{
     border: 			none;
     padding: 			1em 2em;
 }
-.addToCart > a{
+.addToCart {
     text-align: 		center;
     text-decoration: 	none;
     font-size: 			1em;
 	color: 				black;
 }
-.viewItem > a{
+.viewItem {
 	text-align: 		center;
     text-decoration: 	none;
     font-size: 			1em;
