@@ -14,6 +14,7 @@ session_start();
 
 <?php
 	include"accessProduct.php";
+
 	$advertisements = returnMultipleItems(array(1, 2, 3));
 ?>
   <header>
@@ -45,13 +46,18 @@ session_start();
           <div class="dropdown-content">
             <div class = "signIn">
               <?php
+              // check if user is login
               if(isset($_SESSION['login'])){
-                $username = $_SESSION['username'];
-                echo $username;
+                $fristname = $_SESSION['firstname'];
+                echo $firstname;
                 echo '<a href="logout.php">Logout</a>';
               }
               else{
                 echo '<a href = "signin.php" id = "sign">sign in</a>';
+              }
+              // check if is admin
+              if(isset($_SESSION['isadmin'])){
+                include'db_credential.php';
               }
               ?>
               <ul class = "logIn">
