@@ -69,14 +69,13 @@ body{
 .addDesc {
 	padding:			3em;
 }
-.flipAdd button{
+
+.flipAdd .addToCart{
 	position:			absolute;
 	bottom:				3em;
 	background-color:	rgba(255,255,255,0.8);
     border: 			none;
     padding: 			1em 2em;
-}
-.flipAdd .addToCart{
 	right:				3em;
 }
 .flipAdd .viewItem {

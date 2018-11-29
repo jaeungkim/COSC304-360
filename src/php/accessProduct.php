@@ -2,10 +2,7 @@
 //connection information
 //CHANGE THIS INFORMATION BASED ON DATABASE INFORMATION!!!
 	
-$host = "localhost";
-$database = "website_database";
-$user = "root";
-$password = "";
+include "db_credential.php";
 	
 
 //return a single item
