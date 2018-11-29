@@ -9,6 +9,7 @@
   <?php
   if ($_SERVER['REQUEST_METHOD']=="GET") {
     $Add_Item = $_GET['Add_Item'];
+    // $insert_sql = mysqli_query($conn,"INSERT INTO Product VALUES($Add_Item)");
     include 'db_credential.php';
     $conn = mysqli_connect($host, $user, $password, $database);
     $error = mysqli_connect_error();
@@ -23,7 +24,7 @@
         echo("<h2 style='color:Black;'>Add New Product</h2>");
 
 
-        $delete_sql = mysqli_query($conn,"INSERT INTO Product VALUES($Add_Item)");
+
 
         echo("<h2 style='color:Black;'>All Products</h2>");
         $sql = mysqli_query($conn,"SELECT * FROM Product");
