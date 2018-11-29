@@ -9,10 +9,11 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
   $pwhash = md5($pw);
   $referer = $_SERVER['HTTP_REFERER'];
 
-    $host = "localhost";
-    $database = "db_10287969";
-    $user = "lin";
-    $password = "linjing.";
+    // $host = "localhost";
+    // $database = "db_10287969";
+    // $user = "lin";
+    // $password = "linjing.";
+    include 'db_credential.php';
     $conn = mysqli_connect($host, $user, $password, $database);
     $error = mysqli_connect_error();
     $flag = false;
