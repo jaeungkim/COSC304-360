@@ -2,10 +2,11 @@
 <html lang = "en">
 <head>
   <title>IDEAS</title>
+  <!-- 
   <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <link rel="stylesheet" href="../css/menu.css"/>
+  <link rel="stylesheet" href="../css/menu.css"/> -->
 </head>
 <body>
   <header>
@@ -81,22 +82,43 @@
   </header>
 
   <!-- coffee menu table -->
-  <div class = "menuitems">
-      <table id = "listingTable">
-        <tbody>
-            <tr>
-              <th class = "tableHead">Picture</th>
-              <th class = "tableHead">Product Name</th>
-              <th class = "tableHead">Price</th>
-              <th class = "tableHead">Quantity</th>
-              <th class = "tableHead">Rating</th>
-              <th class = "tableHead">Cart</th>
-            </tr>
-            <!-- black coffee -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/coffee/americano.jpg" alt =""></td>
-              <td> Americano </td>
-              <td> $2.50</td>
+
+    <?php
+      include 'db_credential.php';
+      $conn = mysqli_connect($host, $user, $password, $database);
+      $error = mysqli_connect_error();
+
+      if($error != null)
+      {
+        $output = "<p>Unable to connect to database!</p>";
+        exit($output);
+      }
+      else
+      {
+        $sql = "SELECT * FROM product" ;//WHERE category = coffee
+        $results = mysqli_query($conn, $sql);
+
+
+        //query Done
+          echo '<div class = "menuitems">
+                <table id = "listingTable">
+                  <tbody>
+                      <tr>
+                        <th class = "tableHead">Picture</th>
+                        <th class = "tableHead">Product Name</th>
+                        <th class = "tableHead">Price</th>
+                        <th class = "tableHead">Quantity</th>
+                        <th class = "tableHead">Rating</th>
+                        <th class = "tableHead">Cart</th>
+                      </tr>';
+          while ($row = mysqli_fetch_assoc($results)) {
+            $pname = $row['pname'];
+            $price = $row['price'];
+            echo
+            '<tr class = "menuitems">
+              <td><img id = "menupic" src = '.$row["imageURL"].'alt =""></td>
+              <td> '.$pname.' </td>
+              <td>'.$price.'</td>
               <td> quantity</td>
               <td>
                 <div class = "rating">
@@ -107,114 +129,18 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
-            </tr>
+              <td><a class="addCart" href = "addcart.php?id='. $row['pid'] . '&name=' . $row['pname'] . '&price=' . $row['price'] .'"> Add to Cart </a> </td>
+             </tr>';
+          }
 
-            <!-- cafe latte -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/coffee/cafe-latte.png" alt =""></td>
-              <td> Cafe Latte</td>
-              <td> $2.75</td>
-              <td> quantity</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
-            </tr>
+          echo          '
+                  </tbody>
+                </table>
+            </div>';
+      }
 
-            <!-- caramel Machiatto -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/coffee/Caramel-Macchiato.jpg" alt =""></td>
-              <td> Caramel Macchiato </td>
-              <td> $4.50</td>
-              <td> quantity </td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
-            </tr>
+    ?>
 
-            <!-- Cafe Mocha -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/coffee/cafe-mocha.jpg" alt =""></td>
-              <td> Cafe Mocha</td>
-              <td> $4.50</td>
-              <td> quantity </td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- Hot Chocolate -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/coffee/hot-chocolate.jpg" alt =""></td>
-              <td> Hot Chocolate </td>
-              <td> $2.75</td>
-              <td> quantity </td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td> <a class "addCart" href = "cart.html"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- cold brew -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/coffee/cold-brew.jpg" alt =""></td>
-              <td> Cold Brew </td>
-              <td> $3.75</td>
-              <td> quantity </td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- Vanilla Latte -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/coffee/vanilla-latte.jpg" alt =""></td>
-              <td> Vanilla Latte </td>
-              <td> $4.25 </td>
-              <td> quantity </td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
-            </tr>
-          </div>
-        </tbody>
-      </table>
   </div>
   <!-- company names / copyright / info etc etc -->
   <footer class="footer-distributed">
