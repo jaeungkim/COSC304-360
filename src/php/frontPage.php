@@ -47,7 +47,7 @@ session_start();
             <div class = "signIn">
               <?php
               if(isset($_SESSION['login'])){
-                $fristname = $_SESSION['firstname'];
+                $firstname = $_SESSION['firstname'];
                 echo $firstname;
                 echo '<a href="logout.php">Logout</a>';
               }
