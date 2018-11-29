@@ -2,7 +2,7 @@
 <html lang = "en">
 <head>
   <title>IDEAS</title>
-  <!-- 
+  <!--
   <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
@@ -129,10 +129,9 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class="addCart" href = "addcart.php?id='. $row['pid'] . '&name=' . $row['pname'] . '&price=' . $row['price'] .'"> Add to Cart </a> </td>
+              <td><a class="addCart" href = "addcart.php?id='. $row['pid'] . '&quantity=1"> Add to Cart </a> </td>
              </tr>';
           }
-
           echo          '
                   </tbody>
                 </table>

@@ -1,5 +1,6 @@
 <?php
 // Get the current list of products
+session_destroy();
 session_start();
 $productList = null;
 if (isset($_SESSION['productList'])){
@@ -7,12 +8,27 @@ if (isset($_SESSION['productList'])){
 } else{ 	// No products currently in list.  Create a list.
 	$productList = array();
 }
+
 // Add new product selected
 // Get product information
-if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['price'])){
+if(isset($_GET['id']) && isset($_GET['quantity'])){
+  include 'db_credential.php';
+  $conn = mysqli_connect($host, $user, $password, $database);
+  $error = mysqli_connect_error();
+
+  if($error != null){
+    $output = "<p>Unable to connect to database!</p>";
+    exit($output);
+  }
+  else{
+    $sql = "SELECT * FROM product WHERE pid = ".$prod['id']; //WHERE category = coffee
+    $results = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($results);
+  }
+
 	$id = $_GET['id'];
-	$name = $_GET['name'];
-	$price = $_GET['price'];
+	$name = $row['pname'];
+	$price = $row['price'];
   $quantity = $_GET['quantity'];
 } else {
 	header('Location: frontPage.php');

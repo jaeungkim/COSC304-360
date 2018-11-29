@@ -23,7 +23,6 @@ $productList = null;
 if (isset($_SESSION['productList'])){
 	$productList = $_SESSION['productList'];
 	$total =0;
-
     //PRINTING OUT CART INFO
 	foreach ($productList as $id => $prod) { //For each product in productList
     //Query each product info
@@ -44,11 +43,12 @@ if (isset($_SESSION['productList'])){
       //       </table>
       //   </div>';
     }
+    // print_r($prod);
     echo
     '<div class="item">
       <div class="col buttons">
         <button type="delete" name="button">
-          <img src="'.$row['imageURL'].'" width="20em" height="20em">
+          <img src="../images/sign/delete.png" width="20em" height="20em">
         </button>
       </div>
       <div class="col checkboxdiv">
@@ -56,24 +56,24 @@ if (isset($_SESSION['productList'])){
       </div>
 
       <div class="col image">
-        <img src="../images/coffee/americano.jpg" alt="item1" / width="80em" height="80em">
+        <img src="'.$row['imageURL'].'" alt="item1" / width="80em" height="80em">
       </div>
 
       <div class="col description">
-        Americano
+        '.$row['pname'].'
       </div>
 
       <div class="col quantity">
         <button class="plus-btn" type="button" name="button">
            <img src="../images/sign/plus.png" width="15em" height="15em">
         </button>
-        <input type="text" name="name" value="1">
+        <input type="text" name="name" value="'.$prod['quantity'].'">
         <button class="minus-btn" type="button" name="button">
            <img src="../images/sign/minus.png" width="15em" height="15em">
         </button>
       </div>
 
-      <div class="col total-price">$2.50</div>
+      <div class="col total-price">'.$row['price'].'</div>
     </div>
     ';
 		// echo("<tr><td>". $prod['id'] . "</td>");
@@ -94,8 +94,6 @@ if (isset($_SESSION['productList'])){
 } else{
 	echo("<H1>Your shopping cart is empty!</H1>");
 }
-
-
 include("footer.php");
 ?>
 <!-- <h2><a href="listprod.php">Continue Shopping</a></h2>
