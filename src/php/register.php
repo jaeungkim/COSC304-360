@@ -19,7 +19,7 @@ if (isset($_SESSION['exist'])) {
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
   <script type="text/javascript" src="../scripts/validate.js"></script>
-  <script>
+  <script>//show pw or cover pw
   function showpassword() {
       var x = document.getElementsByName("password")[0];
       if (x.type === "password") {
@@ -54,7 +54,7 @@ if (isset($_SESSION['exist'])) {
     <div class = "nav">
       <!-- LOGO -->
       <div class = "logoImage">
-        <a href = "frontPage.php" id = "logo">
+        <a href = "frontPage.html" id = "logo">
           <img class = "logoimg" alt = "logo" src= "../images/logos/logo.png">
         </a>
       </div>
@@ -67,7 +67,7 @@ if (isset($_SESSION['exist'])) {
 
       <!-- cart -->
       <div class = "navRight">
-        <a href = "cart.php" id = "cart">cart </a>
+        <a href = "cart.html" id = "cart">cart </a>
       </div>
 
       <!-- account -->
@@ -76,10 +76,10 @@ if (isset($_SESSION['exist'])) {
           <button class="dropbtn">account</button>
             <div class="dropdown-content">
               <div class = "signIn">
-              <a href = "signin.php" id = "sign">sign in</a>
+              <a href = "signin.html" id = "sign">sign in</a>
                 <ul class = "logIn">
-                  <a href="account.php"><li class = "youraccount">Your Account</li></a>
-                  <a href="orders.php"><li class = "yourorder">Your Orders</li></a>
+                  <a href="account.html"><li class = "youraccount">Your Account</li></a>
+                  <a href="orders.html"><li class = "yourorder">Your Orders</li></a>
                 </ul>
               </div>
             </div>
@@ -98,17 +98,17 @@ if (isset($_SESSION['exist'])) {
                     <!-- <li class = "beverageImg"> -->
                       <!-- <img src = "../images/logo.png" alt "beverage"> -->
                     <!-- </li> -->
-                    <a href="coffee.php"><li class = "coffee">coffee</li></a>
-                    <a href="tea.php"><li class = "tea">tea</li></a>
-                    <a href="pop.php"><li calss = "pop">soft drinks</li></a>
+                    <a href="coffee.html"><li class = "coffee">coffee</li></a>
+                    <a href="tea.html"><li class = "tea">tea</li></a>
+                    <a href="pop.html"><li calss = "pop">soft drinks</li></a>
                   </ul>
               </div>
               <div class = "foodMenu">
                 <p id = "food">food</p>
                   <ul class = "subMenu">
-                    <a href="cookie.php"><li class = "cookie">cookie</li></a>
-                    <a href="muffin.php"><li class = "muffin">muffin</li></a>
-                    <a href="donut.php"><li class = "donut">donut</li></a>
+                    <a href="cookie.html"><li class = "cookie">cookie</li></a>
+                    <a href="muffin.html"><li class = "muffin">muffin</li></a>
+                    <a href="donut.html"><li class = "donut">donut</li></a>
                   </ul>
               </div>
             </div>
@@ -117,7 +117,7 @@ if (isset($_SESSION['exist'])) {
 
       <!-- team members (us) -->
       <div class = "navRight">
-        <a href = "aboutus.php" id = "aboutUs">about us </a>
+        <a href = "aboutus.html" id = "aboutUs">about us </a>
       </div>
     </div>
   </header>
@@ -125,8 +125,11 @@ if (isset($_SESSION['exist'])) {
     <fieldset>
     <h1 class="form">Create account</h1>
 
-    <label for="username">Username</label><br>
-    <input type="text" name="username" class="required"><br><br>
+  <label for="firstname">firstname</label>
+  <input type="text" name="firstname" class="required"><br><br>
+
+  <label for="lastname">lastname</label>
+  <input type="text" name="lastname" class="required"><br><br>
 
     <label for="email">Email</label><br>
     <input type="text" name="email" class="required"><br><br>
@@ -150,7 +153,7 @@ if (isset($_SESSION['exist'])) {
     <div class="footer-left">
       <h3>Caffeine<span>Holic</span></h3>
   			<p class="footer-links">
-					<a href="frontPage.php">Home</a>·
+					<a href="frontPage.html">Home</a>·
 					<a href="#">Blog</a>·
 					<a href="#">Pricing</a>·
 					<a href="#">About</a>·
@@ -198,4 +201,3 @@ if (isset($_SESSION['exist'])) {
 
 
 </body>
-</html>

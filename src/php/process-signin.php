@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
   $referer = $_SERVER['HTTP_REFERER'];
 
     $host = "localhost";
-    $database = "project";
+    $database = "db_10287969";
     $user = "lin";
     $password = "linjing.";
     $conn = mysqli_connect($host, $user, $password, $database);
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
       exit($output);
     }
     else {
-      $sql = "SELECT username, email, password FROM users";
+      $sql = "SELECT fName, email, password FROM customer";
       $results = mysqli_query($conn, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
         if ($row["email"] == $email) {
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
           if ($row["password"] == $pwhash) {
             //echo "this is a valid account";//jump to frontPage
             $_SESSION['login'] = $email;
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['firstname'] = $row['fName'];
             //$_SESSION['wrongpw']= false;
             //$_SESSION['wrongemail']= false;
             header('Location: frontPage.php');

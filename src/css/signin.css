@@ -16,13 +16,20 @@ fieldset{
    margin-top: 0;
  }
 
-input[name=email], input[name=password], button.denglu{
+button.denglu{
   width: 95%;
   border-radius:0.3em;
   border: 1px solid Gray;
   height: 2em;
 }
 
+.required{
+	font-family: sans-serif;
+	width: 95%;
+	border-radius:0.3em;
+	border: 1px solid Gray;
+	height: 2em;
+}
 
 
 button.denglu{

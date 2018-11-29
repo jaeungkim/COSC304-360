@@ -1,50 +1,17 @@
 <!DOCTYPE html>
 
 <?php
-//if user logged in jump to frontpage
 session_start();
-if (isset($_SESSION['login'])) {
-  header('Location: frontPage.php');
-}
-
-if (isset($_SESSION['wrongpw'])) {
-  if ($_SESSION['wrongpw'] == true) {
-    echo "<script>alert('input password is wrong!');</script>";
-    $_SESSION['wrongpw'] = false;
-  }
-}
-
-if (isset($_SESSION['wrongemail'])) {
-  if ($_SESSION['wrongemail'] == true) {
-    echo "<script>alert('input account doesn't exist!');</script>";
-    $_SESSION['wrongemail'] == false;
-  }
-}
-
 ?>
 
 <html lang = "en">
 <head>
-  <title>Sign In</title>
+  <title>Your profile</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/signin.css">
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <script type="text/javascript" src="../scripts/validate.js"></script>
-  <script>
-
-  function showpassword() {
-      var x = document.getElementsByName("password")[0];
-      if (x.type === "password") {
-          x.type = "text";
-      } else {
-          x.type = "password";
-      }
-  }
-
-  </script>
-
+  <link rel="stylesheet" href="../css/account.css">
 </head>
 
 <body>
@@ -120,75 +87,61 @@ if (isset($_SESSION['wrongemail'])) {
     </div>
   </header>
 
-  <form  action="process-signin.php" method="post" id="mainForm">
-    <fieldset>
-    <h1>Sign in</h1><br>
+  <div class="main">
+    <?php
 
-    <label for="email">Email address</label><br>
-    <input type="text" name="email" class="required"><br><br>
 
-    <label for="password">Password</label><br>
-    <input type="password" name="password" onfocus="this.value=''" class="required"><br>
+    ?>
+  </div>
 
-    <input type="checkbox" name="showpw" onclick="showpassword()">Show Password <br><br><br>
 
-    <button class="denglu" type="submit" name="button">Sign in</button>
-
-    <br><br>
-    <p class="change">New to IDEAS?<a class="change" href="register.php">Create an IDEAS account</a></p>
-    </fieldset>
-  </form>
-
-  <!-- company names / copyright / info etc etc -->
   <footer class="footer-distributed">
     <div class="footer-left">
       <h3>Caffeine<span>Holic</span></h3>
-        <p class="footer-links">
-          <a href="frontPage.html">Home</a>·
-          <a href="#">Blog</a>·
-          <a href="#">Pricing</a>·
-          <a href="#">About</a>·
-          <a href="#">Faq</a>·
-          <a href="#">Contact</a>
-        </p>
-        <p class="footer-company-name">Caffeine Holic &copy; 2018</p>
-        </div>
+  			<p class="footer-links">
+					<a href="frontPage.html">Home</a>·
+					<a href="#">Blog</a>·
+					<a href="#">Pricing</a>·
+					<a href="#">About</a>·
+					<a href="#">Faq</a>·
+					<a href="#">Contact</a>
+				</p>
+			  <p class="footer-company-name">Caffeine Holic &copy; 2018</p>
+  			</div>
 
-        <div class="footer-center">
-          <div>
-            <i class="mapmarker"></i>
-            <p><span>3333 University Way</span> Kelowna, BC</p>
-          </div>
+  			<div class="footer-center">
+  				<div>
+  					<i class="mapmarker"></i>
+  					<p><span>3333 University Way</span> Kelowna, BC</p>
+  				</div>
 
-          <div>
-            <i class="phone"></i>
-            <p>+1 778 581 3502</p>
-          </div>
+  				<div>
+  					<i class="phone"></i>
+  					<p>+1 778 581 3502</p>
+  				</div>
 
-          <div>
-            <i class="envelope"></i>
-            <p><a href="mailto:khyy37@hotmail.com">khyy37@hotmail.com</a></p>
-          </div>
-        </div>
+  				<div>
+  					<i class="envelope"></i>
+  					<p><a href="mailto:khyy37@hotmail.com">khyy37@hotmail.com</a></p>
+  				</div>
+  			</div>
 
-        <div class="footer-right">
-          <p class="footer-company-about">
-            <span>ABOUT THE COMPANY</span>
-                 Opened in October 2018, Kelowna BC.<br>
+  			<div class="footer-right">
+  				<p class="footer-company-about">
+  					<span>ABOUT THE COMPANY</span>
+  					     Opened in October 2018, Kelowna BC.<br>
                  Amazing coffee, tea, snacks<br>
                  Best coffee in town.
-          </p>
+  				</p>
 
-          <div class="footer-icons">
-            <a href="#"><i class="facebook"></i></a>
-            <a href="#"><i class="twitter"></i></a>
-            <a href="#"><i class="linkedin"></i></a>
+  				<div class="footer-icons">
+  					<a href="#"><i class="facebook"></i></a>
+  					<a href="#"><i class="twitter"></i></a>
+  					<a href="#"><i class="linkedin"></i></a>
             <a href="#"><i class="instagram"></i></a>
-          </div>
-        </div>
-      </footer>
-
-<img class="signinbg" src="../images/bg/signinbg.jpg" alt="">
+  				</div>
+  			</div>
+  		</footer>
+  <img class="accountbg" src="../images/bg/accountbg.jpg" alt="">
 
 </body>
-</html>

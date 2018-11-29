@@ -12,7 +12,7 @@
     <div class = "nav">
       <!-- LOGO -->
       <div class = "logoImage">
-        <a href = "frontPage.php" id = "logo">
+        <a href = "frontPage.html" id = "logo">
           <img class = "logoimg" alt = "logo" src= "../images/logos/logo.png">
         </a>
       </div>
@@ -25,7 +25,7 @@
 
       <!-- cart -->
       <div class = "navRight">
-        <a href = "cart.php" id = "cart">Cart </a>
+        <a href = "cart.html" id = "cart">Cart </a>
       </div>
 
       <!-- account -->
@@ -34,10 +34,10 @@
           <button class="dropbtn">Account</button>
             <div class="dropdown-content">
               <div class = "signIn">
-              <a href = "signin.php" id = "sign">Sign In</a>
+              <a href = "signin.html" id = "sign">Sign In</a>
                 <ul class = "logIn">
-                  <a href="account.php"><li class = "youraccount">Your Account</li></a>
-                  <a href="orders.php"><li class = "yourorder">Your Orders</li></a>
+                  <a href="account.html"><li class = "youraccount">Your Account</li></a>
+                  <a href="orders.html"><li class = "yourorder">Your Orders</li></a>
                 </ul>
               </div>
             </div>
@@ -56,17 +56,17 @@
                     <!-- <li class = "beverageImg"> -->
                       <!-- <img src = "../images/logo.png" alt "beverage"> -->
                     <!-- </li> -->
-                    <a href="coffee.php"><li class = "coffee">Coffee</li></a>
-                    <a href="tea.php"><li class = "tea">Tea</li></a>
-                    <a href="pop.php"><li calss = "pop">Soft Drinks</li></a>
+                    <a href="coffee.html"><li class = "coffee">Coffee</li></a>
+                    <a href="tea.html"><li class = "tea">Tea</li></a>
+                    <a href="pop.html"><li calss = "pop">Soft Drinks</li></a>
                   </ul>
               </div>
               <div class = "foodMenu">
                 <p id = "food">Food</p>
                   <ul class = "subMenu">
-                    <a href="cookie.php"><li class = "cookie">Cookie</li></a>
-                    <a href="muffin.php"><li class = "muffin">Muffin</li></a>
-                    <a href="donut.php"><li class = "donut">Donut</li></a>
+                    <a href="cookie.html"><li class = "cookie">Cookie</li></a>
+                    <a href="muffin.html"><li class = "muffin">Muffin</li></a>
+                    <a href="donut.html"><li class = "donut">Donut</li></a>
                   </ul>
               </div>
             </div>
@@ -75,7 +75,7 @@
 
       <!-- team members (us) -->
       <div class = "navRight">
-        <a href = "aboutus.php" id = "aboutUs">About Us </a>
+        <a href = "aboutus.html" id = "aboutUs">About Us </a>
       </div>
     </div>
   </header>
@@ -107,7 +107,7 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
+              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
             </tr>
 
             <!-- cafe latte -->
@@ -124,7 +124,7 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
+              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
             </tr>
 
             <!-- caramel Machiatto -->
@@ -141,7 +141,7 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
+              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
             </tr>
 
             <!-- Cafe Mocha -->
@@ -158,7 +158,7 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
+              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
             </tr>
 
             <!-- Hot Chocolate -->
@@ -176,7 +176,7 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td> <a class "addCart" href = "cart.php"> Add to Cart </a> </td>
+              <td> <a class "addCart" href = "cart.html"> Add to Cart </a> </td>
             </tr>
 
             <!-- cold brew -->
@@ -193,7 +193,7 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
+              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
             </tr>
 
             <!-- Vanilla Latte -->
@@ -210,7 +210,7 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
+              <td><a class "addCart" href = "cart.html"> Add to Cart </a> </td>
             </tr>
           </div>
         </tbody>
@@ -221,7 +221,7 @@
     <div class="footer-left">
       <h3>Caffeine<span>Holic</span></h3>
         <p class="footer-links">
-          <a href="frontPage.php">Home</a>·
+          <a href="frontPage.html">Home</a>·
           <a href="#">Blog</a>·
           <a href="#">Pricing</a>·
           <a href="#">About</a>·
@@ -265,4 +265,4 @@
         </div>
       </footer>
   </body>
-</html>
+  </html>
