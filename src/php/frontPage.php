@@ -50,10 +50,14 @@ session_start();
                 $firstname = $_SESSION['firstname'];
                 echo $firstname;
                 echo '<a href="logout.php">Logout</a>';
+                if(($_SESSION['isAdmin'])==1){
+                  echo '<a href = "adminPage.php" > Admin Page</a>';
+                }
               }
               else{
                 echo '<a href = "signin.php" id = "sign">sign in</a>';
               }
+
               ?>
               <ul class = "logIn">
                 <a href="account.php"><li class = "youraccount">Your Account</li></a>
