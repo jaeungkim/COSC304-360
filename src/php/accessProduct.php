@@ -1,11 +1,17 @@
 <?php
 //return a single item
 function returnItem($pid){
+	
 	//connection information
+	//CHANGE THIS INFORMATION BASED ON DATABASE INFORMATION!!!
+	
 	$host = "localhost";
-	$database = "product_test";
+	$database = "website_database";
 	$user = "root";
 	$password = "";
+	
+	
+	
 	//connect to database
 	$connection = mysqli_connect($host, $user, $password, $database);
 	//check for errors
@@ -17,7 +23,7 @@ function returnItem($pid){
 		return $errorarray;
 	} else {
 		//return an array which contains all the values of the product
-		$sql = "SELECT * FROM product_list WHERE pid = '$pid'";
+		$sql = "SELECT * FROM product WHERE pid = '$key'";
 		$result = mysqli_query($connection, $sql);
 		$row = mysqli_fetch_row($result);
 		mysqli_close($connection);
@@ -47,7 +53,7 @@ function returnMultipleItems($idArray){
 	} else {
 		
 		foreach ($idArray as $value){
-			$sql = "SELECT * FROM product_list WHERE pid = '$value'";
+			$sql = "SELECT * FROM product WHERE pid = '$value'";
 			$result = mysqli_query($connection, $sql);
 			$row = mysqli_fetch_row($result);
 			$returnArray[] = $row;
