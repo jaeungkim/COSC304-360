@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
       exit($output);
     }
     else {
-      $sql = "SELECT fName, email, cPassword FROM customer";
+      $sql = "SELECT fName, email, cPassword, isAdmin FROM customer";
       $results = mysqli_query($conn, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
         if ($row["email"] == $email) {
@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
             //echo "this is a valid account";//jump to frontPage
             $_SESSION['login'] = $email;
             $_SESSION['firstname'] = $row['fName'];
+            $_SESSION['isAdmin']=$row['isAdmin'];
+            
             //$_SESSION['wrongpw']= false;
             //$_SESSION['wrongemail']= false;
             header('Location: frontPage.php');

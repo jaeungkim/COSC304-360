@@ -54,6 +54,7 @@ session_start();
               else{
                 echo '<a href = "signin.php" id = "sign">sign in</a>';
               }
+
               ?>
               <ul class = "logIn">
                 <a href="account.php"><li class = "youraccount">Your Account</li></a>
