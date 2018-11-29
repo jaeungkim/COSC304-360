@@ -23,12 +23,12 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
       exit($output);
     }
     else {
-      $sql = "SELECT fName, email, password FROM customer";
+      $sql = "SELECT fName, email, cPassword FROM customer";
       $results = mysqli_query($conn, $sql);
       while ($row = mysqli_fetch_assoc($results)) {
         if ($row["email"] == $email) {
           $flag = true;//user exists
-          if ($row["password"] == $pwhash) {
+          if ($row["cPassword"] == $pwhash) {
             //echo "this is a valid account";//jump to frontPage
             $_SESSION['login'] = $email;
             $_SESSION['firstname'] = $row['fName'];
