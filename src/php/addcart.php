@@ -7,10 +7,9 @@ if (isset($_SESSION['productList'])){
 } else{ 	// No products currently in list.  Create a list.
 	$productList = array();
 }
-
 // Add new product selected
 // Get product information
-if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['price'] && isset($_GET['quantity']))){
+if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['price'])){
 	$id = $_GET['id'];
 	$name = $_GET['name'];
 	$price = $_GET['price'];
@@ -27,5 +26,5 @@ if (isset($productList[$id])){
 }
 
 $_SESSION['productList'] = $productList;
-header('Location: cart.php');
+header('Location: showcart.php');
 ?>
