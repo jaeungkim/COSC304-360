@@ -127,20 +127,20 @@ if(isset($_SESSION['login'])){
           </tr>
           <tr>
 
-            <td class="firstcol"><label for="price">CardName</label></td>
-            <td><input type="text" name="cardname class="required" "></td>
+            <td class="firstcol"><label for="cardname">CardName</label></td>
+            <td><input type="text" name="cardname" class="required" "></td>
 
-            <td class="firstcol"><label for="price">CardNumber</label></td>
-            <td><input type="text" name="cardnumber class="required" "></td>
+            <td class="firstcol"><label for="cardnumber">CardNumber</label></td>
+            <td><input type="text" name="cardnumber" class="required" "></td>
 
-            <td class="firstcol"><label for="price">CVV</label></td>
-            <td><input type="text" name="CVV class="required" "></td>
+            <td class="firstcol"><label for="CVV">CVV</label></td>
+            <td><input type="text" name="CVV" class="required" "></td>
 
-            <td class=firstcol><label for="price">Expired Date</label></td>
-            <td><input type="date" name="expiredate class="required" "></td>
+            <td class=firstcol><label for=="expiredate">Expired Date</label></td>
+            <td><input type="date" name="expiredate" class="required" "></td>
 
-            <td class="firstcol"><label for="price">Billing Address</label></td>
-            <td><input type="text" name="bAddress class="required" "></td>
+            <td class="firstcol"><label for="bAddress">Billing Address</label></td>
+            <td><input type="text" name="bAddress" class="required" "></td>
 
             <td><input type="submit" name="submit" value="Add"></td>
           </tr>
