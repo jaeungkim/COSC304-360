@@ -6,8 +6,6 @@ session_start();
 
 <?php
 if ($_SERVER['REQUEST_METHOD']=='POST') {
-  //$firstname = $_POST["firstname"];
-  //$lastname = $_POST["lastname"];
   $firstname = $_POST["firstname"];
   $lastname = $_POST['lastname'];
   $email = $_POST["email"];
@@ -19,10 +17,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   $disabled = 0;
   $referer = $_SERVER['HTTP_REFERER'];
 
-  // $host = "localhost";
-  // $database = "db_10287969";
-  // $user = "lin";
-  // $password = "linjing.";
   include 'db_credential.php';
   $conn = mysqli_connect($host, $user, $password, $database);
   $error = mysqli_connect_error();
@@ -36,26 +30,26 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   }
   else
   {
-    $sql = "SELECT email FROM customer" ;
+    $sql = "SELECT email FROM Customer" ;
     $results = mysqli_query($conn, $sql);
 
-      while ($row = mysqli_fetch_assoc($results)) {
-        if ($row["email"] == $email) {
-          $flag = true;
-          //echo "<p>user already exists with this username and/or email</p>";
-          //echo "<a href = $referer>return to user entry</a>";
-          $_SESSION['exist'] = true;
-          header("Location: $referer");
-        }
+    while ($row = mysqli_fetch_assoc($results)) {
+      if ($row["email"] == $email) {
+        $flag = true;
+        //echo "<p>user already exists with this username and/or email</p>";
+        //echo "<a href = $referer>return to user entry</a>";
+        $_SESSION['exist'] = true;
+        header("Location: $referer");
       }
+    }
 
     if (!$flag) {//user does not exist
-      $sql = "INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum, isAdmin, disabled)
+      $sql = "INSERT INTO Customer (email, fName, lName, address, cPassword, phoneNum, isAdmin, disabled)
       VALUES ('$email', '$firstname','$lastname', '$address','$pwhash', '$phonenum', '$isadmin', '$disabled')";
       $results = mysqli_query($conn, $sql);
-//
-//       INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum)
-// VALUES ('kyle96921@hotmail.com', 'kyle', 'lee', '123', 'password','7789608359');
+      //
+      //       INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum)
+      // VALUES ('kyle96921@hotmail.com', 'kyle', 'lee', '123', 'password','7789608359');
 
 
       if ($results) {
