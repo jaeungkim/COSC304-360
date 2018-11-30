@@ -9,14 +9,15 @@ if($error != null) {
   exit($output);
 } else {
 	$email = $_GET["email"];
-	$cid = returnLoggedIn($email);
+	$customerArray = returnLoggedIn($email);
+	$cid = $customerArray[0];
 	$pid = trim(mysqli_real_escape_string($connection, $_GET["pid"]));
 	$content = trim(mysqli_real_escape_string($connection, $_GET["content"]));
 
 	$sql = "INSERT INTO usercomments (pid, cid, content) VALUES('$pid' , '$cid' , '$content')";
 	if (mysqli_query($connection, $sql)){
-		echo "<p>record added</p>";
-		header("Location: item.php");
+		echo"<p>Failed to insert record</p>";
+		//header("Location: item.php");
 	} else {
 		echo"<p>Failed to insert record</p>";
 	}

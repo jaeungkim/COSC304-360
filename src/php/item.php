@@ -49,7 +49,6 @@
 					<p class=\"ptext\">".$value[3]."</p>
 				</div>";
 			}
-		
 			//IF USER IS LOGGED IN DISPLAY COMMENT BOX
 			if (isset($_SESSION['login'])){
 				$email = $_SESSION['login'];
