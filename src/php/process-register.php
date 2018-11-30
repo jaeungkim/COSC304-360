@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   }
   else
   {
-    $sql = "SELECT email FROM Customer" ;
+    $sql = "SELECT email FROM customer" ;
     $results = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($results)) {
@@ -44,13 +44,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     }
 
     if (!$flag) {//user does not exist
-      $sql = "INSERT INTO `orders`(`purchased`, `purchasedDate`, `cardNum`)
-VALUES (123, CURDATE(), 123456789);";
+      $sql = "INSERT INTO customer(email, fname, lname, address, cpassword, phonenum, isadmin, disabled) VALUES ('$email', '$firstname', '$lastname', '$address', '$pwhash', '$phonenum', '$isadmin', '$disabled');";
       $results = mysqli_query($conn, $sql);
-      //
-      //       INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum)
-      // VALUES ('kyle96921@hotmail.com', 'kyle', 'lee', '123', 'password','7789608359');
-
 
       if ($results) {
         //register succeed

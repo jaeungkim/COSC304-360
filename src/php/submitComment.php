@@ -18,8 +18,12 @@ if($error != null) {
 	
 	//Inserts new comment into database
 	$sql = "INSERT INTO usercomments (pid, cid, content) VALUES('$pid' , '$cid' , '$content')";
-	mysqli_query($connection, $sql);
+	if (mysqli_query($connection, $sql)){
+		header("Location: $referer");
+	}else {
+		echo '<p> Could not connect</p>';
+	}
 }
 mysqli_close($connection);
-header("Location: $referer");
+
 ?>
