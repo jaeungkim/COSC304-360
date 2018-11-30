@@ -14,10 +14,10 @@ if (isset($_SESSION['exist'])) {
 <head>
   <title>IDEAS registration</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/registration.css">
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/registration.css">
   <script type="text/javascript" src="../scripts/validate.js"></script>
   <script>//show pw or cover pw
   function showpassword() {
@@ -124,30 +124,52 @@ if (isset($_SESSION['exist'])) {
     </div>
   </header>
   <form  action="process-register.php" method="post" id="mainForm">
-    <fieldset>
-    <h1 class="form">Create account</h1>
+    <table>
+      <th colspan="2"><h1 class="form">Create account</h1></th>
+      <tr>
+        <td class="firstcol"><label for="firstname">firstname</label></td>
+        <td><input type="text" name="firstname" class="required"></td>
+      </tr>
 
-  <label for="firstname">firstname</label>
-  <input type="text" name="firstname" class="required"><br><br>
+      <tr>
+        <td class="firstcol"><label for="lastname">lastname</label></td>
+        <td><input type="text" name="lastname" class="required"></td>
+      </tr>
 
-  <label for="lastname">lastname</label>
-  <input type="text" name="lastname" class="required"><br><br>
+      <tr>
+        <td class="firstcol"><label for="email">Email</label></td>
+        <td><input type="text" name="email" class="required"></td>
+      </tr>
 
-    <label for="email">Email</label><br>
-    <input type="text" name="email" class="required"><br><br>
+      <tr>
+        <td class="firstcol"><label for="phonenum">Phone number</label></td>
+        <td><input type="text" name="phonenum" class="required"></td>
+      </tr>
 
-    <label for="password">Password</label><br>
-    <input type="password" name="password" onfocus="this.value=''" class="required" id="password"><br>
+      <tr>
+        <td class="firstcol"><label for="address">Address</label></td>
+        <td><input type="text" name="address" class="required"></td>
+      </tr>
 
-    <input type="checkbox" name="showpw" onclick="showpassword()">Show Password <br><br>
+      <tr>
+        <td class="firstcol"><label for="password">Password</label></td>
+        <td><input type="password" name="password" onfocus="this.value=''" class="required" id="password"></td>
+      </tr>
 
-    <label for="confirm">Password again</label><br>
-    <input type="password" name="confirm" onfocus="this.value=''" class="required" id="password-check"><br><br>
+      <tr>
+        <td class="firstcol"><input type="checkbox" name="showpw" onclick="showpassword()">Show Password</td>
+      </tr>
 
-    <button class="register" type="submit" name="button">Create your IDEAS account</button>
+      <tr>
+        <td class="firstcol"><label for="confirm">Password again</label></td>
+        <td><input type="password" name="confirm" onfocus="this.value=''" class="required" id="password-check"></td>
+      </tr>
 
-    <p class="change">Already have an account?<a class="signinlink" href="signin.php">Sign in</a></p>
-    </fieldset>
+      <tr>
+        <td class="firstcol"><p class="change">Already have an account?<a class="signinlink" href="signin.php">Sign in</a></p></td>
+        <td><button class="register" type="submit" name="button">Create your IDEAS account</button></td>
+      </tr>
+    </table>
   </form>
 
   <!-- company names / copyright / info etc etc -->

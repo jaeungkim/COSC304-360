@@ -13,8 +13,10 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   $email = $_POST["email"];
   $pw = $_POST["password"];
   $pwhash = md5($pw);
-  $address = 'empty';
-  $phonenum = 0;
+  $address = $POST['address'];
+  $phonenum = $POST['phonenum'];
+  $isadmin = 0;
+  $disabled = 0;
   $referer = $_SERVER['HTTP_REFERER'];
 
   // $host = "localhost";
@@ -48,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
       }
 
     if (!$flag) {//user does not exist
-      $sql = "INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum)
-      VALUES ('$email', '$firstname','$lastname', '$address','$pwhash', '$phonenum')";
+      $sql = "INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum, isAdmin, disabled)
+      VALUES ('$email', '$firstname','$lastname', '$address','$pwhash', '$phonenum', '$isadmin', '$disabled')";
       $results = mysqli_query($conn, $sql);
 //
 //       INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum)

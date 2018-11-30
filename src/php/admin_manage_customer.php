@@ -17,7 +17,6 @@
     include 'db_credential.php';
     $conn = mysqli_connect($host, $user, $password, $database);
     $error = mysqli_connect_error();
-    $flag = false;
 
     if($error != null)
     {
@@ -40,6 +39,7 @@
                     <th class = "tableHead">ADDRESS</th>
                     <th class = "tableHead">PHONE NUMBER</th>
                     <th class = "tableHead">ANDMIN</th>
+                    <th class = "tableHead">disabled</th>
                   </tr>';
       while ($row = mysqli_fetch_assoc($results)) {
         //get all value
@@ -55,6 +55,15 @@
         else {
           $isAdmin = 'YES';
         }
+      //  $condition = $row['condition'];
+        $condition = 0;
+        if ($condition ==0 ) {
+          $checkbox = '<input type="checkbox" class="checkbox" id="'.$cid.'" checked onclick="changecondition()">';
+        }
+        else {
+          $checkbox = '<input type="checkbox" class="checkbox" id="'.$cid.'" onclick="changecondition()">';
+        }
+
         echo
         '<tr class = "">
           <td> '.$cid.' </td>
@@ -64,6 +73,7 @@
           <td> '.$address. '</td>
           <td> '.$phoneNum.' </td>
           <td> '.$isAdmin.' </td>
+          <td> '.$checkbox.' </td>
          </tr>';
       }
 
