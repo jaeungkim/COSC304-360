@@ -43,8 +43,7 @@ CREATE TABLE Product (
 
 CREATE TABLE Orders (
 	oid INT NOT NULL AUTO_INCREMENT,
-	purchased BOOLEAN NOT NULL,
-	purchasedDate DATE NOT NULL,
+	purchasedDate DATETIME NOT NULL,
     cardNum INT NOT NULL,
     cid INT,
     trackingNum INT,

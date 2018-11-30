@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     }
 
     if (!$flag) {//user does not exist
-      $sql = "INSERT INTO Customer (email, fName, lName, address, cPassword, phoneNum, isAdmin, disabled)
-      VALUES ('$email', '$firstname','$lastname', '$address','$pwhash', '$phonenum', '$isadmin', '$disabled')";
+      $sql = "INSERT INTO `orders`(`purchased`, `purchasedDate`, `cardNum`)
+VALUES (123, CURDATE(), 123456789);";
       $results = mysqli_query($conn, $sql);
       //
       //       INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum)
