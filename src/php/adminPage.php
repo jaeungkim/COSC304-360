@@ -12,7 +12,10 @@
     <th><font size = 50, color = Grey>This is admin Page</font></th>
   </tr>
   <tr>
-  <td> <a href = "admin_insert_update.php" id="admin"> <font size = 10, color = white> Update Admin</font> </a> </td>
+  <td> <a href = "admin_insert_update.php" id="admin"> <font size = 10, color = white> Update/Insert Items</font> </a> </td>
+</tr>
+<tr>
+<td> <a href = "admin_delete.php" id="admin"> <font size = 10, color = white>Delete Items</font> </a> </td>
 </tr>
 <tr>
   <td> <a href = "admin_manage_customer.php" id="admin"> <font size = 30, color = white>Update Customer </font></a></td>
