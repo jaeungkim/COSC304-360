@@ -4,7 +4,7 @@ session_start();
 ?>
 <html lang = "en">
 <head>
-  <title>IDEAS</title>
+  <title>CAFFEINE HOLIC</title>
   <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>

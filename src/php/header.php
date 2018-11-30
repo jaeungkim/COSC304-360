@@ -33,9 +33,9 @@
               echo '<a href="logout.php">Logout</a>';
               if(isset($_SESSION['isAdmin'])){
                 $isAdmin = $_SESSION['isAdmin'];
-              if($isAdmin==1){
-                echo '<a href = "adminPage.php" > Admin Page</a>';
-              }
+                if($isAdmin==1){
+                  echo '<a href = "adminPage.php" > Admin Page</a>';
+                }
               }
             }
             else{
@@ -85,21 +85,5 @@
       <div class = "navRight">
         <a href = "aboutus.php" id = "aboutUs">about us </a>
       </div>
-
-      <!-- search(browse) by categories -->
-      <!-- <div class = "navRight">
-        <form action="searchCategories.php" class = "searchCategory">
-          <select name = "category">
-            <option value>Click for Items!</option>
-            <option value = "coffee">Coffee</option>
-            <option value = "tea">Tea</option>
-            <option value = "softdrinks">Soft Drinks</option>
-            <option value = "cookie">Cookie</option>
-            <option value = "muffin">Muffin</option>
-            <option value = "donut">Donut</option>
-          </select>
-        </form>
-      </div> -->
     </div>
-
   </header>
