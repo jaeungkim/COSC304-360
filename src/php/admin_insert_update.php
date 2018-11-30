@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<form  action="process-insert_update.php" method="post" id="insert_update">
+<script type = "text/javascript" src = "../scripts/validate.js"> </script>
+<form  action="process-insert_update.php" method="post" id="mainForm">
   <table>
     <th colspan="2"><h1 class="form">Update Products</h1></th>
     <tr>
@@ -55,7 +56,9 @@
         $sql = mysqli_query($conn,"SELECT * FROM Product");
         while($row = mysqli_fetch_assoc($sql)){
           echo "<br>";
-          echo "<p><h3 style='color:white;'>".$row['pname']."</h3>".$row['description']."</p>";
+          echo "<p><h3 style='color:black;'>".$row['pname']."</h3>";
+          echo "Dollars: ".$row['price'];
+          echo "<br> Description: <br> ".$row['description']."</p>";
           $image=$row['imageURL'];
           echo '<img src="'.$image.'" style="width:128px;height:128px">';
         }
