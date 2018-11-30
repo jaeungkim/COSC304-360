@@ -15,7 +15,7 @@ session_start();
   <?php
   //Set id in arrays to whatever products you want. Advertisements can only have 3 but the others can have however many.
   include"accessProduct.php";
-  $advertisements = returnMultipleItems(array(1, 2, 3));
+  $advertisements = returnMultipleItems(array(1, 2, 8));
   $recommendedItems = returnMultipleItems(array(10, 6, 4, 24, 7, 19));
   $deals = returnMultipleItems(array(5, 14, 21, 9, 15, 23));
   ?>

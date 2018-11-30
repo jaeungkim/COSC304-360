@@ -8,13 +8,6 @@
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/item.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-  <script type="text/javascript">
-	window.jQuery ||
-	document.write('<script src="js/jquery-1.9.1.min.js"><\/script>');
-  </script>
 </head>
 <body>
 <?php
@@ -27,11 +20,10 @@
 	$commentsArray = returnComments($pid);
 
 	//CHANGE THIS TO CHANGE SIMILAR ITEMS
-	$similarItems = returnMultipleItems(array(5, 22, 19, 7))
+	$similarItems = returnMultipleItems(array(5, 22, 19, 7));
 	
-	
+	include 'header.php';
 ?>
- <?php include 'header.php';?>
 
   <!-- item body -->
     <div class = "panel">
@@ -48,6 +40,7 @@
 	<div class="comments">
 		<h2>Comments</h2>
 		<?php 
+			//If there are comments display them, otherwise say no comments yet
 			if (isset($commentsArray)){
 				echo "<p>".$commentsArray[0][0]."</p>";
 				foreach ($commentsArray as $value){
@@ -62,7 +55,7 @@
 					<p class='ptext'> No Comments Yet. </p>
 				</div>";
 			}
-			//IF USER IS LOGGED IN DISPLAY COMMENT BOX
+			//If user is logged in dispaly comment box
 			if (isset($_SESSION['login'])){
 				$email = $_SESSION['login'];
 				echo "<form action='submitComment.php' method='get' id='mainForm'>
