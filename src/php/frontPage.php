@@ -31,8 +31,8 @@ session_start();
 					<div class='back'>
 						<p class='addDesc'>".$value[3]."</p>
 						<input type='hidden' name='itemID' value='".$value[0]."'>
-						<input type='submit' class='viewItem' value='View Item' name='".$value[1]."'>
-						<button type='button' class='addToCart'>
+						<input type='submit' class='viewItem addButton' value='View Item' name='".$value[1]."'>
+						<button type='button' class='addToCart addButton'>
 							<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
 						</button>
 					</div>
@@ -44,18 +44,20 @@ session_start();
     <h2>Recommended Items</h2>
 		<?php
 		foreach($recommendedItems as $value){
-			echo "<div class = \"panel\">
-			<form method=\"get\" action=\"item.php\" id=\"addSubmit\">
-				<figure class=\"itemFig\">
-					<img src=\"".$value[4] ."\" alt=\"".$value[1]."\">
-					<input type=\"hidden\" name=\"itemID\" value=\"".$value[0]."\" >
+			echo "<div class = 'panel'>
+			<form method='get' action='item.php' id='addSubmit'>
+				<figure class='itemFig'>
+					<img src='".$value[4] ."' alt='".$value[1]."'>
+					<input type='hidden' name='itemID' value='".$value[0]."' >
 					<figcaption>
-						<input type=\"submit\" class=\"viewItem\" value=\"".$value[1]."\" name=\"".$value[1]."\">
+						<input type='submit' class='viewItem' value='".$value[1]."' name='".$value[1]."'>
 					</figcaption>
 				</figure>
 			</form>
-			<p class=\"itemDesc\">".$value[3].
-				"<button type=\"button\" class=\"addToCart\"><a href=\"cart.php\">Add to Cart</a></button>
+			<p class='itemDesc'>".$value[3]."
+				<button type='button' class='addToCart'>
+					<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
+				</button>
 			</p>
 			</div>";}?>
   </div>
@@ -65,18 +67,20 @@ session_start();
     <h2>Deals</h2>
 		<?php
 		foreach($deals as $value){
-			echo "<div class = \"panel\">
-			<form method=\"get\" action=\"item.php\" id=\"addSubmit\">
-				<figure class=\"itemFig\">
-					<img src=\"".$value[4] ."\" alt=\"".$value[1]."\">
-					<input type=\"hidden\" name=\"itemID\" value=\"".$value[0]."\" >
+			echo "<div class = 'panel'>
+			<form method='get' action='item.php' id='addSubmit'>
+				<figure class='itemFig'>
+					<img src='".$value[4] ."' alt='".$value[1]."'>
+					<input type='hidden' name='itemID' value='".$value[0]."' >
 					<figcaption>
-						<input type=\"submit\" class=\"viewItem\" value=\"".$value[1]."\" name=\"".$value[1]."\">
+						<input type='submit' class='viewItem' value='".$value[1]."' name='".$value[1]."'>
 					</figcaption>
 				</figure>
 			</form>
-			<p class=\"itemDesc\">".$value[3].
-				"<button type=\"button\" class=\"addToCart\"><a href=\"cart.php\">Add to Cart</a></button>
+			<p class='itemDesc'>".$value[3]."
+				<button type='button' class='addToCart'>
+					<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
+				</button>
 			</p>
 			</div>";}?>
   </div>

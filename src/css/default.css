@@ -64,11 +64,15 @@ figcaption > .viewItem:hover{
     border: 			none;
     padding: 			1em 2em;
 }
-.addToCart {
+.addCart {
     text-align: 		center;
     text-decoration: 	none;
     font-size: 			1em;
 	color: 				black;
+}
+.addToCart:hover {
+	background-color: 	rgba(0,0,0,0.7);
+	border: 			3px solid black;
 }
 .viewItem {
 	text-align: 		center;
