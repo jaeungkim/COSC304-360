@@ -1,6 +1,5 @@
 <?php
 // Get the current list of products
-session_destroy();
 session_start();
 $productList = null;
 if (isset($_SESSION['productList'])){

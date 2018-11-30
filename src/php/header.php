@@ -17,7 +17,7 @@
 
     <!-- cart -->
     <div class = "navRight">
-      <a href = "cart.php" id = "cart">cart </a>
+      <a href = "showcart.php" id = "cart">cart </a>
     </div>
 
     <!-- account -->
