@@ -1,49 +1,27 @@
 <?php include 'header.php' ?>
 <!DOCTYPE html>
 <head>
-  <title>Update Items-Admin</title>
+  <title>Delete Items-Admin</title>
   <!-- <link rel="stylesheet" href="../css/mainPage.css" /> -->
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
 <script type = "text/javascript" src = "../scripts/validate.js"> </script>
 </head>
 
-
-<left>
-<form  action="process-insert_update.php" method="post" id="mainForm">
+<center>
+<form  action="process-delete_update.php" method="post" id = "mainform">
   <table>
-    <th colspan="2"><h1 class="form">Add New Products</h1></th>
+    <th colspan="2"><h1 class="form">Delete Existing Product</h1></th>
     <tr>
       <td class="firstcol"><label for="pname">Product Name</label></td>
       <td><input type="text" name="pname" class="required"></td>
     </tr>
-
     <tr>
-      <td class="firstcol"><label for="price">Price</label></td>
-      <td><input type="text" name="price" class="required"></td>
+      <td><button class="delete product" type="submit" name="button">Delete Items</button></td>
     </tr>
-
-    <tr>
-      <td class="firstcol"><label for="description">Product Description</label></td>
-      <td><input type="text" name="description" class="required"></td>
-    </tr>
-
-    <tr>
-      <td class="firstcol"><label for="imageURL">Image Upload</label></td>
-      <td><input type="text" name="imageURL" class="required"></td>
-    </tr>
-
-    <tr>
-      <td class="firstcol"><label for="category">Category</label></td>
-      <td><input type="text" name="category" class="required"></td>
-    </tr>
-    <tr>
-      <td><button class="insert product" type="submit" name="button">Update Items</button></td>
-    </tr>
-  </table>
+    </table>
 </form>
-</left>
-
+</center>
 
 
 </html>

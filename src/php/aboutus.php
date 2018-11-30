@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="../css/aboutus.css"/>
 </head>
 <body>
+  <?php session_start();
+  ?>
   <?php include 'header.php';?>
 
 	<!-- about us -->
