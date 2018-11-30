@@ -8,21 +8,25 @@
   <link rel="stylesheet" href="../css/footer.css"/>
   <link rel="stylesheet" href="../css/aboutus.css"/>
 </head>
-<?php session_start(); ?>
+<?php session_start();
+// unset($_SESSION['productList']);
+ ?>
 <style>
 <?php
+
 include '../css/cart.css';
  ?>
 </style>
 <?php
 // include 'include/money_format_windows.php'; //Only required on windows PCs
 // Get the current list of products
+include 'header.php';
 
 echo '<div class="mainbody">
   <!-- Title -->
   <div class="carttitle">
     <p class="titlecontent">Shopping Cart</p>
-    <button type="button" name="button"><a class="checkout" href = "checkout.php">Check Out</a></button>
+    <button type="button" name="button"><a class="checkout" href = "checkout2.php">Check Out</a></button>
   </div>';
 $productList = null;
 if (isset($_SESSION['productList'])){
