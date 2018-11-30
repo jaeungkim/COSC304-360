@@ -2,6 +2,6 @@
 $host = "localhost";
 $database = "cosc304_project";
 $user = "root";
-$password = "Kingkong36!";
+$password = "";
 
  ?>

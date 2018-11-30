@@ -8,17 +8,13 @@
   <link rel="stylesheet" href="../css/footer.css"/>
   <link rel="stylesheet" href="../css/aboutus.css"/>
   <link rel="stylesheet" href="../css/checkout.css">
+  <link rel="stylesheet" href="../css/cart.css">
 </head>
 <?php session_start();
 // unset($_SESSION['productList']);
- ?>
-<style>
-<?php include '../css/cart.css'; ?>
-</style>
-<?php
 // include 'include/money_format_windows.php'; //Only required on windows PCs
 // Get the current list of products
-// include 'header.php';
+include 'header.php';
 
 //Check if User is logged in, if not, redirect to login
 if(isset($_SESSION['login'])){
@@ -113,8 +109,9 @@ if(isset($_SESSION['login'])){
   echo("</table>");
 
   echo("<h2><a href=\"checkout.php\">Check Out</a></h2>");
-} else{
-  echo("<H1>Your shopping cart is empty!</H1>");
+} else{//if cart is empty
+  echo '<h1> <font size="+50">CART EMPTY!!!!!!  </font></h1>';
+  header('Refresh: 4; URL=frontpage.php');
 }
 
   //Payment form
@@ -144,13 +141,15 @@ if(isset($_SESSION['login'])){
   ';
 
 }
-else{
-  echo '<h1> <font size="+50">PLEASE SIGN IN then COME BACK TO CART TO CHECK OUT!!!!!!
-
-  </font></h1>';
+else{ //if not signed in
+  echo '<h1> <font size="+50">PLEASE SIGN IN then COME BACK TO CART TO CHECK OUT!!!!!!  </font></h1>';
   header('Refresh: 4; URL=signin.php');
   // header('Location: signin.php');
 }
 
 include("footer.php");
 ?>
+</body>
+<img class="cartbg" src="../images/bg/checkoutbg.jpg" alt="">
+</body>
+</html>
