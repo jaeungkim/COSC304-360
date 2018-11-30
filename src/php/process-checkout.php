@@ -48,7 +48,6 @@ if(isset($_SESSION['login'])){
     $cid = $row['cid'];
 
     //Getting creditcard INFO
-
     $sql = "SELECT cid FROM customer WHERE email = '$userEmail';";
     $results = mysqli_query($conn, $sql);
     if(!$results){

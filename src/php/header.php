@@ -27,6 +27,26 @@
         <div class="dropdown-content">
           <div class = "signIn">
             <?php
+            // //check if its admin
+            // include 'db_credential.php';
+            // $conn = mysqli_connect($host, $user, $password, $database);
+            // $error = mysqli_connect_error();
+            // if($error != null){
+            //   $output = "<p>Unable to connect to database!</p>";
+            //   exit("Error description: " . mysqli_error($conn));
+            // }
+            // $sql = "SELECT isAdmin FROM customer WHERE email = '$userEmail';";
+            // $results = mysqli_query($conn, $sql);
+            // if(!$results){
+            //   echo("Error description: " . mysqli_error($conn));
+            // }
+            // $row = mysqli_fetch_assoc($results);
+            // $cid = $row['cid'];
+
+
+
+
+
             if(isset($_SESSION['login'])){
               $firstname = $_SESSION['firstname'];
               echo $firstname;
