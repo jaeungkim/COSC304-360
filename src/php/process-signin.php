@@ -9,51 +9,47 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
   $pwhash = md5($pw);
   $referer = $_SERVER['HTTP_REFERER'];
 
-    // $host = "localhost";
-    // $database = "db_10287969";
-    // $user = "lin";
-    // $password = "linjing.";
-    include 'db_credential.php';
-    $conn = mysqli_connect($host, $user, $password, $database);
-    $error = mysqli_connect_error();
-    $flag = false;
+  include 'db_credential.php';
+  $conn = mysqli_connect($host, $user, $password, $database);
+  $error = mysqli_connect_error();
+  $flag = false;
 
-    if($error != null)
-    {
-      $output = "<p>Unable to connect to database!</p>";
-      exit($output);
-    }
-    else {
-      $sql = "SELECT fName, email, cPassword, isAdmin FROM customer";
-      $results = mysqli_query($conn, $sql);
-      while ($row = mysqli_fetch_assoc($results)) {
-        if ($row["email"] == $email) {
-          $flag = true;//user exists
-          if ($row["cPassword"] == $pwhash) {
-            //echo "this is a valid account";//jump to frontPage
-            $_SESSION['login'] = $email;
-            $_SESSION['firstname'] = $row['fName'];
-            $_SESSION['isAdmin']=$row['isAdmin'];
-            
-            //$_SESSION['wrongpw']= false;
-            //$_SESSION['wrongemail']= false;
-            header('Location: frontPage.php');
-          }
-          else {
-            //echo "password not match";
-            $_SESSION['wrongpw']= true;
-            header("Location: $referer");
+  if($error != null)
+  {
+    $output = "<p>Unable to connect to database!</p>";
+    exit($output);
+  }
+  else {
+    $sql = "SELECT fName, email, cPassword, isAdmin FROM Customer";
+    $results = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_assoc($results)) {
+      if ($row["email"] == $email) {
+        $flag = true;//user exists
+        if ($row["cPassword"] == $pwhash) {
+          //echo "this is a valid account";//jump to frontPage
+          $_SESSION['login'] = $email;
+          $_SESSION['firstname'] = $row['fName'];
+          $_SESSION['isAdmin']=$row['isAdmin'];
 
-          }
+          //$_SESSION['wrongpw']= false;
+          //$_SESSION['wrongemail']= false;
+          header('Location: frontPage.php');
+        }
+        else {
+          //echo "password not match";
+          $_SESSION['wrongpw']= true;
+          header("Location: $referer");
+
         }
       }
-      if (!$flag) {//user not exist
-        //echo "user not exit";
-        $_SESSION['wrongemail']= true;
-        header("Location: $referer");
-      }
-      mysqli_close($conn);
     }
+    if (!$flag) {//user not exist
+      //echo "user not exit";
+      $_SESSION['wrongemail']= true;
+      header("Location: $referer");
+    }
+    mysqli_close($conn);
+  }
 
 }
 else {
