@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<div class = "navLeft">
-  <form action="admin_insert_update.php" method="get" id="addItem">
-    <input type = "text" name ="Add_Item">
-    <input type = "submit" value="Submit">
-  </form>
-</div>
+<form  action="process-insert_update.php" method="post" id="insert_update">
+  <table>
+    <th colspan="2"><h1 class="form">Update Products</h1></th>
+    <tr>
+      <td class="firstcol"><label for="pname">Product Name</label></td>
+      <td><input type="text" name="pname" class="required"></td>
+    </tr>
+
+    <tr>
+      <td class="firstcol"><label for="price">Price</label></td>
+      <td><input type="text" name="price" class="required"></td>
+    </tr>
+
+    <tr>
+      <td class="firstcol"><label for="description">Product Description</label></td>
+      <td><input type="text" name="description" class="required"></td>
+    </tr>
+
+    <tr>
+      <td class="firstcol"><label for="imageURL">Image Upload</label></td>
+      <td><input type="text" name="imageURL" class="required"></td>
+    </tr>
+
+    <tr>
+      <td class="firstcol"><label for="category">Category</label></td>
+      <td><input type="text" name="category" class="required"></td>
+    </tr>
+    <tr>
+      <td><button class="insert_product" type="submit" name="button">Update Items</button></td>
+    </tr>
+  </table>
 </html>
   <?php
   if ($_SERVER['REQUEST_METHOD']=="GET") {
-    $Add_Item = $_GET['Add_Item'];
+    //$Add_Item = $_GET['Add_Item'];
     // $insert_sql = mysqli_query($conn,"INSERT INTO Product VALUES($Add_Item)");
     include 'db_credential.php';
     $conn = mysqli_connect($host, $user, $password, $database);

@@ -31,8 +31,11 @@
               $firstname = $_SESSION['firstname'];
               echo $firstname;
               echo '<a href="logout.php">Logout</a>';
-              if(($_SESSION['isAdmin'])==1){
+              if(isset($_SESSION['isAdmin'])){
+                $isAdmin = $_SESSION['isAdmin'];
+              if($isAdmin==1){
                 echo '<a href = "adminPage.php" > Admin Page</a>';
+              }
               }
             }
             else{
