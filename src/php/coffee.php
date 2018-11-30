@@ -97,7 +97,7 @@
       }
       else
       {
-        $sql = "SELECT * FROM product" ;//WHERE category = coffee
+        $sql = "SELECT * FROM product WHERE category = 'coffee' " ;//WHERE category = coffee
         $results = mysqli_query($conn, $sql);
 
 
@@ -116,9 +116,11 @@
           while ($row = mysqli_fetch_assoc($results)) {
             $pname = $row['pname'];
             $price = $row['price'];
+            $imageurl = $row['imageURL'];
+
             echo
             '<tr class = "menuitems">
-              <td><img id = "menupic" src = '.$row["imageURL"].'alt =""></td>
+              <td><img id = "menupic" src = "'.$row["imageURL"].'" alt =""></td>
               <td> '.$pname.' </td>
               <td>'.$price.'</td>
               <td> quantity</td>
