@@ -21,8 +21,7 @@ if(isset($_SESSION['login'])){
   echo '<div class="mainbody">
   <!-- Title -->
   <div class="carttitle">
-  <p class="titlecontent">Shopping Cart</p>
-  <button type="button" name="button"><a class="checkout" href = "process-checkout.php">Check Out</a></button>
+  <p class="titlecontent">YOUR ORDER</p>
   </div>';
   $productList = null;
   if (isset($_SESSION['productList'])){

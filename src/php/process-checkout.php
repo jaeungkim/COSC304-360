@@ -39,7 +39,17 @@ if(isset($_SESSION['login'])){
     $pPrice = 100;
 
     //Getting User id for ORDERS data insertion
-    $sql = "SELECT cid FROM Customer WHERE email = '$userEmail';";
+    $sql = "SELECT cid FROM customer WHERE email = '$userEmail';";
+    $results = mysqli_query($conn, $sql);
+    if(!$results){
+      echo("Error description: " . mysqli_error($conn));
+    }
+    $row = mysqli_fetch_assoc($results);
+    $cid = $row['cid'];
+
+    //Getting creditcard INFO
+
+    $sql = "SELECT cid FROM customer WHERE email = '$userEmail';";
     $results = mysqli_query($conn, $sql);
     if(!$results){
       echo("Error description: " . mysqli_error($conn));
@@ -62,19 +72,24 @@ if(isset($_SESSION['login'])){
     }
     $row = mysqli_fetch_assoc($results);
     $oid = $row['oid'];
-    
+    echo 'oid: '.$oid;
     //Insert into ORDERCONTAINS
-    foreach ($productList as $id => $prod) {
-      $pid = $prod['id'];
-      $pQuantity = $prod['quatity'];
-      $pPrice = 1;
-
-      $sql = "INSERT INTO `ordercontains` (`quantity`, `price`, `oid`, `pid`) VALUES ('$pQuantity', $pPrice, '$oid', '$pid');"; //WHERE category = coffee
-      $result = mysqli_query($conn, $sql);
-      if(!$result){
-        echo("Error description: " . mysqli_error($conn));
-      }
-    }
+    // foreach ($productList as $id => $prod) {
+    //   //retrieve product info
+    //   $sql = "SELECT * FROM product WHERE pid = ".$prod['id'];//WHERE category = coffee
+    //   $results = mysqli_query($conn, $sql);
+    //   $row = mysqli_fetch_assoc($results);
+    //
+    //   $pid = $prod['id'];
+    //   $pQuantity = $prod['quantity'];
+    //   $pPrice = $row['price'];
+    //
+    //   $sql = "INSERT INTO `ordercontains` (`quantity`, `price`, `oid`, `pid`) VALUES ('$pQuantity', $pPrice, '$oid', '$pid');"; //WHERE category = coffee
+    //   $result = mysqli_query($conn, $sql);
+    //   if(!$result){
+    //     echo("Error description: " . mysqli_error($conn));
+    //   }
+    // }
     mysqli_close($conn);
   }
   //if cart is empty
@@ -85,6 +100,7 @@ if(isset($_SESSION['login'])){
   echo 'Ordered Time: '.$datetime;
   echo '<br> PROCESSING YOUR ORDER...';
   // header('Refresh: 5; showOrder.php');
+
 }
 ?>
 </html>
