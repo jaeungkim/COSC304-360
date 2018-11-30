@@ -17,7 +17,7 @@
 	//CHANGE THIS TO CHANGE SIMILAR ITEMS. MUST SET 4 ITEMS
 	$similarItems = returnMultipleItems(array(5, 22, 19, 7))
 ?>
-  <?php include 'header.php';?>
+ <?php include 'header.php';?>
 
   <!-- item body -->
     <div class = "panel">
@@ -46,7 +46,10 @@
 			<h3 class="username">cinderella</h3>
 			<p class="ptext">Help me I can't feel my legs</p>
 		</div>
-		<button type="button" class="commentBtn"><a href="#">Comment</a></button>
+		<form action = 'comment.php' method = 'get' id = 'mainForm'>
+			<input type = 'text' name = 'comment' value = 'Enter Comment' id='commentBox'>
+			<input type = 'submit' class = 'commentBtn' name = 'commentSubmit' value = 'Submit'>
+		</form>
 	</div>
 
 	<div class="similarItems">
@@ -97,6 +100,6 @@
 		</form>
 	</div>
 
-  <?php include 'footer.php';?>
+  <?php include 'footer.php'?>
   </body>
 </html>
