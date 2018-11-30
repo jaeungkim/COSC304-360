@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-
+<!--
          <script>
          function changecondition() {
              var checkbox = document.getElementByClass("checkbox");
@@ -50,7 +50,7 @@
 
            }
          </script>
-
+-->
   </head>
   <body>
 
@@ -104,13 +104,14 @@
         else {
           $isAdmin = 'YES';
         }
-       $disabled = $row['disabled'];
 
-        if ($disabled ==1 ) {
-          $checkbox = '<input type="checkbox" class="checkbox" id="'.$cid.'" checked onclick="changecondition()">';
+        if ($row['disabled'] ==1 ) {
+          $disabled = 'YES';
+          $link = '<a href = "enable_customer.php?id= '.$cid.' ">ENABLE THIS ACCOUNT</a>';
         }
         else {
-          $checkbox = '<input type="checkbox" class="checkbox" id="'.$cid.'" onclick="changecondition()">';
+          $disabled = 'NO';
+          $link = '<a href = "disable_customer.php?id= '.$cid.' ">DISABLE THIS ACCOUNT</a>';
         }
 
         echo
@@ -122,7 +123,8 @@
           <td> '.$address. '</td>
           <td> '.$phoneNum.' </td>
           <td> '.$isAdmin.' </td>
-          <td> '.$checkbox.' </td>
+          <td> '.$disabled.' </td>
+          <td>'.$link.'</td>
          </tr>';
       }
 
