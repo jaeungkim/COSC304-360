@@ -107,8 +107,6 @@ if(isset($_SESSION['login'])){
   }
   echo("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td><td align=\"right\">".str_replace("USD","$",$total)."</td></tr>");
   echo("</table>");
-
-  echo("<h2><a href=\"checkout.php\">Check Out</a></h2>");
 } else{//if cart is empty
   echo '<h1> <font size="+50">CART EMPTY!!!!!!  </font></h1>';
   header('Refresh: 4; URL=frontpage.php');

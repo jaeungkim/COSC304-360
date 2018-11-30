@@ -1,4 +1,4 @@
-INSERT INTO Customer (email, fName, lName, address, cPassword, phoneNum, isAdmin, disabled)
+INSERT INTO customer (email, fName, lName, address, cPassword, phoneNum, isAdmin, disabled)
 VALUES ('user@gmail.com', '$fName','$lName', 'address','password', '$123', '0', '0');
 
 INSERT INTO `creditcard`(`cardNum`, `cardExpired`, `CVV`, `bAddress`, `cid`) 

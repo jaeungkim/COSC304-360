@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS Product;
 DROP TABLE IF EXISTS CreditCard;
 DROP TABLE IF EXISTS Customer;
 
-CREATE TABLE Customer(
+CREATE TABLE customer(
 	cid INT NOT NULL AUTO_INCREMENT,
     email VARCHAR(50) NOT NULL,
 	fName VARCHAR(50) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE Customer(
 	PRIMARY KEY (cid, email)
 );
 
-CREATE TABLE CreditCard (
+CREATE TABLE creditCard (
 	cardNum INT NOT NULL,
 	cardExpired DATE NOT NULL,
 	CVV INT NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE CreditCard (
 	FOREIGN KEY (cid) REFERENCES Customer(cid) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE Product (
+CREATE TABLE product (
 	pid INT NOT NULL AUTO_INCREMENT,
 	pname VARCHAR(50) NOT NULL,
 	price DECIMAL(5,2),
@@ -41,7 +41,7 @@ CREATE TABLE Product (
 	PRIMARY KEY (pid)
 );
 
-CREATE TABLE Orders (
+CREATE TABLE orders (
 	oid INT NOT NULL AUTO_INCREMENT,
 	purchasedDate DATETIME NOT NULL,
     cardNum INT NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE Orders (
 	FOREIGN KEY (cid) REFERENCES Customer(cid) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE Shipment (
+CREATE TABLE shipment (
 	trackingNum INT(20) NOT NULL,
 	shipDate DATE NOT NULL,
 	weight DOUBLE NOT NULL,
@@ -72,14 +72,14 @@ CREATE TABLE productImage (
 	FOREIGN KEY (pid) REFERENCES Product(pid) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE Rating (
+CREATE TABLE rating (
 	stars INT NOT NULL,   
     pid INT NOT NULL,
 	PRIMARY KEY (stars),
 	FOREIGN KEY (pid) REFERENCES Product(pid) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE OrderContains (
+CREATE TABLE ordercontains (
 	quantity INT,
 	price INT,
     oid INT NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE OrderContains (
 	FOREIGN KEY (pid) REFERENCES Product(pid) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE UserComments(
+CREATE TABLE usercomments(
 	commentsId INT NOT NULL AUTO_INCREMENT,
     pid INT NOT NULL,
 	cid INT NOT NULL,

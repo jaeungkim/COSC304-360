@@ -1,6 +1,6 @@
 <?php
-$host = "localhost";
-$database = "cosc304_project";
-$user = "root";
-$password = "";
+$host = "cosc304.ok.ubc.ca";
+$database = "db_klee";
+$user = "klee";
+$password = "27118158";
  ?>
