@@ -74,6 +74,7 @@
     else {
       $sql = "SELECT * FROM customer";
       $results = mysqli_query($conn, $sql);
+      echo '<a href="adminPage.php">BACK TO ADMIN HOMEPAGE</a>';
 
       //echo cid email fName lName address cPassword phoneNum isAdmin
       echo '<div class = "">
