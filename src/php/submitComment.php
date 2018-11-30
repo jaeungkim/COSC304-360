@@ -8,6 +8,7 @@ if($error != null) {
   $output = "<p>Unable to connect to database!</p>";
   exit($output);
 } else {
+	$referer = $_SERVER['HTTP_REFERER'];
 	$email = $_GET["email"];
 	$customerArray = returnLoggedIn($email);
 	$cid = $customerArray[0];
@@ -16,8 +17,7 @@ if($error != null) {
 
 	$sql = "INSERT INTO usercomments (pid, cid, content) VALUES('$pid' , '$cid' , '$content')";
 	if (mysqli_query($connection, $sql)){
-		echo"<p>Failed to insert record</p>";
-		//header("Location: item.php");
+		header("Location: $referer");
 	} else {
 		echo"<p>Failed to insert record</p>";
 	}

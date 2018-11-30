@@ -8,6 +8,13 @@
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/item.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript">
+	window.jQuery ||
+	document.write('<script src="js/jquery-1.9.1.min.js"><\/script>');
+  </script>
 </head>
 <body>
 <?php
@@ -41,12 +48,18 @@
 	<div class="comments">
 		<h2>Comments</h2>
 		<?php 
-			echo "<p>".$commentsArray[0][0]."</p>";
-			foreach ($commentsArray as $value){
-				$userInfo = returnCustomer($value[2]);
-				echo "<div class=\"panel\">
-					<h3 class=\"userName\">".$userInfo[2]."</h3>
-					<p class=\"ptext\">".$value[3]."</p>
+			if (isset($commentsArray)){
+				echo "<p>".$commentsArray[0][0]."</p>";
+				foreach ($commentsArray as $value){
+					$userInfo = returnCustomer($value[2]);
+					echo "<div class=\"panel\">
+						<h3 class=\"userName\">".$userInfo[2]."</h3>
+						<p class=\"ptext\">".$value[3]."</p>
+					</div>";
+				}
+			} else {
+				echo "<div class='panel'>
+					<p class='ptext'> No Comments Yet. </p>
 				</div>";
 			}
 			//IF USER IS LOGGED IN DISPLAY COMMENT BOX
@@ -58,7 +71,7 @@
 					<input type='text' name='content' value='Enter Comment' id='commentBox'>
 					<input type='submit' class='commentBtn' name ='commentSubmit' value='Submit'>
 				</form>";
-			}	
+			}
 		?>
 	</div>
 

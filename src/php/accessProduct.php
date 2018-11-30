@@ -78,7 +78,11 @@ function returnComments($pid){
 			$returnArray[] = $row;
 		}
 		mysqli_close($connection);
-		return $returnArray;
+		if (isset($returnArray)){
+			return $returnArray;
+		} else {
+			return null;
+		}
 	}
 	//return an array with a single value which is an error message
 	$errorarray[] = "Could not find " . (string)$pid;
