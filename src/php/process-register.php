@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   $email = $_POST["email"];
   $pw = $_POST["password"];
   $pwhash = md5($pw);
-  $address = $POST['address'];
-  $phonenum = $POST['phonenum'];
+  $address = $_POST['address'];
+  $phonenum = $_POST['phonenum'];
   $isadmin = 0;
   $disabled = 0;
   $referer = $_SERVER['HTTP_REFERER'];

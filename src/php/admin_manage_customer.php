@@ -3,6 +3,54 @@
   <head>
     <meta charset="utf-8">
 
+         <script>
+         function changecondition() {
+             var checkbox = document.getElementByClass("checkbox");
+             for (var i = 0; i < checkbox.length; i++) {
+               <?php $cid ?>= checkbox[i].id;
+               //get id of each box
+               if (checkbox.checked == true){
+                   //disable this user
+                   <?php
+                   include "db_credential.php";
+                   $conn = mysqli_connect($host, $user, $password, $database);
+                   $error = mysqli_connect_error();
+
+                   if($error != null)
+                   {
+                     $output = "<p>Unable to connect to database!</p>";
+                     exit($output);
+                   }
+                   else {
+                     $sql = "UPDATE customer SET disabled = 1 WHERE cid = $cid  ";
+                     $results = mysqli_query($conn, $sql);
+                   }
+                   ?>
+                 }
+
+                else {
+                  //enable this user
+                  <?php
+                  include "db_credential.php";
+                  $conn = mysqli_connect($host, $user, $password, $database);
+                  $error = mysqli_connect_error();
+
+                  if($error != null)
+                  {
+                    $output = "<p>Unable to connect to database!</p>";
+                    exit($output);
+                  }
+                  else {
+                    $sql = "UPDATE customer SET disabled = 0 WHERE cid = $cid  ";
+                    $results = mysqli_query($conn, $sql);
+                  }
+                  ?>
+               }
+             }
+
+           }
+         </script>
+
   </head>
   <body>
 
@@ -55,9 +103,9 @@
         else {
           $isAdmin = 'YES';
         }
-      //  $condition = $row['condition'];
-        $condition = 0;
-        if ($condition ==0 ) {
+       $disabled = $row['disabled'];
+
+        if ($disabled ==1 ) {
           $checkbox = '<input type="checkbox" class="checkbox" id="'.$cid.'" checked onclick="changecondition()">';
         }
         else {
