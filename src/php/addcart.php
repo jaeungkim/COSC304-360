@@ -11,7 +11,7 @@ if (isset($_SESSION['productList'])){
 
 // Add new product selected
 // Get product information
-if(isset($_GET['id']) && isset($_GET['quantity'])){
+if(isset($_GET['id'])){
   include 'db_credential.php';
   $conn = mysqli_connect($host, $user, $password, $database);
   $error = mysqli_connect_error();
@@ -25,12 +25,20 @@ if(isset($_GET['id']) && isset($_GET['quantity'])){
     $results = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($results);
   }
-
-	$id = $_GET['id'];
-	$name = $row['pname'];
-	$price = $row['price'];
-  $quantity = $_GET['quantity'];
-} else {
+	if(isset($_GET['quantity'])){ //if quantity is specified
+		$id = $_GET['id'];
+		$name = $row['pname'];
+		$price = $row['price'];
+	  $quantity = $_GET['quantity'];
+	}
+	else{		//if no quantity is specific, increment quantity
+		$id = $_GET['id'];
+		$name = $row['pname'];
+		$price = $row['price'];
+	  $quantity = 1;
+	}
+}
+else {
 	header('Location: frontPage.php');
 }
 
