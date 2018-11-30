@@ -25,14 +25,16 @@ session_start();
   <div class = "advertisements">
 	<?php
 		foreach($advertisements as $value){
-			echo "<form method=\"get\" action=\"item.php\" id=\"addSubmit\">
-				<div class = \"flipAdd\">
-					<div class=\"front\"><img class = \"addImg\" alt = \"addImg\" src= \"".$value[4]."\"></div>
-					<div class=\"back\">
-						<p class=\"addDesc\">".$value[3]."</p>
-						<input type=\"hidden\" name=\"itemID\" value=\"".$value[0]."\" >
-						<input type=\"submit\" class=\"viewItem\" value=\"View Item\" name=\"".$value[1]."\">
-						<button type=\"button\" class=\"addToCart\"><a href=\"cart.php\">Add to Cart</a></button>
+			echo "<form method='get' action='item.php' id='addSubmit'>
+				<div class = 'flipAdd'>
+					<div class='front'><img class = 'addImg' alt = 'addImg' src= '".$value[4]."'></div>
+					<div class='back'>
+						<p class='addDesc'>".$value[3]."</p>
+						<input type='hidden' name='itemID' value='".$value[0]."'>
+						<input type='submit' class='viewItem' value='View Item' name='".$value[1]."'>
+						<button type='button' class='addToCart'>
+							<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
+						</button>
 					</div>
 				</div>
 			</form>";}?>

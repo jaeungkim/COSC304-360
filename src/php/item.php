@@ -32,10 +32,9 @@
 			<figcaption><?php echo $itemArray[1];?></figcaption>
 		</figure>
 		<p class="itemDesc"><?php echo $itemArray[3];?>
-			<form action='addcart.php' method='get'>
-				<input type='hidden' name='quantity' value='1'>
-				<input type='submit' name='id' value='$pid' class='addToCart'>
-			</form>
+			<button type="button" class="addToCart">
+				<a class="addCart" href = "addcart.php?id='<?php echo $pid;?>'&quantity=1"> Add to Cart </a>
+			</button>
 		</p>
 	</div>
 	
@@ -58,7 +57,7 @@
 					<p class='ptext'> No Comments Yet. </p>
 				</div>";
 			}
-			//If user is logged in display comments 
+			//If user is logged in dispaly commenbt 
 			if (isset($_SESSION['login'])){
 				$email = $_SESSION['login'];
 				echo "<form action='submitComment.php' method='get' id='mainForm'>
