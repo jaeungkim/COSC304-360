@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
       //SEARCHING WITH KEYWORDS
       $sql = "SELECT * FROM customer WHERE fName LIKE '%".$searchcustomer."%' OR lName Like '%".$searchcustomer."%'";
       $results = mysqli_query($conn, $sql);
+      echo '<a href="adminPage.php">BACK TO ADMIN HOMEPAGE</a>';
+      echo "<br>";
+      echo '<a href="admin_manage_customer.php">BACK TO SEARCHPAGE</a>';
         //echo cid email fName lName address cPassword phoneNum isAdmin
         if (mysqli_num_rows($results) > 0) {
           echo '<div class = "">
