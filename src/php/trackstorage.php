@@ -13,6 +13,14 @@ else {
   while ($row = mysqli_fetch_assoc($results)) {
     $pname = $row['pname'];
     $quan = $row['pid'];
+    
+    $res_arr_values = array();
+      while ($row = mysql_fetch_assoc($result))
+         {
+             $res_arr_values[] = $row;
+         }
+
+
 
   }
 }
