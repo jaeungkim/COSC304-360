@@ -1,8 +1,8 @@
-body{
+/* body{
 	overflow:			auto;
 	font-family: myFirstFont;
 	margin: auto;
-}
+} */
 .cartbg{
   position: fixed;
   right: 0;
@@ -12,11 +12,11 @@ body{
   z-index: -1;
 }
 
-.mainbody{
+/* .mainbody{
   clear: left;
   color: white;
   margin: 1em 20%;
-}
+} */
 
 .carttitle{
   font-size: 3em;

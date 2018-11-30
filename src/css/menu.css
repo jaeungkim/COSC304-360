@@ -9,15 +9,13 @@
   opacity: 0.8;
   padding: 1em 2em;
   position: relative;
-  z-index: -2;
 }
 #menupic{
   width: 5em;
   height: 4em;
 }
 .addCart{
-  position: absolute;
+  position: relative;
   bottom: auto;
   top:auto;
-  z-index:auto;
 }

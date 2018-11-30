@@ -2,11 +2,11 @@
 <html lang = "en">
 <head>
   <title>IDEAS</title>
-  <!--
+
   <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <link rel="stylesheet" href="../css/menu.css"/> -->
+  <link rel="stylesheet" href="../css/menu.css"/>
 </head>
 <body>
   <header>

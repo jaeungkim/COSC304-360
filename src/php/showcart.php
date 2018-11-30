@@ -112,7 +112,7 @@ if (isset($_SESSION['productList'])){
 	echo("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td><td align=\"right\">".str_replace("USD","$",$total)."</td></tr>");
 	echo("</table>");
 
-	echo("<h2><a href=\"checkout.php\">Check Out</a></h2>");
+	// echo("<h2><a href=\"checkout.php\">Check Out</a></h2>");
 } else{
 	echo("<H1>Your shopping cart is empty!</H1>");
 }
