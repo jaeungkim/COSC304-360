@@ -24,7 +24,7 @@
       //LISTING ALL PRODUCTS IF NOTHING IS ENTERED
       if($search_product == ""){
         echo("<h2 class = \"productTitle\">All Products</h2>");
-        $sql = mysqli_query($conn,"SELECT * FROM Product");
+        $sql = mysqli_query($conn,"SELECT * FROM product");
         while($row = mysqli_fetch_assoc($sql)){
           $image=$row['imageURL'];
           echo "<div class = \"productInfo\">";
@@ -36,7 +36,7 @@
       } else{
         //SEARCHING WITH KEYWORDS
         echo("<h2 class = \"productTitle\">Products containing '" . $search_product. "'</h2>");
-        $sql = mysqli_query($conn,"SELECT * FROM Product
+        $sql = mysqli_query($conn,"SELECT * FROM product
           WHERE (pname LIKE '%".$search_product."%') OR (description LIKE '%".$search_product."%')");
 
           //CHECK IF KEYWORDS EXITS IN PRODUCT DATABASE
