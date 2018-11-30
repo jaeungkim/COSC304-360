@@ -20,11 +20,10 @@
 	$commentsArray = returnComments($pid);
 
 	//CHANGE THIS TO CHANGE SIMILAR ITEMS
-	$similarItems = returnMultipleItems(array(5, 22, 19, 7))
+	$similarItems = returnMultipleItems(array(5, 22, 19, 7));
 	
-	
+	include 'header.php';
 ?>
- <?php include 'header.php';?>
 
   <!-- item body -->
     <div class = "panel">
@@ -33,7 +32,9 @@
 			<figcaption><?php echo $itemArray[1];?></figcaption>
 		</figure>
 		<p class="itemDesc"><?php echo $itemArray[3];?>
-			<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
+			<button type="button" class="addToCart">
+				<a class="addCart" href = "addcart.php?id='<?php echo $pid;?>'&quantity=1"> Add to Cart </a>
+			</button>
 		</p>
 	</div>
 	
@@ -41,15 +42,22 @@
 	<div class="comments">
 		<h2>Comments</h2>
 		<?php 
-			echo "<p>".$commentsArray[0][0]."</p>";
-			foreach ($commentsArray as $value){
-				$userInfo = returnCustomer($value[2]);
-				echo "<div class=\"panel\">
-					<h3 class=\"userName\">".$userInfo[2]."</h3>
-					<p class=\"ptext\">".$value[3]."</p>
+			//If there are comments display them, otherwise say no comments yet
+			if (isset($commentsArray)){
+				echo "<p>".$commentsArray[0][0]."</p>";
+				foreach ($commentsArray as $value){
+					$userInfo = returnCustomer($value[2]);
+					echo "<div class=\"panel\">
+						<h3 class=\"userName\">".$userInfo[2]."</h3>
+						<p class=\"ptext\">".$value[3]."</p>
+					</div>";
+				}
+			} else {
+				echo "<div class='panel'>
+					<p class='ptext'> No Comments Yet. </p>
 				</div>";
 			}
-			//IF USER IS LOGGED IN DISPLAY COMMENT BOX
+			//If user is logged in dispaly commenbt 
 			if (isset($_SESSION['login'])){
 				$email = $_SESSION['login'];
 				echo "<form action='submitComment.php' method='get' id='mainForm'>
@@ -58,7 +66,7 @@
 					<input type='text' name='content' value='Enter Comment' id='commentBox'>
 					<input type='submit' class='commentBtn' name ='commentSubmit' value='Submit'>
 				</form>";
-			}	
+			}
 		?>
 	</div>
 

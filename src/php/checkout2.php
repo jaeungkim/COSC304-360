@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/footer.css"/>
   <link rel="stylesheet" href="../css/aboutus.css"/>
   <link rel="stylesheet" href="../css/checkout.css">
-  <link rel="stylesheet" href="../css/cart.css">
+  <!-- <link rel="stylesheet" href="../css/cart.css"> -->
 </head>
 <?php session_start();
 // unset($_SESSION['productList']);
@@ -80,8 +80,7 @@ if(isset($_SESSION['login'])){
         </div>
       </form>
       <div class="col total-price">'.$row['price'].'</div>
-    </div>
-    ';
+    </div>';
 
 
 
@@ -109,7 +108,7 @@ if(isset($_SESSION['login'])){
   echo("</table>");
 } else{//if cart is empty
   echo '<h1> <font size="+50">CART EMPTY!!!!!!  </font></h1>';
-  header('Refresh: 4; URL=frontpage.php');
+  // header('Refresh: 4; URL=frontpage.php');
 }
 
   //Payment form
@@ -119,15 +118,28 @@ if(isset($_SESSION['login'])){
     <div class="card">
       <p class="label2">Add a New Payment Method</p>
       <p class="label3">Enter your credit card information:</p>
-      <form class="" action="index.php" method="post">
+      <form class="" action="process-creditCard.php" method="post">
         <table>
           <tr>
             <th>Name on card</th><th>Card number</th><th>Expiration date</th><th></th>
           </tr>
           <tr>
-            <td><input type="text" name="cardname"></td>
-            <td><input type="text" name="cardnumber"></td>
-            <td><input type="date" name="expiredate"></td>
+
+            <td class="firstcol"><label for="cardname">CardName</label></td>
+            <td><input type="text" name="cardname" class="required" "></td>
+
+            <td class="firstcol"><label for="cardnumber">CardNumber</label></td>
+            <td><input type="text" name="cardnumber" class="required" "></td>
+
+            <td class="firstcol"><label for="CVV">CVV</label></td>
+            <td><input type="text" name="CVV" class="required" "></td>
+
+            <td class=firstcol><label for=="expiredate">Expired Date</label></td>
+            <td><input type="date" name="expiredate" class="required" "></td>
+
+            <td class="firstcol"><label for="bAddress">Billing Address</label></td>
+            <td><input type="text" name="bAddress" class="required" "></td>
+
             <td><input type="submit" name="submit" value="Add"></td>
           </tr>
         </table>
@@ -141,7 +153,7 @@ if(isset($_SESSION['login'])){
 }
 else{ //if not signed in
   echo '<h1> <font size="+50">PLEASE SIGN IN then COME BACK TO CART TO CHECK OUT!!!!!!  </font></h1>';
-  header('Refresh: 4; URL=signin.php');
+  // header('Refresh: 4; URL=signin.php');
   // header('Location: signin.php');
 }
 

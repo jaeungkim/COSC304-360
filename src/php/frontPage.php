@@ -15,7 +15,7 @@ session_start();
   <?php
   //Set id in arrays to whatever products you want. Advertisements can only have 3 but the others can have however many.
   include"accessProduct.php";
-  $advertisements = returnMultipleItems(array(1, 2, 3));
+  $advertisements = returnMultipleItems(array(1, 2, 8));
   $recommendedItems = returnMultipleItems(array(10, 6, 4, 24, 7, 19));
   $deals = returnMultipleItems(array(5, 14, 21, 9, 15, 23));
   ?>
@@ -25,14 +25,16 @@ session_start();
   <div class = "advertisements">
 	<?php
 		foreach($advertisements as $value){
-			echo "<form method=\"get\" action=\"item.php\" id=\"addSubmit\">
-				<div class = \"flipAdd\">
-					<div class=\"front\"><img class = \"addImg\" alt = \"addImg\" src= \"".$value[4]."\"></div>
-					<div class=\"back\">
-						<p class=\"addDesc\">".$value[3]."</p>
-						<input type=\"hidden\" name=\"itemID\" value=\"".$value[0]."\" >
-						<input type=\"submit\" class=\"viewItem\" value=\"View Item\" name=\"".$value[1]."\">
-						<button type=\"button\" class=\"addToCart\"><a href=\"cart.php\">Add to Cart</a></button>
+			echo "<form method='get' action='item.php' id='addSubmit'>
+				<div class = 'flipAdd'>
+					<div class='front'><img class = 'addImg' alt = 'addImg' src= '".$value[4]."'></div>
+					<div class='back'>
+						<p class='addDesc'>".$value[3]."</p>
+						<input type='hidden' name='itemID' value='".$value[0]."'>
+						<input type='submit' class='viewItem' value='View Item' name='".$value[1]."'>
+						<button type='button' class='addToCart'>
+							<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
+						</button>
 					</div>
 				</div>
 			</form>";}?>

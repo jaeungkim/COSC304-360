@@ -18,7 +18,7 @@ function returnItem($pid){
 		return $errorarray;
 	} else {
 		//return an array which contains all the values of the product
-		$sql = "SELECT * FROM Product WHERE pid = '$pid'";
+		$sql = "SELECT * FROM product WHERE pid = '$pid'";
 		$result = mysqli_query($connection, $sql);
 		$row = mysqli_fetch_row($result);
 		mysqli_close($connection);
@@ -43,7 +43,7 @@ function returnMultipleItems($idArray){
 	} else {
 
 		foreach ($idArray as $value){
-			$sql = "SELECT * FROM Product WHERE pid = '$value'";
+			$sql = "SELECT * FROM product WHERE pid = '$value'";
 			$result = mysqli_query($connection, $sql);
 			$row = mysqli_fetch_row($result);
 			$returnArray[] = $row;
@@ -71,14 +71,18 @@ function returnComments($pid){
 		return $errorarray;
 	} else {
 		//return an array which contains all the values of the product
-		$sql = "SELECT * FROM userComments WHERE pid = '$pid'";
+		$sql = "SELECT * FROM usercomments WHERE pid = '$pid'";
 		$result = mysqli_query($connection, $sql);
 		$returnArray;
 		while ($row = mysqli_fetch_row($result)){
 			$returnArray[] = $row;
 		}
 		mysqli_close($connection);
-		return $returnArray;
+		if (isset($returnArray)){
+			return $returnArray;
+		} else {
+			return null;
+		}
 	}
 	//return an array with a single value which is an error message
 	$errorarray[] = "Could not find " . (string)$pid;
