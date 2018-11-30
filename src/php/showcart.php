@@ -1,15 +1,20 @@
-<!-- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang = "en">
 <head>
-<title>Your Shopping Cart</title>
+  <title>IDEAS</title>
+  <link rel="stylesheet" href="../css/mainPage.css" />
+  <link rel="stylesheet" href="../css/header.css"/>
+  <link rel="stylesheet" href="../css/default.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/aboutus.css"/>
 </head>
-<body> -->
 <?php session_start(); ?>
 <style>
-<?php include '../css/cart.css'; ?>
+<?php
+include '../css/cart.css';
+ ?>
 </style>
 <?php
-include("header.php");
 // include 'include/money_format_windows.php'; //Only required on windows PCs
 // Get the current list of products
 
@@ -19,12 +24,6 @@ echo '<div class="mainbody">
     <p class="titlecontent">Shopping Cart</p>
     <button type="button" name="button"><a class="checkout" href = "checkout.php">Check Out</a></button>
   </div>';
-
-
-
-
-
-
 $productList = null;
 if (isset($_SESSION['productList'])){
 	$productList = $_SESSION['productList'];
@@ -71,9 +70,12 @@ if (isset($_SESSION['productList'])){
 
       <form action="showcart.php" method="get">
         <div class="col quantity">
-          Quantity: <input type="number" id="myNumber'.$prod['id'].' name="quantity" value="quantity">
-          <input type="submit" class="minus-btn" name="pid" value="'.$prod['id'].'" >
-          Update Quantity
+          <button class="plus-btn" name="pid" value="'.$prod['id'].'" type="submit">
+             <img src="../images/sign/plus.png" width="15em" height="15em">
+          </button>
+          <input type="text" name="pid" value="'.$prod['quantity'].'">
+          <button class="minus-btn" name="pid" value="'.$prod['id'].'" type="submit">
+             <img src="../images/sign/minus.png" width="15em" height="15em">
           </button>
         </div>
       </form>
@@ -82,13 +84,13 @@ if (isset($_SESSION['productList'])){
     ';
 
 
-    // <button class="plus-btn" name="pid" value="'.$prod['id'].'" type="submit">
-    //    <img src="../images/sign/plus.png" width="15em" height="15em">
+
+    //
+    // Quantity: <input type="number" id="myNumber'.$prod['id'].' name="quantity" value="quantity">
+    // <input type="submit" class="minus-btn" name="pid" value="'.$prod['id'].'" >
+    // Update Quantity
     // </button>
-    // <input type="text" name="pid" value="'.$prod['quantity'].'">
-    // <button class="minus-btn" name="pid" value="'.$prod['id'].'" type="submit">
-    //    <img src="../images/sign/minus.png" width="15em" height="15em">
-    // </button>
+
 
 
 
