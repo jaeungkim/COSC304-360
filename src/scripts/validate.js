@@ -12,6 +12,8 @@ function isBlank(inputField)
 
 function makeRed(inputDiv){
 	inputDiv.style.borderColor="#AA0000";
+  inputDiv.style.borderWidth="3px";
+
 }
 
 function makeClean(inputDiv){
