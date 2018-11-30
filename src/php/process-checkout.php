@@ -37,7 +37,7 @@ if(isset($_SESSION['login'])){
     $creditCardNum =123456789;
     $pQuantity = 1;
     $pPrice = 100;
-    
+
     //Getting User id for ORDERS data insertion
     $sql = "SELECT cid FROM Customer WHERE email = '$userEmail';";
     $results = mysqli_query($conn, $sql);
@@ -62,14 +62,19 @@ if(isset($_SESSION['login'])){
     }
     $row = mysqli_fetch_assoc($results);
     $oid = $row['oid'];
-
+    
     //Insert into ORDERCONTAINS
-    $sql = "INSERT INTO `ordercontains` (`quantity`, `price`, `oid`, `pid`) VALUES ('$pQuantity', $pPrice, '$oid', '$pid');"; //WHERE category = coffee
-    $result = mysqli_query($conn, $sql);
-    if(!$result){
-      echo("Error description: " . mysqli_error($conn));
-    }
+    foreach ($productList as $id => $prod) {
+      $pid = $prod['id'];
+      $pQuantity = $prod['quatity'];
+      $pPrice = 1;
 
+      $sql = "INSERT INTO `ordercontains` (`quantity`, `price`, `oid`, `pid`) VALUES ('$pQuantity', $pPrice, '$oid', '$pid');"; //WHERE category = coffee
+      $result = mysqli_query($conn, $sql);
+      if(!$result){
+        echo("Error description: " . mysqli_error($conn));
+      }
+    }
     mysqli_close($conn);
   }
   //if cart is empty

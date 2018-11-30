@@ -153,7 +153,7 @@ if(isset($_SESSION['login'])){
 }
 else{ //if not signed in
   echo '<h1> <font size="+50">PLEASE SIGN IN then COME BACK TO CART TO CHECK OUT!!!!!!  </font></h1>';
-  // header('Refresh: 4; URL=signin.php');
+  header('Refresh: 4; URL=signin.php');
   // header('Location: signin.php');
 }
 
