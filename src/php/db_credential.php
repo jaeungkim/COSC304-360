@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$database = "cosc304_project";
+$database = "website_database";
 $user = "root";
 $password = "";
 
