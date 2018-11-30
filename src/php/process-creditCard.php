@@ -2,7 +2,7 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD']=="POST") {
-  $cardname = 	$_POST["cardname"];
+  $cardname = $_POST["cardname"];
   $cardnumber	= $_POST["cardnumber"];
   $CVV = $_POST["CVV"];
   $expiredate = $_POST["expiredate"];
