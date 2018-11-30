@@ -4,7 +4,14 @@
 //if user logged in jump to frontpage
 session_start();
 if (isset($_SESSION['login'])) {
-  header('Location: frontPage.php');
+  if (isset($_SERVER['HTTP_REFERER'])) {
+    $referer = $_SERVER['HTTP_REFERER'];
+    header("Location: $referer");
+  }
+  else {
+    header("Location: frontPage.php");
+  }
+
 }
 
 if (isset($_SESSION['wrongpw'])) {
@@ -21,6 +28,12 @@ if (isset($_SESSION['wrongemail'])) {
   }
 }
 
+if (isset($_SESSION['denied'])) {
+  if ($_SESSION['denied'] == true) {
+    echo "<script>alert('access denied!');</script>";
+    $_SESSION['denied'] == false;
+  }
+}
 ?>
 
 <html lang = "en">

@@ -20,28 +20,38 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
     exit($output);
   }
   else {
-    $sql = "SELECT fName, email, cPassword, isAdmin FROM Customer";
+    $sql = "SELECT fName, email, cPassword, isAdmin, disabled FROM Customer";
     $results = mysqli_query($conn, $sql);
+
     while ($row = mysqli_fetch_assoc($results)) {
-      if ($row["email"] == $email) {
-        $flag = true;//user exists
-        if ($row["cPassword"] == $pwhash) {
-          //echo "this is a valid account";//jump to frontPage
-          $_SESSION['login'] = $email;
-          $_SESSION['firstname'] = $row['fName'];
-          $_SESSION['isAdmin']=$row['isAdmin'];
+      if ($row['disabled']) {
+        // access denied
+        $_SESSION['denied'] = true;
+        header("Location: $referer");
+      }
+      else {
+        //login
+        if ($row["email"] == $email) {
+          $flag = true;//user exists
+          if ($row["cPassword"] == $pwhash) {
+            //echo "this is a valid account";//jump to frontPage
+            $_SESSION['login'] = $email;
+            $_SESSION['firstname'] = $row['fName'];
+            $_SESSION['isAdmin']=$row['isAdmin'];
 
-          //$_SESSION['wrongpw']= false;
-          //$_SESSION['wrongemail']= false;
-          header('Location: frontPage.php');
-        }
-        else {
-          //echo "password not match";
-          $_SESSION['wrongpw']= true;
-          header("Location: $referer");
+            //$_SESSION['wrongpw']= false;
+            //$_SESSION['wrongemail']= false;
+            header('Location: frontPage.php');
+          }
+          else {
+            //echo "password not match";
+            $_SESSION['wrongpw']= true;
+            header("Location: $referer");
 
+          }
         }
       }
+
     }
     if (!$flag) {//user not exist
       //echo "user not exit";
