@@ -109,4 +109,28 @@ function returnCustomer($cid){
 	$errorarray[] = "Could not find " . (string)$pid;
 	return $errorarray;
 }
+
+function returnLoggedIn($email){
+	//connect to database
+	global $host, $user, $password, $database;
+	$connection = mysqli_connect($host, $user, $password, $database);
+	//check for errors
+	$error = mysqli_connect_error();
+	$errorarray = array();
+	if($error != null) {
+		//return an array with a single value which is an error message
+		$errorarray[] = "Failed to connect to database";
+		return $errorarray;
+	} else {
+		//return an array which contains all the values of the product
+		$sql = "SELECT * FROM customer WHERE email = '$email'";
+		$result = mysqli_query($connection, $sql);
+		$row = mysqli_fetch_row($result);
+		mysqli_close($connection);
+		return $row;
+	}
+	//return an array with a single value which is an error message
+	$errorarray[] = "Could not find " . (string)$pid;
+	return $errorarray;
+}
 ?>

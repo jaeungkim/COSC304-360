@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html lang = "en">
 <head>
   <title>IDEAS</title>
@@ -13,13 +14,12 @@
 	//php files for pulling 
 	include "accessProduct.php";
 		
-		
 	$pid = $_GET["itemID"];
 	$itemArray = returnItem($pid);
 	//retrieve comments
 	$commentsArray = returnComments($pid);
 
-	//CHANGE THIS TO CHANGE SIMILAR ITEMS. MUST SET 4 ITEMS
+	//CHANGE THIS TO CHANGE SIMILAR ITEMS
 	$similarItems = returnMultipleItems(array(5, 22, 19, 7))
 	
 	
@@ -36,6 +36,8 @@
 			<button type="button" class="addToCart"><a href="cart.php">Add to Cart</a></button>
 		</p>
 	</div>
+	
+	<!-- Comments -->
 	<div class="comments">
 		<h2>Comments</h2>
 		<?php 
@@ -43,18 +45,25 @@
 			foreach ($commentsArray as $value){
 				$userInfo = returnCustomer($value[2]);
 				echo "<div class=\"panel\">
-					<h3 class=".$userInfo[2].">tweedleDee</h3>
+					<h3 class=\"userName\">".$userInfo[2]."</h3>
 					<p class=\"ptext\">".$value[3]."</p>
 				</div>";
-				
 			}
+		
+			//IF USER IS LOGGED IN DISPLAY COMMENT BOX
+			if (isset($_SESSION['login'])){
+				$email = $_SESSION['login'];
+				echo "<form action='submitComment.php' method='get' id='mainForm'>
+					<input type='hidden' name='email' value='".$email."'>
+					<input type='hidden' name='pid' value='".$pid."'>
+					<input type='text' name='content' value='Enter Comment' id='commentBox'>
+					<input type='submit' class='commentBtn' name ='commentSubmit' value='Submit'>
+				</form>";
+			}	
 		?>
-		<form action = 'comment.php' method = 'get' id = 'mainForm'>
-			<input type = 'text' name = 'comment' value = 'Enter Comment' id='commentBox'>
-			<input type = 'submit' class = 'commentBtn' name = 'commentSubmit' value = 'Submit'>
-		</form>
 	</div>
 
+	<!-- Similar Items -->
 	<div class="similarItems">
 		<h2>Similar Items</h2>
 		<?php
@@ -69,10 +78,7 @@
 					</figcaption>
 				</figure>
 			</div>
-			</form>";	
-		}
-		?>
-
+			</form>";}?>
 	</div>
 
   <?php include 'footer.php'?>
