@@ -3,7 +3,10 @@ body{
 /*	font-family: myFirstFont;*/
 	margin: 			auto;
 }
-
+table{
+	width: 30%;
+	margin-left: 35%;
+}
 .accountbg{
   position: fixed;
   right: 0;

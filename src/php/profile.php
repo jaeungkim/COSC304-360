@@ -34,7 +34,7 @@ else {
       exit($output);
     } else {
       //Check in database whether username and password is valid
-      $userchecker = mysqli_query($conn,"SELECT * FROM Customer");
+      $userchecker = mysqli_query($conn,"SELECT * FROM customer WHERE email ='".$exist."'");
       while($row = mysqli_fetch_assoc($userchecker)){
         echo"<form action = \"checkProfile.php\" method=\"POST\">
         <table class = \"profileTable\">
