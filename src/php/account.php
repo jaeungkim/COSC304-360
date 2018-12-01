@@ -6,7 +6,7 @@ session_start();
 
 <html lang = "en">
 <head>
-  <title>Your account</title>
+  <title>MY ACCOUNT</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>

@@ -18,6 +18,7 @@ else {
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
   <link rel="stylesheet" href="../css/account.css">
+  <title>Your Profile</title>
 </head>
 <body>
   <?php include 'header.php';?>

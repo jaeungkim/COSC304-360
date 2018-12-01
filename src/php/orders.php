@@ -122,8 +122,9 @@ else {
 
 </div>
 -->
+
 <?php include 'footer.php';?>
-<img class="orderbg" src="../images/bg/orderbg.jpg" alt="">
+
 
 </body>
 </html>
