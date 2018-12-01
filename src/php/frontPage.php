@@ -25,19 +25,23 @@ session_start();
   <div class = "advertisements">
 	<?php
 		foreach($advertisements as $value){
-			echo "<form method='get' action='item.php' id='addSubmit'>
-				<div class = 'flipAdd'>
-					<div class='front'><img class = 'addImg' alt = 'addImg' src= '".$value[4]."'></div>
-					<div class='back'>
-						<p class='addDesc'>".$value[3]."</p>
+			echo "<div class = 'flipAdd'>
+				<div class='front'><img class = 'addImg' alt = 'addImg' src= '".$value[4]."'></div>
+				<div class='back'>
+					<p class='addDesc'>".$value[3]."</p>
+					<form method='get' action='item.php' id='addSubmit'>
 						<input type='hidden' name='itemID' value='".$value[0]."'>
 						<input type='submit' class='viewItem addButton' value='View Item' name='".$value[1]."'>
-						<button type='button' class='addToCart addButton'>
-							<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
-						</button>
-					</div>
+					</form>
+					<form method='get' action='addcart.php'>
+						<input type='hidden' name='pname' value='".$value[1]."'>
+						<input type='hidden' name='id' value='".$value[0]."'>
+						<input type='hidden' name='price' value='".$value[2]."'>
+						<input type='submit' name='addCart' class='addCart addButton' value='Add to Cart'>
+					</form>
 				</div>
-			</form>";}?>
+			</div>
+			";}?>
 
   <!-- recommended items -->
   <div class = "recommendeditems">
@@ -55,9 +59,12 @@ session_start();
 				</figure>
 			</form>
 			<p class='itemDesc'>".$value[3]."
-				<button type='button' class='addToCart'>
-					<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
-				</button>
+				<form method='get' action='addcart.php'>
+					<input type='hidden' name='pname' value='".$value[1]."'>
+					<input type='hidden' name='id' value='".$value[0]."'>
+					<input type='hidden' name='price' value='".$value[2]."'>
+					<input type='submit' name='addCart' class='addCart addButton' value='Add to Cart'>
+				</form>
 			</p>
 			</div>";}?>
   </div>
@@ -78,9 +85,12 @@ session_start();
 				</figure>
 			</form>
 			<p class='itemDesc'>".$value[3]."
-				<button type='button' class='addToCart'>
-					<a class='addCart' href = 'addcart.php?id='".$value[0]."'&quantity=1'> Add to Cart </a>
-				</button>
+				<form method='get' action='addcart.php'>
+					<input type='hidden' name='pname' value='".$value[1]."'>
+					<input type='hidden' name='id' value='".$value[0]."'>
+					<input type='hidden' name='price' value='".$value[2]."'>
+					<input type='submit' name='addCart' class='addCart addButton' value='Add to Cart'>
+				</form>
 			</p>
 			</div>";}?>
   </div>

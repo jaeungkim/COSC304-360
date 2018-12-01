@@ -32,9 +32,12 @@
 			<figcaption><?php echo $itemArray[1];?></figcaption>
 		</figure>
 		<p class="itemDesc"><?php echo $itemArray[3];?>
-			<button type="button" class="addToCart">
-				<a class="addCart" href = "addcart.php?id='<?php echo $pid;?>'&quantity=1"> Add to Cart </a>
-			</button>
+			<form method='get' action='addcart.php'>
+					<input type='hidden' name='pname' value='<?php echo $itemArray[1];?>'>
+					<input type='hidden' name='id' value='<?php echo $itemArray[0];?>'>
+					<input type='hidden' name='price' value='<?php echo $itemArray[2];?>'>
+					<input type='submit' name='addCart' class='addCart addButton' value='Add to Cart'>
+			</form>
 		</p>
 	</div>
 	

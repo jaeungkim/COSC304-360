@@ -56,13 +56,13 @@ figcaption > .viewItem:hover{
 	padding-right:		1em;
 	padding-top:		1em;
 }
-.panel .addToCart{
+.panel .addCart{
 	position:			absolute;
-	bottom:				0;
-	right:				0;
+	bottom:				1em;
+	right:				1em;
 	background-color:	rgba(255,255,255,0.8);
     border: 			none;
-    padding: 			1em 2em;
+    padding: 			0.5em 1em;
 }
 .addCart {
     text-align: 		center;
@@ -70,7 +70,7 @@ figcaption > .viewItem:hover{
     font-size: 			1em;
 	color: 				black;
 }
-.addToCart:hover {
+.addCart:hover {
 	background-color: 	rgba(0,0,0,0.7);
 	border: 			3px solid black;
 }

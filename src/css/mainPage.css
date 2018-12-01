@@ -103,7 +103,7 @@ body{
     padding: 			1em 2em;
 }
 
-.flipAdd .addToCart{
+.flipAdd .addCart{
 	right:				3em;
 }
 .flipAdd .viewItem {
@@ -112,11 +112,6 @@ body{
 .flipAdd .viewItem:hover {
 	background-color: 	rgba(0,0,0,0.7);
 	border: 			3px solid black;
-}
-.addToCart{
-	position: 			absolute;
-	bottom:				3em;
-	padding:			1em 2em;
 }
 /*Recommended*/
 .recommendeditems{
