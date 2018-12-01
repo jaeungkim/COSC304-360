@@ -1,3 +1,6 @@
+<?php session_start();
+// unset($_SESSION['productList']);
+ ?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -6,17 +9,10 @@
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <link rel="stylesheet" href="../css/aboutus.css"/>
-</head>
-<?php session_start();
-// unset($_SESSION['productList']);
- ?>
-<style>
-<?php
+  <link rel="stylesheet" href="../css/checkout.css">
 
-include '../css/cart.css';
- ?>
-</style>
+</head>
+
 <?php
 // include 'include/money_format_windows.php'; //Only required on windows PCs
 // Get the current list of products
@@ -26,7 +22,7 @@ echo '<div class="mainbody">
   <!-- Title -->
   <div class="carttitle">
     <p class="titlecontent">Shopping Cart</p>
-    <button type="button" name="button"><a class="checkout" href = "checkout2.php">Check Out</a></button>
+    <button type="button" class="checkout" name="button"><a href = "checkout2.php">Check Out</a></button>
   </div>';
 $productList = null;
 if (isset($_SESSION['productList'])){
@@ -60,9 +56,7 @@ if (isset($_SESSION['productList'])){
           <img src="../images/sign/delete.png" width="20em" height="20em">
         </button>
       </div>
-      <div class="col checkboxdiv">
-        <input class="checkbox" type="checkbox">
-      </div>
+
 
       <div class="col image">
         <img src="'.$row['imageURL'].'" alt="item1" / width="80em" height="80em">

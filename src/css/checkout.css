@@ -12,17 +12,32 @@ body{
   z-index: -1;
 }
 
-.mainbody{
-  clear: left;
-  color: white;
-  margin: 1em 20%;
+.buttons{
+	margin-top: 2%;
 }
 
+.titlecontent{
+	text-align: center;
+	color: white;
+	  font-size: 3vw;
+
+}
+.checkout{
+	margin-left: 15%;
+	clear: both;
+
+}
+
+.checkout,a{
+		text-decoration: none;
+}
 .carttitle{
-  font-size: 3em;
+
   margin: 0em;
   padding: 0em;
-  width: 50%;
+  width: 100%;
+
+
 }
 
 .item{
@@ -30,6 +45,9 @@ body{
   background-color: white;
   color: black;
   clear: left;
+	width: 70%;
+	margin-left: 15%;
+
 }
 .col{
   float: left;
@@ -76,6 +94,8 @@ body{
   background-color: white;
   clear: left;
   color: black;
+	width: 70%;
+	margin-left: 15%;
 }
 
 .po{

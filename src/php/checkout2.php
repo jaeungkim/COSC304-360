@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <link rel="stylesheet" href="../css/aboutus.css"/>
+  <!--<link rel="stylesheet" href="../css/aboutus.css"/>-->
   <link rel="stylesheet" href="../css/checkout.css">
   <!-- <link rel="stylesheet" href="../css/cart.css"> -->
 </head>
@@ -22,7 +22,7 @@ if(isset($_SESSION['login'])){
   <!-- Title -->
   <div class="carttitle">
   <p class="titlecontent">Shopping Cart</p>
-  <button type="button" name="button"><a class="checkout" href = "process-checkout.php">Check Out</a></button>
+  <button class="checkout" type="button" name="button"><a  href = "process-checkout.php">Check Out</a></button>
   </div>';
   $productList = null;
   if (isset($_SESSION['productList'])){
@@ -56,9 +56,7 @@ if(isset($_SESSION['login'])){
       <img src="../images/sign/delete.png" width="20em" height="20em">
       </button>
       </div>
-      <div class="col checkboxdiv">
-      <input class="checkbox" type="checkbox">
-      </div>
+
 
       <div class="col image">
       <img src="'.$row['imageURL'].'" alt="item1" / width="80em" height="80em">
@@ -116,28 +114,16 @@ if(isset($_SESSION['login'])){
   <div class="payment">
     <h1 class="po">Payment options</h1>
     <div class="card">
-      <p class="label2">Add a New Payment Method</p>
-      <p class="label3">Enter your credit card information:</p>
       <form class="" action="process-creditCard.php" method="post">
         <table>
           <tr>
-            <th>Name on card</th><th>Card number</th><th>Expiration date</th><th></th>
+            <th>Card Name</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
           </tr>
           <tr>
-
-            <td class="firstcol"><label for="cardname">CardName</label></td>
             <td><input type="text" name="cardname" class="required" "></td>
-
-            <td class="firstcol"><label for="cardnumber">CardNumber</label></td>
             <td><input type="text" name="cardnumber" class="required" "></td>
-
-            <td class="firstcol"><label for="CVV">CVV</label></td>
             <td><input type="text" name="CVV" class="required" "></td>
-
-            <td class=firstcol><label for=="expiredate">Expired Date</label></td>
             <td><input type="date" name="expiredate" class="required" "></td>
-
-            <td class="firstcol"><label for="bAddress">Billing Address</label></td>
             <td><input type="text" name="bAddress" class="required" "></td>
 
             <td><input type="submit" name="submit" value="Add"></td>
