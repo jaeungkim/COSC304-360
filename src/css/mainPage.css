@@ -112,6 +112,7 @@ body{
 .flipAdd .viewItem:hover {
 	background-color: 	rgba(0,0,0,0.7);
 	border: 			3px solid black;
+	color:				white;
 }
 /*Recommended*/
 .recommendeditems{

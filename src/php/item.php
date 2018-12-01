@@ -50,9 +50,9 @@
 				echo "<p>".$commentsArray[0][0]."</p>";
 				foreach ($commentsArray as $value){
 					$userInfo = returnCustomer($value[2]);
-					echo "<div class=\"panel\">
-						<h3 class=\"userName\">".$userInfo[2]."</h3>
-						<p class=\"ptext\">".$value[3]."</p>
+					echo "<div class='panel'>
+						<h2 class='userName'>".$userInfo[2]."</h2>
+						<p class='ptext'>".$value[3]."</p>
 					</div>";
 				}
 			} else {
@@ -78,13 +78,13 @@
 		<h2>Similar Items</h2>
 		<?php
 		foreach($similarItems as $value){
-			echo "<form method=\"get\" action=\"item.php\" id=\"addSubmit\">
-			<div class = \"panel\">
-				<figure class=\"itemFig\">
-					<img src=\"".$value[4] ."\" alt=\"".$value[1]."\">
-					<input type=\"hidden\" name=\"itemID\" value=\"".$value[0]."\" >
+			echo "<form method='get' action='item.php' id='addSubmit'>
+			<div class = 'panel'>
+				<figure class='itemFig'>
+					<img src='".$value[4] ."' alt='".$value[1]."'>
+					<input type='hidden' name='itemID' value='".$value[0]."' >
 					<figcaption>
-						<input type=\"submit\" class=\"viewItem\" value=\"".$value[1]."\" name=\"".$value[1]."\">
+						<input type='submit' class='viewItem' value='".$value[1]."' name='".$value[1]."'>
 					</figcaption>
 				</figure>
 			</div>

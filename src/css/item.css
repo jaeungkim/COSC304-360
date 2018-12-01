@@ -31,12 +31,20 @@
 	background-color:	rgba(255,255,255,0.5);
 	margin:				2em 2% 2em 3%;
 	padding-bottom:		6em;
+	
 }
-.comments img{
-	width:				6em;
-	height:				6em;
-	margin:				1em 1em 1em 1em;
+.comments .panel{
+	position:			relative;
 	float:				left;
+	background:			white;
+	margin:				0 5% 1em 5%;
+	width:				90%;
+	background-color:	rgba(255,255,255,0.8);
+	padding-bottom:		6em;
+}
+.comments .ptext {
+	position:			absolute;
+	margin-left:		3em;
 }
 .commentBtn{
 	position:			absolute;
@@ -52,18 +60,17 @@
     font-size: 			1.4em;
 	color: 				black;
 }
+.commentBtn:hover{
+	color: 				black;
+	background-color: 	white;
+	border:				2px solid black;
+}
 #commentBox{
 	position:			relative;
 	float:				left;
 	background:			white;
 	margin:				1em 5% 1em 5%;
 	width:				90%;
-	background:			white;
 	background-color:	rgba(255,255,255,0.5);
 	padding-bottom:		6em;
 }
-
-.commentBtn:hover{
-	color: 				black;
-	background-color: 	white;
-	border:				2px solid black;
