@@ -65,7 +65,7 @@ session_start();
     <h1>MY PURCHASE</h1>
   </div>
   <div class="part">
-    <a class="acc" href="orders">ORDER HISTORY</a>
+    <a class="acc" href="orders.php">ORDER HISTORY</a>
   </div>
 </div>
 <!--

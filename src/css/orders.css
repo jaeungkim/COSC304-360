@@ -4,6 +4,23 @@ body{
 	margin: auto;
 }
 
+.order{
+	background-color: white;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+table{
+	width: 100%;
+}
+tr{
+	width: 100%;
+}
+td{
+	text-align: center;
+}
+/*
 .mainbody{
   margin-left: 10em;
   margin-right: 10em;
@@ -73,7 +90,7 @@ a.orders{
 .ordershow{
  height:20em;
 }
-
+*/
 .orderbg{
   position: fixed;
   right: 0;
