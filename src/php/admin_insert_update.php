@@ -73,7 +73,7 @@ include 'header.php'
         echo "<div class = 'title'><h2>All Products Listed Below</h2></div>";
         $sql = mysqli_query($conn,"SELECT * FROM Product");
         while($row = mysqli_fetch_assoc($sql)){
-          echo "<br>";
+          
           echo "<div class = 'part'><p><h3 style='color:black;'>".$row['pname']."</h3>";
           echo "Dollars: ".$row['price'];
           echo "<br> Description: <br> ".$row['description']."</p>";
@@ -88,6 +88,7 @@ include 'header.php'
       }
     }
     ?>
+      <?php include 'footer.php';?>
 </body>
 
 

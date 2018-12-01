@@ -1,0 +1,28 @@
+table{
+  background-color: white;
+  margin-top: 2em;
+  clear: both;
+  width: 50%;
+  margin-left: 25%;
+
+}
+
+
+.title{
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+  color: white;
+  font-size: 2vw;
+}
+.part{
+  background-color: white;
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+  font-family: sans-serif;
+}
+
+.firstcol{
+  text-align: right;
+}

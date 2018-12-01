@@ -8,6 +8,7 @@ session_start();
     <link rel="stylesheet" href="../css/header.css"/>
     <link rel="stylesheet" href="../css/default.css"/>
     <link rel="stylesheet" href="../css/footer.css"/>
+    <link rel="stylesheet" href="../css/mainPage.css" />
     <link rel="stylesheet" href="../css/admin_manage_customer.css"/>
     <title>Search Customers-Admin</title>
 
