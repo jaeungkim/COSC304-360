@@ -8,26 +8,49 @@
   <link rel="stylesheet" href="../css/menu.css"/>
 </head>
 <body>
-  <?php include 'header.php';?>
+  <!-- muffin menu table -->
+  <?php
+	//add header
+	include 'header.php';
+	
+      include 'db_credential.php';
+      $conn = mysqli_connect($host, $user, $password, $database);
+      $error = mysqli_connect_error();
 
-  <!-- coffee menu table -->
-  <div class = "menuitems">
-      <table id = "listingTable">
-        <tbody>
-            <tr>
-              <th class = "tableHead">Picture</th>
-              <th class = "tableHead">Product Name</th>
-              <th class = "tableHead">Price</th>
-              <th class = "tableHead">Quantity</th>
-              <th class = "tableHead">Rating</th>
-              <th class = "tableHead">Cart</th>
-            </tr>
-            <!-- Banana -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/muffins/bananamuffin.jpg" alt =""></td>
-              <td> Banana </td>
-              <td> $2.50</td>
-              <td> Quantity</td>
+      if($error != null)
+      {
+        $output = "<p>Unable to connect to database!</p>";
+        exit($output);
+      }
+      else
+      {
+        $sql = "SELECT * FROM product WHERE category = 'muffin' " ;//WHERE category = muffin
+        $results = mysqli_query($conn, $sql);
+
+
+        //query Done
+          echo '<div class = "menuitems">
+                <table id = "listingTable">
+                  <tbody>
+                      <tr>
+                        <th class = "tableHead">Picture</th>
+                        <th class = "tableHead">Product Name</th>
+                        <th class = "tableHead">Price</th>
+                        <th class = "tableHead">Quantity</th>
+                        <th class = "tableHead">Rating</th>
+                        <th class = "tableHead">Cart</th>
+                      </tr>';
+          while ($row = mysqli_fetch_assoc($results)) {
+            $pname = $row['pname'];
+            $price = $row['price'];
+            $imageurl = $row['imageURL'];
+
+            echo
+            '<tr class = "menuitems">
+              <td><img id = "menupic" src = "'.$row["imageURL"].'" alt =""></td>
+              <td> '.$pname.' </td>
+              <td>'.$price.'</td>
+              <td> quantity</td>
               <td>
                 <div class = "rating">
                   <span> ★ </span>
@@ -37,115 +60,18 @@
                   <span> ★ </span>
                 </div>
               </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- Blueberry -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/muffins/blueberrymuffin.jpg" alt =""></td>
-              <td> Blueberry </td>
-              <td> $2.50</td>
-              <td> Quantity</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- cornbread -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/muffins/cornbreadmuffin.jpg" alt =""></td>
-              <td> Cornbread </td>
-              <td> $2.50</td>
-              <td> Quantity</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- Chocolate chip -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/muffins/chocolatechipmuffin.jpg" alt =""></td>
-              <td> Chocolate chip </td>
-              <td> $2.50</td>
-              <td> Quantity</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- Raisin Bran -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/muffins/raisinbranmuffin.jpg" alt =""></td>
-              <td> Raisin Bran </td>
-              <td> $2.50</td>
-              <td> Quantity</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td> <a class "addCart" href = "cart.php"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- pumpkin -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/muffins/pumpkinmuffin.jpg" alt =""></td>
-              <td> Pumpkin </td>
-              <td> $2.50</td>
-              <td> Quantity</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
-            </tr>
-
-            <!-- Cranberry -->
-            <tr class = "menuitems">
-              <td><img id = "menupic" src = "../images/muffins/cranberrymuffin.jpg" alt =""></td>
-              <td> Cranberry </td>
-              <td> $2.50</td>
-              <td> Quantity</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
-              <td><a class "addCart" href = "cart.php"> Add to Cart </a> </td>
-            </tr>
-          </div>
-        </tbody>
-      </table>
-  </div>
-  <?php include 'footer.php';?>
+              <td><a class="addCart" href = "addcart.php?id='. $row['pid'] . '&quantity=1"> Add to Cart </a> </td>
+             </tr>';
+          }
+          echo          '
+                  </tbody>
+                </table>
+            </div>';
+      }
+	
+	//add footer
+	include 'footer.php';
+	
+    ?>
   </body>
 </html>
