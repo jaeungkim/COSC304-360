@@ -31,7 +31,7 @@
 			<img src="<?php echo $itemArray[4];?>" alt="<?php echo $itemArray[1];?>">
 			<figcaption><?php echo $itemArray[1];?></figcaption>
 		</figure>
-		<p class="itemDesc"><?php echo $itemArray[3];?>
+		<p class="itemDesc"><?php echo $itemArray[3];?> <br> <br> Price: $<?php echo $itemArray[2];?>
 			<form method='get' action='addcart.php'>
 					<input type='hidden' name='pname' value='<?php echo $itemArray[1];?>'>
 					<input type='hidden' name='id' value='<?php echo $itemArray[0];?>'>
