@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/default.css"/>
 </head>
 <?php include 'header.php';?>
 
@@ -43,11 +44,29 @@
           if(mysqli_num_rows($sql) > 0){
             while($row = mysqli_fetch_assoc($sql)){
               $image=$row['imageURL'];
-              echo "<div class = \"productInfo\">";
-              echo "<h3 style = \"font-size: 200%\">".$row['pname']."</h3>";
-              echo '<img src="'.$image.'" style="float:left;width:8em;height:8em;padding-right:1em;">';
-              echo "<h3>".$row['description']."</h3>";
-              echo "</div>";
+			  $pname=$row['pname'];
+			  $desc=$row['description'];
+			  $pid=$row['pid'];
+			  $price=$row['price'];
+			  echo "<div class = 'panel'>
+				<form method='get' action='item.php' id='addSubmit'>
+					<figure class='itemFig'>
+						<img src='".$image ."' alt='".$pname."'>
+						<input type='hidden' name='itemID' value='".$pid."' >
+						<figcaption>
+							<input type='submit' class='viewItem' value='".$pname."' name='".$pname."'>
+						</figcaption>
+					</figure>
+				</form>
+				<p class='itemDesc'>".$desc."
+					<form method='get' action='addcart.php'>
+						<input type='hidden' name='pname' value='".$pname."'>
+						<input type='hidden' name='id' value='".$pid."'>
+						<input type='hidden' name='price' value='".$price."'>
+						<input type='submit' name='addCart' class='addCart addButton' value='Add to Cart'>
+					</form>
+				</p>
+				</div>";
             }
             //OTHERWISE RETURN TO LAST PAGE or Home PAGE
           }else {
