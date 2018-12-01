@@ -143,8 +143,8 @@ session_start();
       //echo '<a href="adminPage.php">BACK TO ADMIN HOMEPAGE</a>';
 
       //echo cid email fName lName address cPassword phoneNum isAdmin
-      echo '<div class = "">
-            <table id = "">
+      echo '<div class = "table">
+            <table id = "listcustomer">
               <tbody>
                   <tr>
                     <th class = "tableHead">CUSTOMER ID</th>
@@ -173,11 +173,11 @@ session_start();
 
         if ($row['disabled'] ==1 ) {
           $disabled = 'YES';
-          $link = '<a href = "enable_customer.php?id= '.$cid.' ">ENABLE THIS ACCOUNT</a>';
+          $link = '<a class ="blue"   href = "enable_customer.php?id= '.$cid.' ">ENABLE THIS ACCOUNT</a>';
         }
         else {
           $disabled = 'NO';
-          $link = '<a href = "disable_customer.php?id= '.$cid.' ">DISABLE THIS ACCOUNT</a>';
+          $link = '<a class = "red" href = "disable_customer.php?id= '.$cid.' ">DISABLE THIS ACCOUNT</a>';
         }
 
         echo

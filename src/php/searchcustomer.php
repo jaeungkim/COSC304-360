@@ -8,6 +8,7 @@ session_start();
     <title></title>
     <link rel="stylesheet" href="../css/header.css"/>
     <link rel="stylesheet" href="../css/default.css"/>
+    <link rel="stylesheet" href="../css/mainPage.css" />
     <link rel="stylesheet" href="../css/footer.css"/>
     <link rel="stylesheet" href="../css/admin_manage_customer.css"/>
     <title>Search Customers</title>
@@ -21,6 +22,11 @@ session_start();
             <img class = "logoimg" alt = "logo" src= "../images/logos/logo.png">
           </a>
         </div>
+        <div class="navLeft">
+          <a class="back" href="admin_manage_customer.php">BACK TO SEARCHPAGE</a>
+        </div>
+
+
 
         <!-- cart -->
         <div class = "navRight">
@@ -131,11 +137,11 @@ session_start();
           //SEARCHING WITH KEYWORDS
           $sql = "SELECT * FROM customer WHERE fName LIKE '%".$searchcustomer."%' OR lName Like '%".$searchcustomer."%'";
           $results = mysqli_query($conn, $sql);
-          echo '<a href="admin_manage_customer.php">BACK TO SEARCHPAGE</a>';
+
             //echo cid email fName lName address cPassword phoneNum isAdmin
             if (mysqli_num_rows($results) > 0) {
               echo '<div class = "">
-                    <table id = "">
+                    <table id = "listcustomer">
                       <tbody>
                           <tr>
                             <th class = "tableHead">CUSTOMER ID</th>
