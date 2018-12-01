@@ -29,13 +29,28 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
       while($row = mysqli_fetch_assoc($results)){
         if($row["pname"]==$pname){
           $exist = true;
-
-          $_SESSION['exist']=true;
-          header("Location: $referer");
+          //$_SESSION['exist']=true;
+          //header("Location: $referer");
         }
       }
   // }
-    if(!$exist){
+    if ($exist) {
+      // update
+      $sql = "UPDATE product SET price = '".$price."', description = '".$description."', imageURL = '".$image."', category = '".$category."'
+       WHERE pname = '".$pname."'";
+      $results = mysqli_query($conn, $sql);
+      if ($results) {
+        //update succeed
+        header("Location: admin_insert_update.php");//go back to insert
+
+      }
+      else {
+        echo "error: ".$sql. "<br>";
+      }
+      mysqli_close($conn);
+    }
+
+    else{
       $sql = "INSERT INTO product (pname, price, description, imageURL, category)
       VALUES ('$pname','$price','$description', '$image','$category') ";
       $results = mysqli_query($conn, $sql);
