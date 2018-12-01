@@ -11,8 +11,9 @@
   <!-- muffin menu table -->
   <?php
 	//add header
+  session_start();
 	include 'header.php';
-	
+
       include 'db_credential.php';
       $conn = mysqli_connect($host, $user, $password, $database);
       $error = mysqli_connect_error();
@@ -68,10 +69,10 @@
                 </table>
             </div>';
       }
-	
+
 	//add footer
 	include 'footer.php';
-	
+
     ?>
   </body>
 </html>
