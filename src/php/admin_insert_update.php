@@ -5,10 +5,8 @@ include 'header.php'
 <!DOCTYPE html>
 <head>
   <title>Update Items-Admin</title>
-  <!-- <link rel="stylesheet" href="../css/mainPage.css" /> -->
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/admin_insert_update.css" />
 <script type = "text/javascript" src = "../scripts/validate.js"> </script>
 </head>
@@ -71,9 +69,9 @@ include 'header.php'
 
 
         echo "<div class = 'title'><h2>All Products Listed Below</h2></div>";
-        $sql = mysqli_query($conn,"SELECT * FROM Product");
+        $sql = mysqli_query($conn,"SELECT * FROM product");
         while($row = mysqli_fetch_assoc($sql)){
-          
+
           echo "<div class = 'part'><p><h3 style='color:black;'>".$row['pname']."</h3>";
           echo "Dollars: ".$row['price'];
           echo "<br> Description: <br> ".$row['description']."</p>";

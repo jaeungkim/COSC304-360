@@ -15,7 +15,6 @@ if (isset($_SESSION['exist'])) {
   <title>IDEAS registration</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../css/header.css"/>
-  <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
   <link rel="stylesheet" href="../css/registration.css">
   <script type="text/javascript" src="../scripts/validate.js"></script>
@@ -99,7 +98,7 @@ if (isset($_SESSION['exist'])) {
       </tr>
     </table>
   </form>
-  
+
   <?php include 'footer.php';?>
   <img class="registerbg" src="../images/bg/registerbg.jpg" alt="">
 </video>

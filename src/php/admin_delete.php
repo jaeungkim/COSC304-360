@@ -5,17 +5,15 @@ include 'header.php'
 <!DOCTYPE html>
 <head>
   <title>Delete Items-Admin</title>
-  <!-- <link rel="stylesheet" href="../css/mainPage.css" /> -->
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <link rel="stylesheet" href="../css/mainPage.css" />
-  <link rel="stylesheet" href="../css/default.css" />
+  <!-- <link rel="stylesheet" href="../css/mainPage.css"/> -->
   <link rel="stylesheet" href="../css/admin_delete.css" />
 
 <script type = "text/javascript" src = "../scripts/validate.js"> </script>
 </head>
 
-<form  action="process-delete_update.php" method="post" id = "mainform">
+<form action="process-delete_update.php" method="post" id = "mainform">
   <table>
     <th colspan="2"><h1 class="form">Delete Existing Product</h1></th>
     <tr>
@@ -49,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
 
 
       echo("<div class = 'title'><h2>All Products Listed Below</h2></div>");
-      $sql = mysqli_query($conn,"SELECT * FROM Product");
+      $sql = mysqli_query($conn,"SELECT * FROM product");
       while($row = mysqli_fetch_assoc($sql)){
 
         echo "<div class = 'part'><p><h3 style='color:black;'".$row['pname']."</h3>";

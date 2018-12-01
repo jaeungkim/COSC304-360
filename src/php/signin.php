@@ -42,7 +42,6 @@ if (isset($_SESSION['denied'])) {
   <meta charset="utf-8">
   <link rel="stylesheet" href="../css/signin.css">
   <link rel="stylesheet" href="../css/header.css"/>
-  <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
   <script type="text/javascript" src="../scripts/validate.js"></script>
   <script>

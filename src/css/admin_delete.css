@@ -6,7 +6,13 @@ table{
   margin-left: 25%;
 
 }
-
+.required{
+	font-family: sans-serif;
+	width: 90%;
+  border-radius:0.3em;
+  border: 1px solid Gray;
+  height: 2em;
+}
 
 .title{
   width: 50%;
