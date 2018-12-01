@@ -15,28 +15,39 @@ table{
   height: 100%;
   z-index: -1;
 }
+.account{
+	
+	clear: left;
+}
+
 
 .column{
 	float: left;
 	display: inline-block;
-	border: 1px black solid;
-	height: 23em;
+	height: 10em;
 	width: 20%;
+	margin-left: 20%;
+	margin-bottom: 10em;
+	margin-top: 4em;
+	padding: 0;
 }
 
-.welcome{
-	clear: left;
-	margin-left: 15%;
+.acc{
+	text-decoration: none;
+	font-size: 1.5em;
+	color: blue;
+}
+
+.acc:hover {
+	color: white;
+	background-color: black;
 }
 
 
-.account{
-	width: 30%;
-}
 
 .part{
 	display: block;
-	border: 1px black solid;
+
 
 }
 

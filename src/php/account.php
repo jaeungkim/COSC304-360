@@ -18,19 +18,21 @@ session_start();
   <?php include 'header.php';?>
 
   <div class="main">
+<!--
     <div class="column welcome">
       <div class="part">
         <?php
         // welcome firstname
-        if (isset($_SESSION['firstname'])) {
+        /*if (isset($_SESSION['firstname'])) {
           $firstname = $_SESSION['firstname'];
           echo "<h1> WELCOME  $firstname </h1>";
         }
         else {
           echo "<h1>WELCOME </h1>";
-        }
+        }*/
         ?>
       </div>
+    -->
       <!--
       <div class="part image">
       <figure>
@@ -46,14 +48,16 @@ session_start();
     <h1>MY ACCOUNT</h1>
   </div>
   <div class="part">
-    <a href="account.php">ACCOUNT</a>
+    <a class="acc" href="account.php">ACCOUNT</a>
   </div>
   <div class="part">
-    <a href="profile.php">PROFILE</a>
+    <a class="acc" href="profile.php">PROFILE</a>
   </div>
+  <!--
   <div class="part">
     <a href="addressbook.php">ADDRESS BOOK</a>
   </div>
+-->
 </div>
 
 <div class="column purchase">
@@ -61,7 +65,7 @@ session_start();
     <h1>MY PURCHASE</h1>
   </div>
   <div class="part">
-    <a href="orders">ORDER HISTORY</a>
+    <a class="acc" href="orders">ORDER HISTORY</a>
   </div>
 </div>
 <!--
