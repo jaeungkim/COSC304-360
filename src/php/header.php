@@ -42,17 +42,12 @@
             // }
             // $row = mysqli_fetch_assoc($results);
             // $cid = $row['cid'];
-
-
-
-
-
             if(isset($_SESSION['login'])){
               $firstname = $_SESSION['firstname'];
               echo $firstname;
               echo '<a href="logout.php">Logout</a>';
-              if(isset($_SESSION['isAdmin'])){
-                $isAdmin = $_SESSION['isAdmin'];
+              if(isset($_SESSION['isadmin'])){
+                $isAdmin = $_SESSION['isadmin'];
                 if($isAdmin==1){
                   echo '<a href = "adminPage.php" > Admin Page</a>';
                 }
