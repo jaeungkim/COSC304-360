@@ -15,6 +15,8 @@
 	//add header
   session_start();
 	include 'header.php';
+    if(isset($_GET["itemCategory"])){
+      $itemCategory = $_GET["itemCategory"];
 
       include 'db_credential.php';
       $conn = mysqli_connect($host, $user, $password, $database);
@@ -27,7 +29,7 @@
       }
       else
       {
-        $sql = "SELECT * FROM product WHERE category = 'coffee' " ;//WHERE category = coffee
+        $sql = "SELECT * FROM product WHERE category = '$itemCategory' " ;//WHERE category = coffee
         $results = mysqli_query($conn, $sql);
 
 
@@ -72,6 +74,7 @@
                 </table>
             </div>';
       }
+    }
 		//add footer
 		include 'footer.php';
     ?>
