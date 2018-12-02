@@ -27,6 +27,7 @@ if(isset($_SESSION['login'])){
 
     //-----Getting Customer Info
     $productList = $_SESSION['productList'];
+    //
     $userEmail = $_SESSION['login'];
     $cid=null;
     $datetime = null; //for setting current time as it's unique in orders table\
@@ -50,22 +51,26 @@ if(isset($_SESSION['login'])){
     //Getting creditcard INFO
     $sql = "SELECT cardNum FROM creditcard WHERE cid = '".$cid."'";
     $results = mysqli_query($conn, $sql);
-    mysqli_fetch_row();
+    //mysqli_fetch_row();
     if(!$results){
-      echo("Error description: " . mysqli_error($conn));
+      echo("Error description: " . mysqli_error($conn));//no credit card
     }
-    $row = mysqli_fetch_assoc($results);
-    $cid = $row['cid'];
-
+    else {
+      // credit card
+      $row = mysqli_fetch_assoc($results);
+      $creditCardNum = $row['cardNum'];
+    }
 
 
     //Store Customer Cart into TABLE: ORDERS
     $datetime = date('Y-m-d H:i:s'); //get current datetime
+    $_SESSION['datetime'] = $datetime;
     $sql = "INSERT INTO `orders` (`purchasedDate`, `cardNum`, `cid`) VALUES ('$datetime', '$creditCardNum', $cid);";
     $result = mysqli_query($conn, $sql);
     if(!$result){
       echo("Error description: " . mysqli_error($conn));
     }
+
     //Select oid
     $sql = "SELECT `oid` FROM `orders` WHERE purchasedDate = '$datetime';";
     $results = mysqli_query($conn, $sql);
@@ -75,23 +80,27 @@ if(isset($_SESSION['login'])){
     $row = mysqli_fetch_assoc($results);
     $oid = $row['oid'];
     echo 'oid: '.$oid;
+
+
     //Insert into ORDERCONTAINS
-    // foreach ($productList as $id => $prod) {
-    //   //retrieve product info
-    //   $sql = "SELECT * FROM product WHERE pid = ".$prod['id'];//WHERE category = coffee
-    //   $results = mysqli_query($conn, $sql);
-    //   $row = mysqli_fetch_assoc($results);
-    //
-    //   $pid = $prod['id'];
-    //   $pQuantity = $prod['quantity'];
-    //   $pPrice = $row['price'];
-    //
-    //   $sql = "INSERT INTO `ordercontains` (`quantity`, `price`, `oid`, `pid`) VALUES ('$pQuantity', $pPrice, '$oid', '$pid');"; //WHERE category = coffee
-    //   $result = mysqli_query($conn, $sql);
-    //   if(!$result){
-    //     echo("Error description: " . mysqli_error($conn));
-    //   }
-    // }
+    foreach ($productList as $id => $prod) {
+      //retrieve product info
+      $sql = "SELECT * FROM product WHERE pid = ".$prod['id'];//WHERE category = coffee
+      $results = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($results);
+
+      $pid = $prod['id'];
+      $pQuantity = $prod['quantity'];
+      $pPrice = $row['price'] * $pQuantity;
+
+      $sql = "INSERT INTO `ordercontains` (`quantity`, `price`, `oid`, `pid`) VALUES ('$pQuantity', $pPrice, '$oid', '$pid');"; //WHERE category = coffee
+      $result = mysqli_query($conn, $sql);
+      if(!$result){
+        echo("Error description: " . mysqli_error($conn));
+      }
+    }
+
+
     mysqli_close($conn);
   }
   //if cart is empty
@@ -101,7 +110,7 @@ if(isset($_SESSION['login'])){
   }
   echo 'Ordered Time: '.$datetime;
   echo '<br> PROCESSING YOUR ORDER...';
-  // header('Refresh: 5; showOrder.php');
+  header('Refresh: 5; orders.php');
 
 }
 ?>

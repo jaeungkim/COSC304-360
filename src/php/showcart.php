@@ -51,7 +51,7 @@
         exit($output);
       }
       else{
-        $sql = "SELECT * FROM product WHERE pid = ".$prod['id'];//WHERE category = coffee
+        $sql = "SELECT * FROM product WHERE pid = ".$prod['id'];
         $results = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($results);
         $pertotal = $row['price'] * $prod['quantity'];

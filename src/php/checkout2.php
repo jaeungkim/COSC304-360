@@ -108,7 +108,19 @@ if(isset($_SESSION['login'])){
   echo '<h1> <font size="+50">CART EMPTY!!!!!!  </font></h1>';
   // header('Refresh: 4; URL=frontpage.php');
 }
+//Getting creditcard INFO to check whether show
+$email = $_SESSION['login'];
+//select cid
+$sql = "SELECT cid FROM customer WHERE email = '".$email."'";
+$results = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($results);
+$cid = $row['cid'];
 
+$sql = "SELECT * FROM creditcard WHERE cid = '".$cid."'";
+$results = mysqli_query($conn, $sql);
+//mysqli_fetch_row();
+if(!$results){
+  //echo("Error description: " . mysqli_error($conn));//no credit card
   //Payment form
   echo'
   <div class="payment">
@@ -120,11 +132,11 @@ if(isset($_SESSION['login'])){
             <th>Card Name</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
           </tr>
           <tr>
-            <td><input type="text" name="cardname" class="required" "></td>
-            <td><input type="text" name="cardnumber" class="required" "></td>
-            <td><input type="text" name="CVV" class="required" "></td>
-            <td><input type="date" name="expiredate" class="required" "></td>
-            <td><input type="text" name="bAddress" class="required" "></td>
+            <td><input type="text" name="cardname" class="required" ></td>
+            <td><input type="text" name="cardnumber" class="required" ></td>
+            <td><input type="text" name="CVV" class="required" ></td>
+            <td><input type="date" name="expiredate" class="required" ></td>
+            <td><input type="text" name="bAddress" class="required" ></td>
 
             <td><input type="submit" name="submit" value="Add"></td>
           </tr>
@@ -135,6 +147,41 @@ if(isset($_SESSION['login'])){
   </div>
 
   ';
+}
+else {
+  // list credit card info
+  $row = mysqli_fetch_assoc($results);
+  $cardnum = $row['cardNum'];
+  $cvv = $row['CVV'];
+  $expiredate = $row['cardExpired'];
+  $baddress = $row['bAddress'];
+
+  echo'
+  <div class="payment">
+    <h1 class="po">Payment options</h1>
+    <div class="card">
+      <form class="" action="process-creditCard.php" method="post">
+        <table>
+          <tr>
+            <th>Card ID</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
+          </tr>
+          <tr>
+            <td><input type="text" name="cardid" class="required" value = "'.$cid.'"></td>
+            <td><input type="text" name="cardnumber" class="required" value = "'.$cardnum.'"></td>
+            <td><input type="text" name="CVV" class="required" value = "'.$cvv.'"></td>
+            <td><input type="date" name="expiredate" class="required" value = "'.$expiredate.'"></td>
+            <td><input type="text" name="bAddress" class="required" value = "'.$baddress.'"></td>
+
+            <td><input type="submit" name="submit" value="Add"></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+  </div>
+
+  ';
+}
 
 }
 else{ //if not signed in

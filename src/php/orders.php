@@ -41,17 +41,18 @@ if($error != null)
   exit($output);
 }
 else {
-  $sql = "SELECT * FROM orders WHERE cid ='".$cid."'";
+  $datetime = $_SESSION['datetime'];
+  $sql = "SELECT * FROM orders WHERE cid ='".$cid."' and purchasedDate = '".$datetime."'";
   $results = mysqli_query($conn, $sql);
 
   while ($row = mysqli_fetch_assoc($results)) {
     // cid-----oid
     $oid = $row['oid'];
-    $date = $row['purchasedDate'];
+    //$date = $row['purchasedDate'];
     echo '<div class="order">
       <table>
         <caption>ORDER NUMBER:  '.$oid.'</caption>
-        <caption>PURCHASED DATE:  '.$date.'</caption>
+        <caption>PURCHASED DATE:  '.$datetime.'</caption>
         <tr>
           <th>PRODUCT NAME</th>
           <th>QUANTITY</th>
@@ -65,10 +66,10 @@ else {
           $price = $row['price'];
 
           $sql = "SELECT * FROM product WHERE pid ='".$pid."'";
-          $results = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_assoc($results);
+          $final = mysqli_query($conn, $sql);
+          $hang = mysqli_fetch_assoc($final);
 
-          $pname = $row['pname'];
+          $pname = $hang['pname'];
           echo ' <tr>
             <td>'.$pname.'</td>
             <td>'.$quantity.'</td>
@@ -78,6 +79,8 @@ else {
         }
           echo  '</table>
               </div> ';
+
+      unset($_SESSION['productList']);
 
   }
 }
