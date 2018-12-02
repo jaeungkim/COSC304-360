@@ -129,10 +129,10 @@ if(!$results){
       <form class="" action="process-creditCard.php" method="post">
         <table>
           <tr>
-            <th>Card Name</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
+            <th>Customer ID</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
           </tr>
           <tr>
-            <td><input type="text" name="cardname" class="required" ></td>
+            <td><input type="text" name="cid" class="required" readonly></td>
             <td><input type="text" name="cardnumber" class="required" ></td>
             <td><input type="text" name="CVV" class="required" ></td>
             <td><input type="date" name="expiredate" class="required" ></td>
@@ -163,10 +163,10 @@ else {
       <form class="" action="process-creditCard.php" method="post">
         <table>
           <tr>
-            <th>Card ID</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
+            <th>Customer ID</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
           </tr>
           <tr>
-            <td><input type="text" name="cardid" class="required" value = "'.$cid.'"></td>
+            <td><input type="text" name="cid" class="required" readonly value = "'.$cid.'"></td>
             <td><input type="text" name="cardnumber" class="required" value = "'.$cardnum.'"></td>
             <td><input type="text" name="CVV" class="required" value = "'.$cvv.'"></td>
             <td><input type="date" name="expiredate" class="required" value = "'.$expiredate.'"></td>

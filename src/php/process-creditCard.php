@@ -2,7 +2,7 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD']=="POST") {
-  $cardname = $_POST["cardname"];
+  $cid = $_POST["cid"];
   $cardnumber	= $_POST["cardnumber"];
   $CVV = $_POST["CVV"];
   $expiredate = $_POST["expiredate"];
@@ -23,34 +23,39 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
     exit($output);
   }
   else{
-      $sql = "SELECT cardNum FROM creditcard";
+      $sql = "SELECT cardNum FROM creditcard WHERE cid = '".$cid."'";
       $results = mysqli_query($conn, $sql);
 
       while($row = mysqli_fetch_assoc($results)){
         if($row["cardNum"]==$cardnumber){
-          $exist = true;
-
-          $_SESSION['exist']=true;
-          header("Location: $referer");
+          $exist = true;// this card in the table
+            }
+          //$_SESSION['exist']=true;
+          //header("Location: $referer");
         }
-      }
-  // }
-    if(!$exist){
-      $sql = "INSERT INTO creditcard (cardNum, cardExpired, CVV, bAddress)
-      VALUES ('$cardnumber','$expiredate','$CVV', '$bAddress') ";
-      $results = mysqli_query($conn, $sql);
+        if ($exist) {
+          // update
+          $sql = "UPDATE creditcard SET cardExpired = '".$expiredate."', CVV = '".$CVV."',bAddress = '".$bAddress."'
+          WHERE cid = '".$cid."' AND cardNum = '".$cardnumber."'";
+          $results = mysqli_query($conn, $sql);
+          header("Location: checkout2.php");
+        }
 
-      if ($results) {
-        //update succeed
-        header("Location: frontPage.php");//go back to insert
+        else{
+          $sql = "INSERT INTO creditcard (cardNum, cardExpired, CVV, bAddress, cid)
+          VALUES ('$cardnumber','$expiredate','$CVV', '$bAddress', '$cid') ";
+          $results = mysqli_query($conn, $sql);
 
-      }
-      else {
-        echo "error: ".$sql. "<br>";
-      }
-      mysqli_close($conn);
-    }
+          if ($results) {
+            //update succeed
+            header("Location: checkout2.php");//go back to insert
 
+          }
+          else {
+            echo "error: ".$sql. "<br>";
+          }
+          mysqli_close($conn);
+        }
 }
 
 }
