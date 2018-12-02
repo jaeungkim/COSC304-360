@@ -65,7 +65,7 @@
 
       echo
       '<div class="item">
-      <form action="plus_minus_one.php" method="get">
+      <form action="plus_minus_one.php" method="post">
         <div class="col buttons">
           <button type="submit" name="delete"  value="'.$prod['id'].'" >
             <img src="../images/sign/delete.png" width="20em" height="20em">

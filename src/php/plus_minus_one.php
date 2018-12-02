@@ -1,9 +1,9 @@
 <?php
 session_start();
-if ($_SERVER['REQUEST_METHOD']=="GET") {
+if ($_SERVER['REQUEST_METHOD']=="POST") {
   //button is clicked, judge which button
-  if (isset($_GET['plus'])) {
-    $pid = $_GET['plus'];//
+  if (isset($_POST['plus'])) {
+    $pid = $_POST['plus'];//
 
     if (isset(($_SESSION['productList']))) {
       // get quantity form id
@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
   }
   }
 
-  if (isset($_GET['minus'])) {
-    $pid = $_GET['minus'];//
+  if (isset($_POST['minus'])) {
+    $pid = $_POST['minus'];//
 
     if (isset(($_SESSION['productList']))) {
       // get quantity form id
@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
       header("Location: showcart.php");
   }
   }
-  if (isset($_GET['delete'])) {
-    $pid = $_GET['delete'];//
+  if (isset($_POST['delete'])) {
+    $pid = $_POST['delete'];//
 
     if (isset(($_SESSION['productList']))) {
       // get quantity form id
@@ -42,8 +42,12 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
       header("Location: showcart.php");
   }
   }
+  else {
+    echo "wrong button";
+  }
 
-
-
+}
+else {
+  echo "wrong request method";
 }
 ?>
