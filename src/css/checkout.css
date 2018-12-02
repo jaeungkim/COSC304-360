@@ -101,3 +101,10 @@ body{
 .po{
   border-bottom: 1px solid black;
 }
+
+.total{
+	color: white;
+	font-size: 2vw;
+	text-align: center;
+	background-color: black;
+}

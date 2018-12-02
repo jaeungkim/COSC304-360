@@ -1,4 +1,4 @@
-<?php
+ <?php
 // Get the current list of products
 session_start();
 $productList = null;
@@ -20,7 +20,9 @@ if(isset($_GET['id'])){
     exit($output);
   }
   else{
-    $sql = "SELECT * FROM product WHERE pid = ".$prod['id']; //WHERE category = coffee
+		$prod = $_GET['id'];
+    //$sql = "SELECT * FROM product WHERE pid = ".$prod['id']; //WHERE category = coffee
+		$sql = "SELECT * FROM product WHERE pid = '.$prod.'";
     $results = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($results);
   }
