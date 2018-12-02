@@ -22,7 +22,7 @@ if(isset($_GET['id'])){
   else{
 		$prod = $_GET['id'];
     //$sql = "SELECT * FROM product WHERE pid = ".$prod['id']; //WHERE category = coffee
-		$sql = "SELECT * FROM product WHERE pid = '.$prod.'";
+		$sql = "SELECT * FROM product WHERE pid = '".$prod."'";
     $results = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($results);
   }

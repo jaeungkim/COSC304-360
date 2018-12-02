@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
       $productList[$pid]['quantity'] = $productList[$pid]['quantity'] + 1;
       $_SESSION['productList'] = $productList;
       header("Location: showcart.php");
-  }
+    }
   }
 
   if (isset($_POST['minus'])) {

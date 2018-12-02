@@ -48,17 +48,20 @@ if(isset($_SESSION['login'])){
     $cid = $row['cid'];
 
     //Getting creditcard INFO
-    $sql = "SELECT cid FROM customer WHERE email = '$userEmail';";
+    $sql = "SELECT cardNum FROM creditcard WHERE cid = '".$cid."'";
     $results = mysqli_query($conn, $sql);
+    mysqli_fetch_row();
     if(!$results){
       echo("Error description: " . mysqli_error($conn));
     }
     $row = mysqli_fetch_assoc($results);
     $cid = $row['cid'];
 
+
+
     //Store Customer Cart into TABLE: ORDERS
     $datetime = date('Y-m-d H:i:s'); //get current datetime
-    $sql = "INSERT INTO `orders` (`purchasedDate`, `cardNum`, `cid`) VALUES ('$datetime', '$creditCardNum', $cid);"; //WHERE category = coffee
+    $sql = "INSERT INTO `orders` (`purchasedDate`, `cardNum`, `cid`) VALUES ('$datetime', '$creditCardNum', $cid);";
     $result = mysqli_query($conn, $sql);
     if(!$result){
       echo("Error description: " . mysqli_error($conn));
