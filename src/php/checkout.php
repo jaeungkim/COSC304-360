@@ -1,104 +1,212 @@
+<?php session_start();
+// unset($_SESSION['productList']);
+ ?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-  <title>IDEAS Checkout</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/checkout.css">
+  <title>IDEAS</title>
+  <link rel="stylesheet" href="../css/mainPage.css" />
   <link rel="stylesheet" href="../css/header.css"/>
+  <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/checkout.css">
+  <script type="text/javascript">
+
+  </script>
+
 </head>
-
 <body>
-  <?php include 'header.php';?>
+  <?php
+  if (isset($_SESSION['creditcard'])) {
+    if ($_SESSION['creditcard'] == false) {
+      // checkout with no card
+      echo "<script>alert('please add a credit card to checkout');</script>";
+      unset($_SESSION['creditcard']);
+    }
+  }
+  // include 'include/money_format_windows.php'; //Only required on windows PCs
+  // Get the current list of products
+  include 'header.php';
 
-<div class="mainbody">
-  <!-- Title -->
-  <div class="carttitle">
-    <p>Checkout</p>
-  </div>
+  echo '<div class="mainbody">
+    <!-- Title -->
+    <div class="carttitle">
+      <p class="titlecontent">Shopping Cart</p>
+    </div>';
+  $productList = null;
+  if (isset($_SESSION['productList'])){
+  	$productList = $_SESSION['productList'];
+    if (empty($productList)) {
+      	echo("<H1>Your shopping cart is empty!</H1>");
+    }
+    else {
+      //PRINTING OUT CART INFO
+      $total = 0;
+      echo
+         '<div class="carttitle">
+          <button type="button" class="checkout" name="button"><a href = "process-checkout.php">Check Out</a></button>
+        </div>';
+    foreach ($productList as $id => $prod) { //For each product in productList
+      //Query each product info
+      //print_r($productList[$id]['name']);
+      include 'db_credential.php';
+      $conn = mysqli_connect($host, $user, $password, $database);
+      $error = mysqli_connect_error();
 
-  <!-- Product #1 -->
-  <div class="item">
-    <div class="col image">
-      <img src="../images/coffee/americano.jpg" alt="item1" / width="80em" height="80em">
-    </div>
+      if($error != null){
+        $output = "<p>Unable to connect to database!</p>";
+        exit($output);
+      }
+      else{
+        $sql = "SELECT * FROM product WHERE pid = ".$prod['id'];
+        $results = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($results);
+        $pertotal = $row['price'] * $prod['quantity'];
+        $total = $total + $pertotal;
+        // echo          '
+        //         </tbody>
+        //       </table>
+        //   </div>';
+      }
+      //print_r($prod);
 
-    <div class="col description">
-      Americano
-    </div>
+      echo
+      '<div class="item">
+      <form action="plus_minus_one.php" method="post">
+        <div class="col buttons">
+          <button type="submit" name="delete"  value="'.$prod['id'].'" >
+            <img src="../images/sign/delete.png" width="20em" height="20em">
+          </button>
+        </div>
 
-    <div class="col quantity">
-      1
-    </div>
+        <div class="col image">
+          <img src="'.$row['imageURL'].'" alt="item1" / width="80em" height="80em">
+        </div>
 
-    <div class="col total-price">$2.50</div>
-  </div>
+        <div class="col description">
+          '.$row['pname'].'
+        </div>
 
-  <!-- Product #2 -->
-  <div class="item">
-    <div class="col image">
-      <img src="../images/tea/chai.jpg" alt="item2" / width="80em" height="80em">
-    </div>
 
-    <div class="col description">
-      chai
-    </div>
+          <div class="col quantity">
+            <button class="plus-btn" name="plus" value="'.$prod['id'].'" type="submit">
 
-    <div class="col quantity">
-      1
-    </div>
+               <img src="../images/sign/plus.png" width="15em" height="15em">
+            </button>
+            <input type="text" name="pid" readonly value="'.$prod['quantity'].'">
+            <button class="minus-btn" name="minus" value="'.$prod['id'].'" type="submit">
+               <img src="../images/sign/minus.png" width="15em" height="15em">
+            </button>
+          </div>
+        </form>
+          <div class="col total-price">'.$pertotal.'</div>
+        </div>
+      ';
 
-    <div class="col total-price">$3.75</div>
-  </div>
+      //
+      // Quantity: <input type="number" id="myNumber'.$prod['id'].' name="quantity" value="quantity">
+      // <input type="submit" class="minus-btn" name="pid" value="'.$prod['id'].'" >
+      // Update Quantity
+      // </button>
 
-  <!-- Product #3 -->
-  <div class="item">
-    <div class="col image">
-      <img src="../images/coffee/cafe-latte.png" alt="item3" / width="80em" height="80em">
-    </div>
+      // echo("<tr><td>". $prod['id'] . "</td>");
+      // echo("<td>" . $prod['name'] . "</td>");
+      //
+      // echo("<td align=\"center\">". $prod['quantity'] . "</td>");
+      // $price = $prod['price'];
+      //
+      // echo("<td align=\"right\">".str_replace("USD","$",$price)."</td>");
+      // echo("<td align=\"right\">" . str_replace("USD","$",$prod['quantity']*$price) . "</td></tr>");
+      // echo("</tr>");
+      // $total = $total +$prod['quantity']*$price;
+    }
+    echo("<div><p class='total'>Order Total: ".$total."</p></div>");
+  	echo("</div>");
 
-    <div class="col description">
-      cafe latte
-    </div>
+    //Getting creditcard INFO to check whether show
+    $email = $_SESSION['login'];
+    //select cid
+    $sql = "SELECT cid FROM customer WHERE email = '".$email."'";
+    $results = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($results);
+    $cid = $row['cid'];
 
-    <div class="col quantity">
-      1
-    </div>
+    $sql = "SELECT * FROM creditcard WHERE cid = '".$cid."'";
+    $results = mysqli_query($conn, $sql);
+    //mysqli_fetch_row();
+    if(!$results){
+      //echo("Error description: " . mysqli_error($conn));//no credit card
+      //Payment form
+      echo'
+      <div class="payment">
+        <h1 class="po">Payment options</h1>
+        <div class="card">
+          <form class="" action="process-creditCard.php" method="post">
+            <table>
+              <tr>
+                <th>Customer ID</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
+              </tr>
+              <tr>
+                <td>'.$cid.'</td>
+                <td><input type="text" name="cardnumber" class="required" ></td>
+                <td><input type="text" name="CVV" class="required" ></td>
+                <td><input type="date" name="expiredate" class="required" ></td>
+                <td><input type="text" name="bAddress" class="required" ></td>
 
-    <div class="col total-price">$2.75</div>
-  </div>
+                <td><input type="submit" name="submit" value="ADD"></td>
+              </tr>
+            </table>
+          </form>
+        </div>
 
-  <div class="subtotal">
-    subtotal:
-  </div>
-  <div class="subvalue">
-    $9.00
-  </div>
-  <div class="payment">
-    <h1 class="po">Payment options</h1>
-    <div class="card">
-      <p class="label2">Add a New Payment Method</p>
-      <p class="label3">Enter your credit card information:</p>
-      <form class="" action="index.php" method="post">
-      <table>
-        <tr>
-          <th>Name on card</th><th>Card number</th><th>Expiration date</th><th></th>
-        </tr>
-        <tr>
-          <td><input type="text" name="cardname"></td>
-          <td><input type="text" name="cardnumber"></td>
-          <td><input type="date" name="expiredate"></td>
-          <td><input type="submit" name="submit" value="Add"></td>
-        </tr>
-      </table>
-      </form>
-    </div>
+      </div>
 
-  </div>
-</div>
+      ';
+    }
+    else {
+      // list credit card info
+      $row = mysqli_fetch_assoc($results);
+      $cardnum = $row['cardNum'];
+      $cvv = $row['CVV'];
+      $expiredate = $row['cardExpired'];
+      $baddress = $row['bAddress'];
 
-<?php include 'footer.php';?>
-</body>
-<img class="cartbg" src="../images/bg/checkoutbg.jpg" alt="">
+      echo'
+      <div class="payment">
+        <h1 class="po">Payment options</h1>
+        <div class="card">
+          <form class="" action="process-creditCard.php" method="post">
+            <table>
+              <tr>
+                <th>Customer ID</th><th>Card Number</th><th>CVV</th><th>Expiration date</th><th>Billing Address</th>
+              </tr>
+              <tr>
+                <td>'.$cid.'</td>
+                <td><input type="text" name="cardnumber" class="required" value = "'.$cardnum.'"></td>
+                <td><input type="text" name="CVV" class="required" value = "'.$cvv.'"></td>
+                <td><input type="date" name="expiredate" class="required" value = "'.$expiredate.'"></td>
+                <td><input type="text" name="bAddress" class="required" value = "'.$baddress.'"></td>
+
+                <td><input type="submit" name="submit" value="UPDATE"></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+
+      </div>
+
+      ';}
+
+  }
+
+    }
+
+
+  include("footer.php");
+  ?>
+  <!-- <h2><a href="listprod.php">Continue Shopping</a></h2>
+  </body>
+  </html> -->
+
 </body>
 </html>

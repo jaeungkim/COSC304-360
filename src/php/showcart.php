@@ -37,7 +37,7 @@
       $total = 0;
       echo
          '<div class="carttitle">
-          <button type="button" class="checkout" name="button"><a href = "checkout2.php">Check Out</a></button>
+          <button type="button" class="checkout" name="button"><a href = "checkout.php">Check Out</a></button>
         </div>';
     foreach ($productList as $id => $prod) { //For each product in productList
       //Query each product info

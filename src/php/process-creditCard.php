@@ -1,21 +1,28 @@
 <?php session_start(); ?>
 
 <?php
+include 'db_credential.php';
+$referer = $_SERVER['HTTP_REFERER'];
+
+$conn = mysqli_connect($host, $user, $password, $database);
+$error = mysqli_connect_error();
+$exist = false;
+
 if ($_SERVER['REQUEST_METHOD']=="POST") {
-  $cid = $_POST["cid"];
+  if (isset($_SESSION['login'])) {
+    // customer logged in
+    $email = $_SESSION['login'];
+    $sql = "SELECT cid FROM customer WHERE email = '".$email."'";
+    $results = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($results);
+    //get cid
+    $cid = $row['cid'];
+
+  }
   $cardnumber	= $_POST["cardnumber"];
   $CVV = $_POST["CVV"];
   $expiredate = $_POST["expiredate"];
   $bAddress = $_POST["bAddress"];
-
-  $referer = $_SERVER['HTTP_REFERER'];
-
-  include 'db_credential.php';
-  $conn = mysqli_connect($host, $user, $password, $database);
-  $error = mysqli_connect_error();
-  $exist = false;
-
-  $referer = $_SERVER['HTTP_REFERER'];
 
   if($error != null)
   {
@@ -38,17 +45,19 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
           $sql = "UPDATE creditcard SET cardExpired = '".$expiredate."', CVV = '".$CVV."',bAddress = '".$bAddress."'
           WHERE cid = '".$cid."' AND cardNum = '".$cardnumber."'";
           $results = mysqli_query($conn, $sql);
-          header("Location: checkout2.php");
+          header("Location: checkout.php");
         }
 
         else{
-          $sql = "INSERT INTO creditcard (cardNum, cardExpired, CVV, bAddress, cid)
-          VALUES ('$cardnumber','$expiredate','$CVV', '$bAddress', '$cid') ";
+          $sql = "DELETE FROM creditcard WHERE cid = '".$cid."'";
+          $results = mysqli_query($conn, $sql);
+
+          $sql = "INSERT INTO creditcard VALUES ($cardnumber, '$expiredate', $CVV, '$bAddress', $cid)";
           $results = mysqli_query($conn, $sql);
 
           if ($results) {
             //update succeed
-            header("Location: checkout2.php");//go back to insert
+            header("Location: checkout.php");//go back to insert
 
           }
           else {

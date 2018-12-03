@@ -48,11 +48,13 @@ else {
   while ($row = mysqli_fetch_assoc($results)) {
     // cid-----oid
     $oid = $row['oid'];
+    $status = $row['status'];
     //$date = $row['purchasedDate'];
     echo '<div class="order">
       <table>
         <caption>ORDER NUMBER:  '.$oid.'</caption>
         <caption>PURCHASED DATE:  '.$datetime.'</caption>
+        <caption>ORDER STATUS:  '.$status.'</caption>
         <tr>
           <th>PRODUCT NAME</th>
           <th>QUANTITY</th>
@@ -64,6 +66,7 @@ else {
           $pid = $row['pid'];
           $quantity = $row['quantity'];
           $price = $row['price'];
+
 
           $sql = "SELECT * FROM product WHERE pid ='".$pid."'";
           $final = mysqli_query($conn, $sql);
