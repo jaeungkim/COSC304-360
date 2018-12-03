@@ -36,6 +36,8 @@ CREATE TABLE product (
     description VARCHAR(1000),
     imageURL VARCHAR(500),
 	category VARCHAR(20),
+	amountLeft INT NOT NULL,
+	sale INT NOT NULL,
 	PRIMARY KEY (pid)
 );
 CREATE TABLE orders (
@@ -44,6 +46,7 @@ CREATE TABLE orders (
     cardNum INT NOT NULL,
     cid INT,
     trackingNum INT,
+	status VARCHAR(100) NOT NULL,
     PRIMARY KEY (oid),
 	FOREIGN KEY (cardNum) REFERENCES creditcard(cardNum) ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY (cid) REFERENCES customer(cid) ON UPDATE CASCADE ON DELETE CASCADE
