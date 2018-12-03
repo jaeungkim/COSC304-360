@@ -1,73 +1,41 @@
 <?php
 include 'db_credential.php';
 $conn = mysqli_connect($host, $user, $password, $database);
-$error = mysqli_connect_error();
-if($error != null)
-{
-  $output = "<p>Unable to connect to database!</p>";
-  exit($output);
-}
-else {
-  $sql = "SELECT * FROM Customer";
-  $results = mysqli_query($conn, $sql);
-  while ($row = mysqli_fetch_assoc($results)) {
-    $pname = $row['pname'];
-    $quan = $row['pid'];
-
-    $res_arr_values = array();
-      while ($row = mysql_fetch_assoc($result))
-         {
-             $res_arr_values[] = $row;
-         }
-
-
-
-  }
-}
-
-
-
-$dataPoints = array(
-	array("label"=>"Oxygen", "symbol" => "O","y"=>46.6),
-	array("label"=>"Silicon", "symbol" => "Si","y"=>27.7),
-	array("label"=>"Aluminium", "symbol" => "Al","y"=>13.9),
-	array("label"=>"Iron", "symbol" => "Fe","y"=>5),
-	array("label"=>"Calcium", "symbol" => "Ca","y"=>3.6),
-	array("label"=>"Sodium", "symbol" => "Na","y"=>2.6),
-	array("label"=>"Magnesium", "symbol" => "Mg","y"=>2.1),
-	array("label"=>"Others", "symbol" => "Others","y"=>1.5),
-
-)
-
+$sql = "SELECT * FROM product";
+$results = mysqli_query($conn, $sql);
 ?>
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
-<script>
-window.onload = function() {
+  <title>PIECHART OF SALES</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  // Load google charts
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	theme: "light2",
-	animationEnabled: true,
-	title: {
-		text: "Average Composition of Magma"
-	},
-	data: [{
-		type: "doughnut",
-		indexLabel: "{symbol} - {y}",
-		yValueFormatString: "#,##0.0\"%\"",
-		showInLegend: true,
-		legendText: "{label} : {y}",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-	}]
-});
-chart.render();
+  // Draw the chart and set the chart values
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['product', 'sales'],
+    <?php
+    while ($row = mysqli_fetch_array($results)) {
+      // code...
+      echo "['".$row["pname"]."',".$row["number"]."],";
+    }
+    ?>
+  ]);
+  // Optional; add a title and set the width and height of the chart
+  var options:{'title':'SALES', 'width':550, 'height':400};
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+  }
+  </script>
 
-}
-</script>
 </head>
 <body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div id="piechart"></div>
+
 </body>
 </html>

@@ -97,20 +97,32 @@ if(isset($_SESSION['login'])){
               $row = mysqli_fetch_assoc($results);
               $oid = $row['oid'];
               echo 'oid: '.$oid;
-
+              echo "<br>";
+              echo "<br>";
 
               //Insert into ORDERCONTAINS
               foreach ($productList as $id => $prod) {
                 //retrieve product info
-                $sql = "SELECT * FROM product WHERE pid = ".$prod['id'];//WHERE category = coffee
+                $sql = "SELECT * FROM product WHERE pid = '".$prod['id']."'";
                 $results = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($results);
 
                 $pid = $prod['id'];
                 $pQuantity = $prod['quantity'];
                 $pPrice = $row['price'] * $pQuantity;
+                $storage = $row['amountLeft'];
+                $storage = $storage - $pQuantity;
+
+
 
                 $sql = "INSERT INTO `ordercontains` (`quantity`, `price`, `oid`, `pid`) VALUES ('$pQuantity', $pPrice, '$oid', '$pid');"; //WHERE category = coffee
+                $result = mysqli_query($conn, $sql);
+
+                if(!$result){
+                  echo("Error description: " . mysqli_error($conn));
+                }
+
+                $sql = "UPDATE product SET amountLeft = $storage, sale = $pQuantity WHERE pid = '".$prod['id']."'";
                 $result = mysqli_query($conn, $sql);
                 if(!$result){
                   echo("Error description: " . mysqli_error($conn));
@@ -118,7 +130,11 @@ if(isset($_SESSION['login'])){
               }
 
               echo 'Ordered Time: '.$datetime;
+              echo "<br>";
+
               echo '<br> PROCESSING YOUR ORDER...';
+              echo "<br>";
+
               header('Refresh: 4; orders.php');
 
 

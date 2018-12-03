@@ -27,6 +27,9 @@ session_start();
 <tr>
   <td> <a href = "admin_order.php" id="admin"> <font size = 30, color = white>ALL Orders </font></a></td>
 </tr>
+<tr>
+  <td> <a href = "inventory.php" id="admin"> <font size = 30, color = white>Inventory </font></a></td>
+</tr>
   </table>
 </head>
 

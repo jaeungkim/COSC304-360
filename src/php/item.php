@@ -11,9 +11,9 @@
 </head>
 <body>
 <?php
-	//php files for pulling 
+	//php files for pulling
 	include "accessProduct.php";
-		
+
 	$pid = $_GET["itemID"];
 	$itemArray = returnItem($pid);
 	//retrieve comments
@@ -21,7 +21,7 @@
 
 	//CHANGE THIS TO CHANGE SIMILAR ITEMS
 	$similarItems = returnMultipleItems(array(5, 22, 19, 7));
-	
+
 	include 'header.php';
 ?>
 
@@ -40,11 +40,11 @@
 			</form>
 		</p>
 	</div>
-	
+
 	<!-- Comments -->
 	<div class="comments">
 		<h2>Comments</h2>
-		<?php 
+		<?php
 			//If there are comments display them, otherwise say no comments yet
 			if (isset($commentsArray)){
 				echo "<p>".$commentsArray[0][0]."</p>";
@@ -60,7 +60,7 @@
 					<p class='ptext'> No Comments Yet. </p>
 				</div>";
 			}
-			//If user is logged in dispaly commenbt 
+			//If user is logged in dispaly commenbt
 			if (isset($_SESSION['login'])){
 				$email = $_SESSION['login'];
 				echo "<form action='submitComment.php' method='get' id='mainForm'>
