@@ -31,6 +31,8 @@ body{
 }
 .productImg{
 	float: left;
+	width:				inherit;
+	height:				inherit;
 }
 
 .productTitle{
@@ -38,12 +40,15 @@ body{
 	color: white;
 	font-size: 400%;
 	padding: 2em, 2em;
+	width:				inherit;
+	height:				inherit;
 }
 /*Advertisement windows*/
 .advertisements{
 	position: relative;
 	width:				100%;
 	margin-top:			2em;
+	overflow:			hidden;
 }
 .flipAdd{
 	width:				30%;
@@ -62,6 +67,7 @@ body{
 	backface-visibility:hidden;
 	-webkit-transition:	transform .5s linear 0s;
 	transition:			transform .5s linear 0s;
+	overflow: hidden;
 	/*background-color:	rgba(255,255,255,0.5);*/
 }
 .flipAdd > .back{
@@ -76,6 +82,7 @@ body{
 	-webkit-transition:	transform .5s linear 0s;
 	transition:			transform .5s linear 0s;
 	background-color:	rgba(255,255,255,0.5);
+	overflow: hidden;
 }
 .flipAdd:hover > .front{
 	-webkit-transform:	perspective(70em) rotateY(-180deg);

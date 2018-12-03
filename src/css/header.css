@@ -15,8 +15,9 @@
   padding: 0;
   background-color: white;
   opacity: 0.9;
-	margin: auto;
 	z-index:		200;
+	overflow: hidden;
+	margin-bottom: 3em;
 
 }
 .search[type=text]{
