@@ -41,7 +41,6 @@
                         <th class = "tableHead">Picture</th>
                         <th class = "tableHead">Product Name</th>
                         <th class = "tableHead">Price</th>
-                        <th class = "tableHead">Quantity</th>
                         <th class = "tableHead">Rating</th>
                         <th class = "tableHead">Cart</th>
                       </tr>';
@@ -56,7 +55,6 @@
 
               <td> '.$pname.' </td>
               <td>'.$price.'</td>
-              <td> quantity</td>
               <td>
                 <div class = "rating">
                   <span> ★ </span>
