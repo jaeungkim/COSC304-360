@@ -24,6 +24,9 @@ session_start();
 <tr>
   <td> <a href = "admin_update_customer.php" id="admin"> <font size = 30, color = white>Add/Update Customer </font></a></td>
 </tr>
+<tr>
+  <td> <a href = "admin_order.php" id="admin"> <font size = 30, color = white>ALL Orders </font></a></td>
+</tr>
   </table>
 </head>
 
