@@ -42,6 +42,7 @@
             // }
             // $row = mysqli_fetch_assoc($results);
             // $cid = $row['cid'];
+            //session_start();
             if(isset($_SESSION['login'])){
               $firstname = $_SESSION['firstname'];
               echo $firstname;
@@ -60,8 +61,8 @@
             ?>
             <ul class = "logIn">
               <a href="account.php"><li class = "youraccount">Your Account</li></a>
-              <a href="orders.php"><li class = "yourorder">Your Orders</li></a>
-              <a href="register.php"><li class = "yourorder">Sign Up</li></a>              
+              <a href="orderhistory.php"><li class = "yourorder">Your Orders</li></a>
+              <a href="register.php"><li class = "yourorder">Sign Up</li></a>
             </ul>
           </div>
         </div>

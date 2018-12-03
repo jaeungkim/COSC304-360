@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           address =  '$address', cPassword =  '$pword1', phoneNum = '$phonenumber'
           WHERE cid = '$id'");
           $_SESSION['firstname'] = $firstname;
-          header("Location: account.php");
+          header("Location: profile.php");
         } else {
           echo "INFO does not match!";
           echo "<br><a href = $return> Return to user entry</a>";

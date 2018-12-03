@@ -40,9 +40,9 @@ else {
         echo"<form action = \"checkProfile.php\" method=\"POST\">
         <table class = \"profileTable\">
         <tr><td>Customer ID: </td><td><input type=\"text\" value=".$row['cid']." name = \"cid\" readonly=\"readonly\" /></td></tr>
+        <tr><td>Email: </td><td><input type=\"text\" name=\"email\" value = ".$row['email']." readonly=\"readonly\"></td></tr>
         <tr><td>First Name: </td><td><input type=\"text\" name=\"firstname\" value = ".$row['fName']."></td></tr>
         <tr><td>Last Name: </td><td><input type=\"text\" name=\"lastname\" value = ".$row['lName']."></td></tr>
-        <tr><td>Email: </td><td><input type=\"text\" name=\"email\" value = ".$row['email']."></td></tr>
         <tr><td>Address: </td><td><input type=\"text\" name=\"address\" value = ".$row['address']."></td></tr>
         <tr><td>Password: </td><td><input type=\"text\" name=\"password\"></td></tr>
         <tr><td>Confirm Password: </td><td><input type=\"text\" name=\"confirmpassword\"></td></tr>
