@@ -16,6 +16,9 @@ session_start();
   </head>
   <body>
     <?php include 'header.php' ?>
+    <?php
+    echo '<button type="button" name="button"><a href="trackstorage.php">PIECHART OF SALES</a></button>';
+     ?>
 
 <!--
     <form action="searchcustomer.php" method="get" id="searchForm">

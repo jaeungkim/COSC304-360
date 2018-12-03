@@ -21,12 +21,12 @@ $results = mysqli_query($conn, $sql);
     <?php
     while ($row = mysqli_fetch_array($results)) {
       // code...
-      echo "['".$row["pname"]."',".$row["number"]."],";
+      echo "['".$row["pname"]."',".$row["sale"]."],";
     }
     ?>
   ]);
   // Optional; add a title and set the width and height of the chart
-  var options:{'title':'SALES', 'width':550, 'height':400};
+  var options = {'title':'SALES', 'width':550, 'height':400};
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
