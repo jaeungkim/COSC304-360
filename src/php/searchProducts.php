@@ -59,7 +59,7 @@
 						</figcaption>
 					</figure>
 				</form>
-				<p class='itemDesc'>".$desc."
+				<p class='itemDesc'>".$desc." <br> <br> Price: " . $price . " 
 					<form method='get' action='addcart.php'>
 						<input type='hidden' name='pname' value='".$pname."'>
 						<input type='hidden' name='id' value='".$pid."'>

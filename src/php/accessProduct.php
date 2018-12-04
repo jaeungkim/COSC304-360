@@ -137,4 +137,4 @@ function returnLoggedIn($email){
 	$errorarray[] = "Could not find " . (string)$pid;
 	return $errorarray;
 }
-?>
+

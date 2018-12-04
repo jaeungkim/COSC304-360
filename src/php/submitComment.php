@@ -13,16 +13,31 @@ if($error != null) {
 	$email = $_GET["email"];
 	$customerArray = returnLoggedIn($email);
 	$cid = $customerArray[0];
+	$currentRating = $_GET["currentRating"];
 	$pid = trim(mysqli_real_escape_string($connection, $_GET["pid"]));
 	$content = trim(mysqli_real_escape_string($connection, $_GET["content"]));
+	$rating = $_GET["rating"];
+	$numComments = $_GET["numComments"];
+	$rating = intval($rating);
+	
+	//returns average rating and sets the items to the new rating
+	$newRating = (($currentRating*$numComments)+$rating)/($numComments+1);
 	
 	//Inserts new comment into database
-	$sql = "INSERT INTO usercomments (pid, cid, content) VALUES('$pid' , '$cid' , '$content')";
+	$sql = "INSERT INTO usercomments (pid, cid, content, userrating) VALUES('$pid' , '$cid' , '$content', '$rating')";
 	if (mysqli_query($connection, $sql)){
-		header("Location: $referer");
+		$sql = "UPDATE product SET rating = '$newRating' WHERE pid = '$pid'";
+		if (mysqli_query($connection, $sql)){
+			header("Location: $referer");
+		}else {
+			echo '<p> Could not connect to product database</p>';
+		}
 	}else {
-		echo '<p> Could not connect</p>';
+		echo '<p> Could not connect to comment database</p>';
 	}
+	
+	
+	
 }
 mysqli_close($connection);
 

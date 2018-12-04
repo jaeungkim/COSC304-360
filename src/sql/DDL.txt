@@ -38,6 +38,7 @@ CREATE TABLE product (
 	category VARCHAR(20),
 	amountLeft INT NOT NULL,
 	sale INT NOT NULL,
+	rating DOUBLE(4, 2),
 	PRIMARY KEY (pid)
 );
 CREATE TABLE orders (
@@ -72,13 +73,6 @@ CREATE TABLE productimage (
 	FOREIGN KEY (pid) REFERENCES product(pid) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE rating (
-	stars INT NOT NULL,   
-    pid INT NOT NULL,
-	PRIMARY KEY (stars),
-	FOREIGN KEY (pid) REFERENCES product(pid) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 CREATE TABLE ordercontains (
 	quantity INT,
 	price INT,
@@ -91,10 +85,10 @@ CREATE TABLE ordercontains (
 
 CREATE TABLE usercomments(
 	commentsId INT NOT NULL AUTO_INCREMENT,
-    pid INT NOT NULL,
+    	pid INT NOT NULL,
 	cid INT NOT NULL,
 	content VARCHAR(1000) NOT NULL,
-    
+    	userrating INT NOT NULL,
 	PRIMARY KEY (commentsId, pid, cid),
     FOREIGN KEY (cid) REFERENCES customer(cid) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (pid) REFERENCES product(pid) ON UPDATE CASCADE ON DELETE CASCADE

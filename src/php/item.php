@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/default.css"/>
   <link rel="stylesheet" href="../css/item.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
+  <script type="text/javascript" src="../scripts/validate.js"></script>
 </head>
 <body>
 <?php
@@ -31,7 +32,9 @@
 			<img src="<?php echo $itemArray[4];?>" alt="<?php echo $itemArray[1];?>">
 			<figcaption><?php echo $itemArray[1];?></figcaption>
 		</figure>
-		<p class="itemDesc"><?php echo $itemArray[3];?> <br> <br> Price: $<?php echo $itemArray[2];?>
+		<p class="itemDesc"><?php echo $itemArray[3];?> 
+			<br> <br> Price: $<?php echo $itemArray[2];?>
+			<br> <br> Rating: <?php if ($itemArray[8] == null ){ echo "No Rating Yet"; } else { echo $itemArray[8];}?>
 			<form method='get' action='addcart.php'>
 					<input type='hidden' name='pname' value='<?php echo $itemArray[1];?>'>
 					<input type='hidden' name='id' value='<?php echo $itemArray[0];?>'>
@@ -45,29 +48,43 @@
 	<div class="comments">
 		<h2>Comments</h2>
 		<?php
+			$numComments = 0;
+			$currentRating = $itemArray[8];
 			//If there are comments display them, otherwise say no comments yet
 			if (isset($commentsArray)){
-				echo "<p>".$commentsArray[0][0]."</p>";
+				$numComments = count($commentsArray);
 				foreach ($commentsArray as $value){
 					$userInfo = returnCustomer($value[2]);
 					echo "<div class='panel'>
 						<h2 class='userName'>".$userInfo[2]."</h2>
-						<p class='ptext'>".$value[3]."</p>
+						<p class='ptext'>".$value[3]." <br> <br> Rating: " . $value[4] . "</p>
 					</div>";
 				}
 			} else {
+				$currentRating = 0;
 				echo "<div class='panel'>
 					<p class='ptext'> No Comments Yet. </p>
 				</div>";
 			}
-			//If user is logged in dispaly commenbt
+			//If user is logged in dispaly comment
 			if (isset($_SESSION['login'])){
 				$email = $_SESSION['login'];
 				echo "<form action='submitComment.php' method='get' id='mainForm'>
-					<input type='hidden' name='email' value='".$email."'>
-					<input type='hidden' name='pid' value='".$pid."'>
-					<input type='text' name='content' value='Enter Comment' id='commentBox'>
-					<input type='submit' class='commentBtn' name ='commentSubmit' value='Submit'>
+					<fieldset>
+						<input type='hidden' name='email' value='".$email."'>
+						<input type='hidden' name='pid' value='".$pid."'>
+						<input type='hidden' name='numComments' value='".$numComments."'>
+						<input type='hidden' name='currentRating' value='".$currentRating."'>
+						<input type='text' name='content' id='commentBox' class='required'>
+						<span class='starGroup'> Rating: 
+							<input type='radio' name='rating' value=1 id='ra' class='radioButton'> <label for='ra'>1</label>
+							<input type='radio' name='rating' value=2 id='rb' class='radioButton'> <label for='rb'>2</label>
+							<input type='radio' name='rating' value=3 id='rc' class='radioButton' checked> <label for='rc'>3</label>
+							<input type='radio' name='rating' value=4 id='rd' class='radioButton'> <label for='rd'>4</label>
+							<input type='radio' name='rating' value=5 id='re' class='radioButton'> <label for='re'>5</label>
+						</span>
+						<input type='submit' class='commentBtn' name ='commentSubmit' value='Submit'>
+					</fieldset>
 				</form>";
 			}
 		?>
