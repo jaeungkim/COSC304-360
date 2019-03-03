@@ -40,9 +40,11 @@ else {
 </head>
 <body>
   <?php include 'header.php';?>
-  <div class="profile">
-    <h1>Your Profile</h1>
+
     <?php
+    // <div class="profile">
+    //   <h1>Your Profile</h1>
+    // </div>
     include 'db_credential.php';
     $conn = mysqli_connect($host, $user, $password, $database);
     $error = mysqli_connect_error();
@@ -71,7 +73,7 @@ else {
       }
     }
         ?>
-      </div>
+
       <?php include 'footer.php';?>
       <img class="accountbg" src="../images/bg/accountbg.jpg" alt="">
     </body>

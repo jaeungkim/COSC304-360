@@ -7,7 +7,7 @@ include 'header.php'
   <title>Delete Items-Admin</title>
   <link rel="stylesheet" href="../css/header.css"/>
   <link rel="stylesheet" href="../css/footer.css"/>
-  <!-- <link rel="stylesheet" href="../css/mainPage.css"/> -->
+  <link rel="stylesheet" href="../css/mainPage.css"/>
   <link rel="stylesheet" href="../css/admin_delete.css" />
 
 <script type = "text/javascript" src = "../scripts/validate.js"> </script>

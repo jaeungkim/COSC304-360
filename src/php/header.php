@@ -56,13 +56,14 @@
             }
             else{
               echo '<a href = "signin.php" id = "sign">sign in</a>';
+              echo '<a href="register.php"><li class = "yourorder">Sign Up</li></a>';
             }
 
             ?>
             <ul class = "logIn">
               <a href="account.php"><li class = "youraccount">Your Account</li></a>
               <a href="orderhistory.php"><li class = "yourorder">Your Orders</li></a>
-              <a href="register.php"><li class = "yourorder">Sign Up</li></a>
+
             </ul>
           </div>
         </div>
@@ -82,16 +83,16 @@
                 <!-- <img src = "../images/logo.png" alt "beverage"> -->
                 <!-- </li> -->
                 <a href="browseCategory.php?itemCategory=coffee"><li class = "coffee">coffee</li></a>
-                <a href="tea.php?itemCategory=tea"><li class = "tea">tea</li></a>
-                <a href="pop.php?itemCategory=pop"><li calss = "pop">soft drinks</li></a>
+                <a href="browseCategory.php?itemCategory=tea"><li class = "tea">tea</li></a>
+                <a href="browseCategory.php?itemCategory=softdrinks"><li calss = "softdrinks">soft drinks</li></a>
               </ul>
             </div>
             <div class = "foodMenu">
               <p id = "food">food</p>
               <ul class = "subMenu">
-                <a href="cookie.php?itemCategory=cookie"><li class = "cookie">cookie</li></a>
-                <a href="muffin.php?itemCategory=muffin"><li class = "muffin">muffin</li></a>
-                <a href="donut.php?itemCategory=donut"><li class = "donut">donut</li></a>
+                <a href="browseCategory.php?itemCategory=cookie"><li class = "cookie">cookie</li></a>
+                <a href="browseCategory.php?itemCategory=muffin"><li class = "muffin">muffin</li></a>
+                <a href="browseCategory.php?itemCategory=donut"><li class = "donut">donut</li></a>
               </ul>
             </div>
           </div>

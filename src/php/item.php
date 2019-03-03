@@ -50,6 +50,7 @@
 		<?php
 			$numComments = 0;
 			$currentRating = $itemArray[8];
+			$alreadycommented = false;
 			//If there are comments display them, otherwise say no comments yet
 			if (isset($commentsArray)){
 				$numComments = count($commentsArray);
@@ -59,6 +60,9 @@
 						<h2 class='userName'>".$userInfo[2]."</h2>
 						<p class='ptext'>".$value[3]." <br> <br> Rating: " . $value[4] . "</p>
 					</div>";
+					if ($value[1]==$pid){
+						$alreadycommented=true;
+					}
 				}
 			} else {
 				$currentRating = 0;
@@ -67,7 +71,7 @@
 				</div>";
 			}
 			//If user is logged in dispaly comment
-			if (isset($_SESSION['login'])){
+			if (isset($_SESSION['login']) && $alreadycommented == false){
 				$email = $_SESSION['login'];
 				echo "<form action='submitComment.php' method='get' id='mainForm'>
 					<fieldset>

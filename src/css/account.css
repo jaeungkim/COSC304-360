@@ -7,6 +7,8 @@ table{
 	width: 30%;
 	margin-left: 35%;
 }
+
+
 .accountbg{
   position: fixed;
   right: 0;
@@ -16,7 +18,7 @@ table{
   z-index: -1;
 }
 .account{
-	
+
 	clear: left;
 }
 

@@ -17,8 +17,10 @@ session_start();
   <body>
     <?php include 'header.php' ?>
     <?php
-    echo '<button type="button" name="button"><a href="trackstorage.php">PIECHART OF SALES</a></button>';
+    echo '<div id = "showchart"><button type="button" name="button"><a href="sales_item.php">PIECHART OF ITEM SALES</a></button></div>';
+    echo '<div id = "showchart"><button type="button" name="button"><a href="sales_category.php">PIECHART OF CATEGORY SALES</a></button></div>';
      ?>
+
 
 <!--
     <form action="searchcustomer.php" method="get" id="searchForm">

@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['exist'])) {
   if ($_SESSION['exist'] == true) {
     echo "<script>alert('this email has been registered!');</script>";
-    $_SESSION['exist'] = false;
+    unset($_SESSION['exist']);
   }
 }
 

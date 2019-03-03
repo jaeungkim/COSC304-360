@@ -4,4 +4,24 @@ tr{
 table{
   width: 90%;
   margin-left: 5%;
+  clear: left;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+#showchart{
+  width: 30%;
+  margin-left: 35%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  clear: left;
+}
+
+button{
+  width: 100%;
+  text-align: center;
+  font-size: 2vw;
 }

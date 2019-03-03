@@ -48,6 +48,7 @@
             $pname = $row['pname'];
             $price = $row['price'];
             $imageurl = $row['imageURL'];
+            $rating = $row['rating'];
 
             echo
             '<tr class = "menuitems">
@@ -55,15 +56,7 @@
 
               <td> '.$pname.' </td>
               <td>'.$price.'</td>
-              <td>
-                <div class = "rating">
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                  <span> ★ </span>
-                </div>
-              </td>
+              <td>'.$rating.'</td>
               <td><a class="addCart" href = "addcart.php?id='. $row['pid'] . '&quantity=1"> Add to Cart </a> </td>
              </tr>';
           }
